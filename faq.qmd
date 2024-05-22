@@ -1,0 +1,14 @@
+---
+title: "faq"
+editor: visual
+---
+
+*How long does the pathogensurveillance take to run?*
+
+*How many samples can be run at once?*
+
+*What are the minimum computational resources necessary to run pathogensurveillance?*
+
+*How much sequencing coverage is needed?*
+
+*Can  pathogensurveillance be run on macOS?*

@@ -1,0 +1,115 @@
+---
+title: "tutorial"
+editor: visual
+---
+
+This example uses sequencing reads described in Bryant et al. 2016:
+
+> **Emergence and spread of a human-transmissible multidrug-resistant nontuberculous mycobacterium** doi: [DOI: 10.1126/science.aaf8156](https://doi.org/10.1126/science.aaf8156).
+
+These genomic DNA reads are derived from isolated cultures of *Mycobacterium abscessus*, taken from three different individuals with drug-resistant infections. For the sake of this example, we'll treat the strain of the pathogen as an unknown. The pathogensurveillance pipeline will help us make that determination. We'll also explore how isolates relate with respect to each other, as well as to the reference sequences of other closely-related organisms. This information can be obtained from several plots that the pipeline generates automatically.
+
+### Sample input
+
+Here's a look at "mycobacterium_tutorial.csv", which serves as the pipeline's only unique input file for this run:
+
+| SRA         | reference_refseq |
+|-------------|------------------|
+| SRR12574846 | GCF_017189435.1  |
+| SRR12574847 | GCF_017189435.1  |
+| SRR12574848 | GCF_017189435.1  |
+
+-   The "SRA" column tells Pathogensurveilance which SRA accessions to download. Each row corresponds to one individual sample. In this case, the samples are paired-end illumina shortreads, but the pipeline will also work with mixed inputs of Pacbio or Oxford Nanopore.
+
+-   For your own analysis, sequence files may instead be present locally. You'll need to provide the path to each file in the CSV, and each path will need to be placed in the "shortread_1/shortread_2" columns instead of the SRA column.
+
+-   The "reference_refseq" column is optional. Here, it will tell the pipeline to download and try to use the "GCF_017189435.1" reference even if there may be "closer" matches. This option may be useful when you are relatively confident as to the species identity of your input sequences, have a good idea of the best reference for this species, and are working within a clade that is densely populated with other references.
+
+### Running the pipeline
+
+Here is the full command used execute this example, using a docker container:
+
+``` bash
+nextflow run nf-core/pathogensurveillance --input [https://raw.githubusercontent.com/grunwaldlab/pathogensurveillance/master/test/data/metadata](https://raw.githubusercontent.com/grunwaldlab/pathogensurveillance/master/test/data/metadata_small.csv){.uri}[/mycobaterium_tutorial.csv](https://raw.githubusercontent.com/grunwaldlab/pathogensurveillance/master/test/data/metadata/mycobaterium_tutorial.csv) --outdir mycobacterium_small_out --download_bakta_db true -profile docker -resume --max_cpus 8 --max_memory 31GB -resume
+```
+
+-   The mycobacterium_tutorial.csv file is hosted on github. When running your own analysis, you will need to provide your own path to the input CSV file.
+
+-   By default, the pipeline will run on 128 GB of RAM and 16 threads. This is more resources than is strictly necessary and beyond the capacity of most desktop computers. We can scale this back a bit for this lightweight test run. This analysis will work with 8 threads and 31 GB of RAM (albeit more slowly), which is specified by the --max_cpus and --max_memory settings.
+
+-   The setting `-resume` is only necessary when resuming a previous analysis. However, it doesn't hurt to include it at the start. If the pipeline were to be interrupted, this allows it to pick up where it left off as long as the previous command is executed from the same working directory.
+
+If the pipeline begins successfully, you should see a screen tracking your progress:
+
+``` bash
+[25/63dcee] process > PATHOGENSURVEILLANCE:INPUT_CHECK:SAMPLESHEET_CHECK (my.csv)[100%] 1 of 1
+
+[-        ] process > PATHOGENSURVEILLANCE:SRATOOLS_FASTERQDUMP``0 of 9
+
+[-        ] process > PATHOGENSURVEILLANCE:DOWNLOAD_ASSEMBLIES                               -
+
+[-        ] process > PATHOGENSURVEILLANCE:SEQKIT_SLIDING                                    -`
+
+[-        ] process > PATHOGENSURVEILLANCE:FASTQC                                            -
+
+[-        ] process > PATHOGENSURVEILLANCE:COARSE_SAMPLE_TAXONOMY:BBMAP_SENDSKETCH           -
+```
+
+This run has currently finished checking the sample inputs and is downloading the associated reads from the SRA. The input and output of each process can be accessed from the work/ directory. The subdirectory within work/ is designated by the string to left of each step. Note that this location will be different each time the pipeline is run, and only the first part of the name of the subdirectory is shown. For this run, we could navigate to `work/25/63dcee(etc)` to access the input csv that is used for the next step.
+
+### Report
+
+You should see this message if the pipeline finishes successfully:
+
+``` bash
+-[nf-core/plantpathsurveil] Pipeline completed successfully-
+Completed at: 20-May-2024 12:44:40
+Duration    : 3h 29m 2s
+CPU hours   : 15.2
+Succeeded   : 253
+```
+
+The final report can be viewed as either a .pdf or .html file. It can be accessed inside the reports folder of the output directory (here: `mycobacteroides_small_out/reports`). This report shows several key pieces of information about your samples.
+
+This particular report has been included as an example under `test/sample_reports/mycobacteroides_small`.
+
+**Summary:**
+
+-   **Pipeline Status Report**: error messages for samples or sample groups
+-   **Input Data**: Data read from the input .csv file
+
+**Identification:**
+
+-   **Initial identification**: Coarse identification from the bbmap sendsketch step. The first tab shows best species ID for each sample*.* The second tab shows similarity metrics between sample sequences and other reference genomes: %ANI (average nucleotide identity), %WKID (weighted kmer identity), and %completeness.
+
+    -   Each of these samples have top hits to different subspecies/isolates of *Mycobacteroides abscessus.*
+
+    -   For more information about each metric, click the **About this table** tab underneath.
+
+-   **%ANI heatmap:** ![](images/report_ani_heatmap.png)
+
+-   **POCP heatmap:** ![](images/report_POCP_heatmap.png)
+
+-   **Most similar organisms**: Shows relationships between samples and references using % ani and % pocp (percentage of conserved proteins). For better resolution, you can interactively zoom in/out of plots.
+
+    -   The species *Mycobacteroides abscessus* is well-studied, and you can see a pretty high density of reference sequences for this organism. Our three samples have good hits to quite a few of these references. At the subspecies level, samples SRR12574847 and SRR12574848 have subspecies *absessus* as their top match, whereas sample SRR12574846 is a better match to subspecies *massiliense*.
+
+    **Phylogenetic context** ![](images/report_core_gene_phylogeny.png)
+
+-   **Core gene phylogeny**: A core gene phylogeny uses the sequences of all gene shared by all of the genomes included in the tree to infer evolutionary relationships. It is the most robust identification provided by this pipeline, but its precision is still limited by the availability of similar reference sequences. Methods to generate this tree differ between prokaryotes and eukaryotes. Our input to the pipeline was prokaryotic DNA sequences, and the method to build this tree is based upon many different core genes shared between samples and references (for eukaryotes, this is constrained to BUSCO genes). This tree is built with iqtree and based upon shared core genes analyzed using the program pirate. You can highlight branches by hovering over and clicking on nodes.
+
+    -   Based on this tree, we can again see that samples SRR12574847 and SRR12574848 are more closely related than sample SRR12574846.
+
+    -   One point discussed in Bryant et al. 2016 is that some of these drug-resistant samples have deep branches with respect to other references. For instance, note the relatively unique placement of SRR12574846. In the paper, this type of pattern is interpreted as the independent acquisition of unrelated environmental bacteria.
+
+**Genetic Diversity**
+
+-   **SNP tree:** ![](images/report_snp_tree.png)
+
+-   This tree is better suited for visualizing the genetic diversity among samples. However, the core gene phylogeny provides a much better source of information for evolutionary differences among samples and other known references.
+
+-   The reference *Mycobacteroides abscessus subsp. abscessus* was chosen to be the reference sequence for generating the VCF file. Like in the phylogenetic context tree, samples SRR12574847 and SRR12574848 are more closely related than sample SRR12574846.
+
+-   In this case, there is a slight discordance between the tree and %ANI. Samples SRR12574847 and SRR12574848 are more closely related to *Mycobacteroides abscessus subsp. abscessus* than sample SRR12574846. But in terms of %ANI, sample SRR12574846 has a slightly better % match to this reference. In these cases, the core genome phylogeny is probably a better metric for sample classification.
+
+-   **Minimum spanning network**: The nodes represent unique multilocus genotypes, and the size of nodes is proportional to the \# number of samples that share the same genotype. The edges represent the SNP differences between two given genotypes, and the darker the color of the edges, the fewer SNP differences between the two.

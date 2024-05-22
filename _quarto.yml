@@ -1,0 +1,25 @@
+project:
+  type: website
+
+website:
+  title: "pathogensurveillance_documentation"
+  sidebar:
+    style: "docked"
+    search: true
+    contents:
+      - href: index.qmd
+        text: Home
+      - quickstart.qmd
+      - documentation.qmd
+      - tutorial.qmd
+      - citations.qmd
+
+
+format:
+  html:
+    theme: cosmo
+    css: styles.css
+    toc: true
+
+
+
