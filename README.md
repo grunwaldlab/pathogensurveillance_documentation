@@ -1,0 +1,2 @@
+# pathogensurveillance_documentation
+Documentation for the pathogensurveillance pipeline
