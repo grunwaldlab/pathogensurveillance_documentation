@@ -8,9 +8,13 @@ nocite: |
 
 ## Credits {#credits}
 
-nf-core/pathogensurveillance was originally written by Zachary S.L. Foster, Martha Sudermann, Nicholas C. Cauldron, Fernanda I. Bocardo, Hung Phan, Jeﬀ H. Chang, Niklaus J. Grünwald.
+nf-core/pathogensurveillance was written by:
 
-We thank the following people for their extensive assistance in the development of this pipeline:
+Zachary S. L. Foster^1^, Martha Sudermann^2^, Camilo Parada-Rojas^2^, Fernanda Iruegas-Bocardo ()^2^, Ricardo Alcalá-Briseño^2^, Logan K. Blair ^1^, Alexandra J Weisberg^2^, Jeff H. Chang^2^, and Niklaus J. Grünwald (https://orcid.org/0000-0003-1656-7602)^1^
+
+^1^Horticultural Crops Research Laboratory, USDA Agricultural Research Service, Corvallis, Oregon 97331, USA
+
+^2^Department of Botany and Plant Pathology, Oregon State University, Corvallis, Oregon 97331, USA
 
 <!-- TODO nf-core: If applicable, make list of people who have also contributed -->
 

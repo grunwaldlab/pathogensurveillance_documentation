@@ -10,12 +10,10 @@ editor: visual
 3.  Download the pipeline and test it on a minimal dataset with a single command:
 
     ``` bash
-    nextflow run nf-core/pathogensurveillance -profile test,YOURPROFILE --outdir <OUTDIR> -resume
+    nextflow run nf-core/pathogensurveillance -profile test,YOURPROFILE --outdir <OUTDIR> --download_bakta_db true -resume 
     ```
 
-    Note that some form of configuration will be needed so that Nextflow knows how to fetch the required software.
-    This is usually done in the form of a config profile (`YOURPROFILE` in the example command above).
-    You can chain multiple config profiles in a comma-separated string.
+    Note that some form of configuration will be needed so that Nextflow knows how to fetch the required software. This is usually done in the form of a config profile (`YOURPROFILE` in the example command above). You can chain multiple config profiles in a comma-separated string.
 
     > -   The pipeline comes with config profiles called `docker`, `singularity`, `podman`, `shifter`, `charliecloud` and `conda` which instruct the pipeline to use the named tool for software management. For example, `-profile test,docker`.
     > -   Please check [nf-core/configs](https://github.com/nf-core/configs#documentation) to see if a custom config file to run nf-core pipelines already exists for your Institute. If so, you can simply use `-profile <institute>` in your command. This will enable either `docker` or `singularity` and set the appropriate execution settings for your local compute environment.
@@ -27,11 +25,11 @@ editor: visual
     <!-- TODO nf-core: Update the example "typical command" below used to run the pipeline -->
 
     ``` bash
-    nextflow run nf-core/pathogensurveillance --input samplesheet.csv --outdir <OUTDIR> -profile <docker/singularity/podman/shifter/charliecloud/conda/institute> -resume
+    nextflow run nf-core/pathogensurveillance --input samplesheet.csv --outdir <OUTDIR> --download_bakta_db true -profile <docker/singularity/podman/shifter/charliecloud/conda/institute> -resume
     ```
 
 You can also try running a small example dataset hosted with the source code using the following command (no need to download anything):
 
-``` bash        
+``` bash
 nextflow run nf-core/pathogensurveillance --input https://raw.githubusercontent.com/grunwaldlab/pathogensurveillance/master/test/data/metadata_small.csv --outdir test_out --download_bakta_db true -profile docker -resume
 ```

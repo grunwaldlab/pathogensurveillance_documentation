@@ -7,11 +7,7 @@ The nf-core/pathogensurveillance pipeline comes with documentation about the pip
 
 ### Input format
 
-The primary input to the pipeline is a CSV (comma comma-separated value).
-Columns can be in any order and unneeded columns can be left out or left blank.
-Only a single column containing paths to raw sequence data or SRA (Sequence Read Archive) accessions is required and each sample can have values in different columns.
-Any columns not recognized by `pathogensurveillance` will be ignored, allowing users to adapt existing sample metadata table by adding new columns.
-Below is a description of each column used by `pathogensurveillance`:
+The primary input to the pipeline is a CSV (comma comma-separated value). Columns can be in any order and unneeded columns can be left out or left blank. Only a single column containing paths to raw sequence data or SRA (Sequence Read Archive) accessions is required and each sample can have values in different columns. Any columns not recognized by `pathogensurveillance` will be ignored, allowing users to adapt existing sample metadata table by adding new columns. Below is a description of each column used by `pathogensurveillance`:
 
 -   **sample_id**: The unique identifier for each sample. This will be used in file names to distinguish samples in the output. Each sample ID must correspond to a single set of sequence data (The `shortread_*`, `nanopore`, and `sra` columns), although the same sequence data can be used by multiple different IDs. Any values that correspond to multiple different sets of sequence data or contain characters that cannot appear in file names (/:\*?"\<\>\| .) will be modified automatically. If not supplied, it will be inferred from the names of input data.
 -   **sample_name**: A human-readable label for the sample that is used in plots and tables. If not supplied, it will be inferred from the names of `sample_id`.
@@ -33,14 +29,11 @@ Below is a description of each column used by `pathogensurveillance`:
 
 -   **--input:** Path to comma-separated file containing information about the samples in the experiment.
 
--   **--output:** The output directory where the results will be saved.
-    You have to use absolute paths to storage on Cloud infrastructure.
+-   **--output:** The output directory where the results will be saved. You have to use absolute paths to storage on Cloud infrastructure.
 
--   **--bakta_db:** The path to the Bakta database folder.
-    This or `--download_bakta_db` must be included.
+-   **--bakta_db:** The path to the Bakta database folder. This or `--download_bakta_db` must be included.
 
--   **--download_bakta_db:** Download the database required for running Bakta.
-    Note that this will download gigabytes of information, so if you plan on running the pipeline repeatedly it would be better to download the database manually and specify the path with `--bakta_db`
+-   **--download_bakta_db:** Download the database required for running Bakta. Note that this will download gigabytes of information, so if you plan on running the pipeline repeatedly it would be better to download the database manually and specify the path with `--bakta_db`
 
 **Nextflow Options:**
 
@@ -49,60 +42,44 @@ Below is a description of each column used by `pathogensurveillance`:
 
 **Optional:**
 
--   **--email:** Set this parameter to your e-mail address to get a summary e-mail with details of the run sent to you when the workflow exits.
-    If set in your user config file (\`\~/.nextflow/config\`) then you don't need to specify this on the command line for every run.
+-   **--email:** Set this parameter to your e-mail address to get a summary e-mail with details of the run sent to you when the workflow exits. If set in your user config file (\`\~/.nextflow/config\`) then you don't need to specify this on the command line for every run.
 
--   **--multiqc_title:** MultiQC report title.
-    Printed as page header, used for filename if not otherwise specified.
+-   **--multiqc_title:** MultiQC report title. Printed as page header, used for filename if not otherwise specified.
 
 **Performance Parameters:**
 
--   **--max_cpus:** Maximum number of CPUs that can be requested for any single job.
-    Default: `16`
+-   **--max_cpus:** Maximum number of CPUs that can be requested for any single job. Default: `16`
 
--   **--max_memory:** Maximum amount of memory that can be requested for any single job.
-    Default: `128.GB`
+-   **--max_memory:** Maximum amount of memory that can be requested for any single job. Default: `128.GB`
 
--   **--max_time:** Maximum amount of time that can be requested for any single job.
-    Default: `240.h`
+-   **--max_time:** Maximum amount of time that can be requested for any single job. Default: `240.h`
 
 **Analysis Parameters:**
 
--   **--sketch_max_depth:** Depth reads are subsampled to for the initial sketch-based identification.
-    Default: `3`
+-   **--sketch_max_depth:** Depth reads are subsampled to for the initial sketch-based identification. Default: `3`
 
--   **--variant_max_depth:** Depth reads are subsampled to for the variant-based parts of the analysis.
-    Default: `15`
+-   **--variant_max_depth:** Depth reads are subsampled to for the variant-based parts of the analysis. Default: `15`
 
--   **--assembly_max_depth:** Depth reads are subsampled to for genome assembly.
-    This will be multiplied by the predicted ploidy of each sample.
-    Default: `30`
+-   **--assembly_max_depth:** Depth reads are subsampled to for genome assembly. This will be multiplied by the predicted ploidy of each sample. Default: `30`
 
--   **--refseq_download_num:** The maximum number of RefSeq sequences to select and download for each sample at each taxonomic level (species, genus, and family).
-    The total number will vary based on the diversity of samples.
-    Default: `10`
+-   **--refseq_download_num:** The maximum number of RefSeq sequences to select and download for each sample at each taxonomic level (species, genus, and family). The total number will vary based on the diversity of samples. Default: `10`
 
--   **--min_core_genes:** The minimum number of genes needed to conduct a core gene phylogeny.
-    Samples and references will be removed (as allowed by the `min_core_samps` and `min_core_refs` options) until this minimum is met Default: `10`
+-   **--min_core_genes:** The minimum number of genes needed to conduct a core gene phylogeny. Samples and references will be removed (as allowed by the `min_core_samps` and `min_core_refs` options) until this minimum is met. Default: `10`
 
--   **--min_core_samps:** The minimum proportion of samples needed to conduct a core gene phylogeny.
-    Samples will be removed until the `min_core_genes` option is satisfied or this minimum is met.
-    Default: `0.8`
+-   **--min_core_samps:** The minimum proportion of samples needed to conduct a core gene phylogeny. Samples will be removed until the `min_core_genes` option is satisfied or this minimum is met. Default: `0.8`
 
--   **--min_core_refs:** The minimum proportion of references needed to conduct a core gene phylogeny.
-    References will be removed until the `min_core_genes` option is satisfied or this minimum is met.
-    Default: `0.5`
+-   **--min_core_refs:** The minimum proportion of references needed to conduct a core gene phylogeny. References will be removed until the `min_core_genes` option is satisfied or this minimum is met. Default: `0.5`
 
--   **--max_core_genes:** The maximum number of genes used to conduct a core gene phylogeny.
-    Default: `100`
+-   **--max_core_genes:** The maximum number of genes used to conduct a core gene phylogeny. Default: `100`
 
--   **--min_ref_ani:** The minimum ANI between a sample and potential reference for that reference to be used for variant calling with that sample.
-    To force all the samples in a report group to use the same reference, set this value very low.
-    Default: `0.9`
+-   **--min_ref_ani:** The minimum ANI between a sample and potential reference for that reference to be used for variant calling with that sample. To force all the samples in a report group to use the same reference, set this value very low. Default: `0.9`
 
--   **--publish_dir_mode:** Method used to save pipeline results to output directory.
+-   **--copymode:** Storage management setting to determine which files will be copied from the cache into the output directory.
 
-    -   `copy`: Default mode. The output of each process is copied from the work directory into the output directory. This caching allows for each intermediate file to be easily accessed by the user and for the pipeline to resume if it encounters an error in a later process.
-    -   `link`: Alternative option if storage space is an issue. No files will be copied into the output directory, but files are still accessible through hard links to their storage locations in the work directory. Caching is still enabled, but care must be taken to retrieve desired files from the work directory before it is cleared.
+    -   `high` - All files are copied into output directory.
+
+    -   `medium` - Reports are copied. Large sequencing files are not copied, but they are accessible through symlinks to their location in the cache (default).
+
+    -   `low` - No files are copied into output directory, but files are accessible through symlinks to their location in the cache.
 
 ## Benchmarks {#benchmarks}

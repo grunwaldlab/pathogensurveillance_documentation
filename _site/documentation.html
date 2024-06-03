@@ -131,6 +131,12 @@ ul.task-list li input[type="checkbox"] {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="./examplereports.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">examplereports</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="./citations.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">citations</span></a>
   </div>
@@ -224,15 +230,16 @@ ul.task-list li input[type="checkbox"] {
 <li><p><strong>–variant_max_depth:</strong> Depth reads are subsampled to for the variant-based parts of the analysis. Default: <code>15</code></p></li>
 <li><p><strong>–assembly_max_depth:</strong> Depth reads are subsampled to for genome assembly. This will be multiplied by the predicted ploidy of each sample. Default: <code>30</code></p></li>
 <li><p><strong>–refseq_download_num:</strong> The maximum number of RefSeq sequences to select and download for each sample at each taxonomic level (species, genus, and family). The total number will vary based on the diversity of samples. Default: <code>10</code></p></li>
-<li><p><strong>–min_core_genes:</strong> The minimum number of genes needed to conduct a core gene phylogeny. Samples and references will be removed (as allowed by the <code>min_core_samps</code> and <code>min_core_refs</code> options) until this minimum is met Default: <code>10</code></p></li>
+<li><p><strong>–min_core_genes:</strong> The minimum number of genes needed to conduct a core gene phylogeny. Samples and references will be removed (as allowed by the <code>min_core_samps</code> and <code>min_core_refs</code> options) until this minimum is met. Default: <code>10</code></p></li>
 <li><p><strong>–min_core_samps:</strong> The minimum proportion of samples needed to conduct a core gene phylogeny. Samples will be removed until the <code>min_core_genes</code> option is satisfied or this minimum is met. Default: <code>0.8</code></p></li>
 <li><p><strong>–min_core_refs:</strong> The minimum proportion of references needed to conduct a core gene phylogeny. References will be removed until the <code>min_core_genes</code> option is satisfied or this minimum is met. Default: <code>0.5</code></p></li>
 <li><p><strong>–max_core_genes:</strong> The maximum number of genes used to conduct a core gene phylogeny. Default: <code>100</code></p></li>
 <li><p><strong>–min_ref_ani:</strong> The minimum ANI between a sample and potential reference for that reference to be used for variant calling with that sample. To force all the samples in a report group to use the same reference, set this value very low. Default: <code>0.9</code></p></li>
-<li><p><strong>–publish_dir_mode:</strong> Method used to save pipeline results to output directory.</p>
+<li><p><strong>–copymode:</strong> Storage management setting to determine which files will be copied from the cache into the output directory.</p>
 <ul>
-<li><code>copy</code>: Default mode. The output of each process is copied from the work directory into the output directory. This caching allows for each intermediate file to be easily accessed by the user and for the pipeline to resume if it encounters an error in a later process.</li>
-<li><code>link</code>: Alternative option if storage space is an issue. No files will be copied into the output directory, but files are still accessible through hard links to their storage locations in the work directory. Caching is still enabled, but care must be taken to retrieve desired files from the work directory before it is cleared.</li>
+<li><p><code>high</code> - All files are copied into output directory.</p></li>
+<li><p><code>medium</code> - Reports are copied. Large sequencing files are not copied, but they are accessible through symlinks to their location in the cache (default).</p></li>
+<li><p><code>low</code> - No files are copied into output directory, but files are accessible through symlinks to their location in the cache.</p></li>
 </ul></li>
 </ul>
 </section>

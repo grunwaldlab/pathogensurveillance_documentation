@@ -12,6 +12,7 @@ website:
       - quickstart.qmd
       - documentation.qmd
       - tutorial.qmd
+      - examplereports.qmd
       - citations.qmd
 
 
