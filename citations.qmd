@@ -1,5 +1,5 @@
 ---
-title: "citations"
+title: "Citations"
 editor: visual
 bibliography: references.bib
 nocite: |
