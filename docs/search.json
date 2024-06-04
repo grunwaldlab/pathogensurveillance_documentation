@@ -14,7 +14,7 @@
     "href": "documentation.html#benchmarks",
     "title": "Documentation",
     "section": "Benchmarks",
-    "text": "Benchmarks",
+    "text": "Benchmarks\nxanthomonas.csv (with all reads + Bakta database already downloaded)\n\n29 samples\nRun duration: 2h 16m 7s\nStorage:\n\nlocal reads folder: 11 GB\ncache: 75 GB\noutput directory: 19 MB\n\nhardware specs:\n\nOS: Pop!_OS 22.04LTS\nProcessor: 5.7 GHz Ryzen 9 7950X (16 cores - 32 threads)\nRAM: 128 GB DDR5 3600MHz (4x32)",
     "crumbs": [
       "Documentation"
     ]
@@ -84,7 +84,7 @@
     "href": "citations.html",
     "title": "Citations",
     "section": "",
-    "text": "nf-core/pathogensurveillance was written by:\nZachary S. L. Foster1, Martha Sudermann2, Camilo Parada-Rojas2, Fernanda Iruegas-Bocardo ()2, Ricardo Alcalá-Briseño2, Logan K. Blair 1, Alexandra J Weisberg2, Jeff H. Chang2, and Niklaus J. Grünwald (https://orcid.org/0000-0003-1656-7602)1\n1Horticultural Crops Research Laboratory, USDA Agricultural Research Service, Corvallis, Oregon 97331, USA\n2Department of Botany and Plant Pathology, Oregon State University, Corvallis, Oregon 97331, USA",
+    "text": "nf-core/pathogensurveillance was written by:\nZachary S. L. Foster1, Martha Sudermann2, Camilo Parada-Rojas2, Fernanda Iruegas-Bocardo2, Ricardo Alcalá-Briseño2, Logan K. Blair 1, Alexandra J Weisberg2, Jeff H. Chang2, and Niklaus J. Grünwald1\n1Horticultural Crops Research Laboratory, USDA Agricultural Research Service, Corvallis, Oregon 97331, USA\n2Department of Botany and Plant Pathology, Oregon State University, Corvallis, Oregon 97331, USA",
     "crumbs": [
       "Citations"
     ]
@@ -94,7 +94,7 @@
     "href": "citations.html#credits",
     "title": "Citations",
     "section": "",
-    "text": "nf-core/pathogensurveillance was written by:\nZachary S. L. Foster1, Martha Sudermann2, Camilo Parada-Rojas2, Fernanda Iruegas-Bocardo ()2, Ricardo Alcalá-Briseño2, Logan K. Blair 1, Alexandra J Weisberg2, Jeff H. Chang2, and Niklaus J. Grünwald (https://orcid.org/0000-0003-1656-7602)1\n1Horticultural Crops Research Laboratory, USDA Agricultural Research Service, Corvallis, Oregon 97331, USA\n2Department of Botany and Plant Pathology, Oregon State University, Corvallis, Oregon 97331, USA",
+    "text": "nf-core/pathogensurveillance was written by:\nZachary S. L. Foster1, Martha Sudermann2, Camilo Parada-Rojas2, Fernanda Iruegas-Bocardo2, Ricardo Alcalá-Briseño2, Logan K. Blair 1, Alexandra J Weisberg2, Jeff H. Chang2, and Niklaus J. Grünwald1\n1Horticultural Crops Research Laboratory, USDA Agricultural Research Service, Corvallis, Oregon 97331, USA\n2Department of Botany and Plant Pathology, Oregon State University, Corvallis, Oregon 97331, USA",
     "crumbs": [
       "Citations"
     ]

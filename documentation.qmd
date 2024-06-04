@@ -83,3 +83,21 @@ The primary input to the pipeline is a CSV (comma comma-separated value). Column
     -   `low` - No files are copied into output directory, but files are accessible through symlinks to their location in the cache.
 
 ## Benchmarks {#benchmarks}
+
+**xanthomonas.csv** (with all reads + Bakta database already downloaded)
+
+-   29 samples
+
+-   Run duration: 2h 16m 7s
+
+-   Storage:
+
+    -   local reads folder: 11 GB
+    -   cache: 75 GB
+    -   output directory: 19 MB
+
+-   hardware specs:
+
+    -   OS: Pop!\_OS 22.04LTS
+    -   Processor: 5.7 GHz Ryzen 9 7950X (16 cores - 32 threads)
+    -   RAM: 128 GB DDR5 3600MHz (4x32)
