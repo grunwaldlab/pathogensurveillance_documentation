@@ -3,13 +3,13 @@ title: "example reports"
 editor: visual
 ---
 
-### [Xanthomonas](https://html-preview.github.io/?url=https://github.com/grunwaldlab/pathogensurveillance_documentation/blob/main/example_reports/xanthomonas.html)
+[Xanthomonas](https://grunwaldlab.github.io/pathogensurveillance_documentation/xanthomonas)
 
 Data from Iruegas-Bocardo et al 2023:
 
 > **Whole Genome Sequencing-Based Tracing of a 2022 Introduction and Outbreak of Xanthomonas hortorum pv. pelargonii** doi: [10.1094/PHYTO-09-22-0321-R](https://doi.org/10.1094/phyto-09-22-0321-r).
 
-### [Mycobacteroides Small](https://html-preview.github.io/?url=https://github.com/grunwaldlab/pathogensurveillance_documentation/blob/main/example_reports/mycobacteroides_small.html)
+[Mycobacteroides Small](https://grunwaldlab.github.io/pathogensurveillance_documentation/mycobateriodes_small)
 
 Data from Bryant et al. 2016:
 

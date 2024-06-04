@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>pathogensurveillance documentation - tutorial</title>
+<title>pathogensurveillance documentation - Tutorial</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -114,7 +114,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./tutorial.html">tutorial</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./tutorial.html">Tutorial</a></li></ol></nav>
         <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
@@ -148,31 +148,31 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./quickstart.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">quickstart</span></a>
+ <span class="menu-text">Quickstart</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./documentation.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">documentation</span></a>
+ <span class="menu-text">Documentation</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./tutorial.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text">tutorial</span></a>
+ <span class="menu-text">Tutorial</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./examplereports.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">example reports</span></a>
+ <span class="menu-text">Example Reports</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./citations.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">citations</span></a>
+ <span class="menu-text">Citations</span></a>
   </div>
 </li>
     </ul>
@@ -196,7 +196,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">tutorial</h1>
+<h1 class="title">Tutorial</h1>
 </div>
 
 
@@ -213,7 +213,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<p>This example uses sequencing reads from an outbreak of <em>Xanthomonas hortorum</em> in several plant nurseries. For the sake of this example, we’ll treat the pathogen as an unknown and use the pathogensurveillance pipeline to help determine its identity. We’ll also explore how isolates from different nursery populations relate to each other and the reference sequences of other closely-related organisms. Finally, we’ll see how a single grower released infected geranium cuttings, serving as a common basis for 18/27 strains infected. This information can be obtained from several plots that the pathogensurveillance pipeline generates automatically.</p>
+<p>This example uses sequencing reads from an outbreak of <em>Xanthomonas hortorum</em> in several plant nurseries. For the sake of this example, we’ll treat the pathogen as an unknown and use the pathogensurveillance pipeline to help determine its identity. We’ll also explore how isolates from different nursery populations relate to each other and the reference sequences of other closely-related organisms. This information can be obtained from several plots that the pathogensurveillance pipeline generates automatically.</p>
 <section id="sample-input" class="level3">
 <h3 class="anchored" data-anchor-id="sample-input">Sample input</h3>
 <p>The pipeline is designed to work with a wide variety of existing metadata sheets without extensive changes. Here’s a look at “xanthomonas.csv”, which serves as the only unique input file within the command to run the pipeline:</p>
@@ -349,7 +349,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </div>
-<p>There is quite a bit of information in this file, but only a few columns are essential.</p>
+<p>There is quite a bit of information in this file, but only a few columns are essential. Note that columns can be in any order.</p>
 <ul>
 <li><p>Columns “shortread_1” and “shortread_2” specify the forward and reverse reads. Each row corresponds to one individual sample. These reads for this tutorial are hosted on the pathogensurveilance github repo. In this case, the sequences are paired-end illumina shortreads, but the pipeline will also work with mixed inputs of Pacbio or Oxford Nanopore. For your own analysis, you’ll need to provide the path to each file in the in the “shortread_1/shortread_2” columns.</p></li>
 <li><p>Sequence files may instead be hosted on ncbi. In that case, the “shortread_1/shortread_2” columns will need to be substituted with a single “SRA” column. The pipeline will download these sequences from the ncbi automatically. See test/data/metadata/xanthomonas.csv for an example.</p></li>
@@ -363,7 +363,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="sourceCode" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ex">nextflow</span> run nf-core/pathogensurveillance <span class="at">--input</span> <span class="pp">[</span><span class="ss">https://raw.githubusercontent.com/grunwaldlab/pathogensurveillance/master/test/data/metadata</span><span class="pp">]</span><span class="er">(</span><span class="ex">https://raw.githubusercontent.com/grunwaldlab/pathogensurveillance/master/test/data/metadata_small.csv</span><span class="kw">)</span><span class="ex">{.uri}[/xanthomonas.csv]</span><span class="er">(</span><span class="ex">https://raw.githubusercontent.com/grunwaldlab/pathogensurveillance/master/test/data/metadata/xanthomonas.csv</span><span class="kw">)</span> <span class="ex">--outdir</span> xanthomonas <span class="at">--download_bakta_db</span> true <span class="at">-profile</span> docker <span class="at">-resume</span> <span class="at">--max_cpus</span> 8 <span class="at">--max_memory</span> 31GB <span class="at">-resume</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <ul>
 <li><p>When running your own analysis, you will need to provide your own path to the input CSV file.</p></li>
-<li><p>By default, the pipeline will run on 128 GB of RAM and 16 threads. This is more resources than is strictly necessary and beyond the capacity of most desktop computers. We can scale this back a bit for this lightweight test run. This analysis will work with 8 threads and 30 GB of RAM (albeit more slowly), which is specified by the –max_cpus and –max_memory settings.</p></li>
+<li><p>By default, the pipeline will run on 128 GB of RAM and 16 threads. This is more resources than is strictly necessary and beyond the capacity of most desktop computers. We can scale this back a bit for this lightweight test run. This analysis will work with 8 cpus and 30 GB of RAM (albeit more slowly), which is specified by the –max_cpus and –max_memory settings.</p></li>
 <li><p>The setting <code>-resume</code> is only necessary when resuming a previous analysis. However, it doesn’t hurt to include it at the start. If the pipeline were to be interrupted, this allows it to pick up where it left off as long as the previous command is executed from the same working directory.</p></li>
 </ul>
 <p>If the pipeline begins successfully, you should see a screen tracking your progress:</p>
