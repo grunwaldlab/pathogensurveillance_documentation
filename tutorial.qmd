@@ -6,7 +6,7 @@ format:
     df-print: kable
 ---
 
-This example uses sequencing reads of the plant pathogen Xanthomonas hortorum, sampled from several plant nurserys. For the sake of this example, we'll treat the pathogen as an unknown and the pathogensurveillance pipeline will help determine its identity. We'll also explore how isolates from different nursery populations relate to each other, as well as to the reference sequences of other closely-related organisms. We'll see how a single grower released infected geranium cuttings, serving as a common basis for 18/27 strains infected. This information can be obtained from several plots that the pipeline generates automatically.
+This example uses sequencing reads from an outbreak of *Xanthomonas hortorum* in several plant nurseries. For the sake of this example, we'll treat the pathogen as an unknown and use the pathogensurveillance pipeline to help determine its identity. We'll also explore how isolates from different nursery populations relate to each other and the reference sequences of other closely-related organisms. Finally, we'll see how a single grower released infected geranium cuttings, serving as a common basis for 18/27 strains infected. This information can be obtained from several plots that the pathogensurveillance pipeline generates automatically.
 
 ### Sample input
 
@@ -21,7 +21,9 @@ df = read.csv("data/xanthomonas.csv")
 df |> head()
 ```
 
--   There is quite a bit of information in this file, but only a few columns are essential. Columns "shortread_1" and "shortread_2" specify the forward and reverse reads. Each row corresponds to one individual sample. These reads for this tutorial are hosted on the pathogensurveilance github repo. In this case, the sequences are paired-end illumina shortreads, but the pipeline will also work with mixed inputs of Pacbio or Oxford Nanopore. For your own analysis, you'll need to provide the path to each file in the in the "shortread_1/shortread_2" columns.
+There is quite a bit of information in this file, but only a few columns are essential.
+
+-   Columns "shortread_1" and "shortread_2" specify the forward and reverse reads. Each row corresponds to one individual sample. These reads for this tutorial are hosted on the pathogensurveilance github repo. In this case, the sequences are paired-end illumina shortreads, but the pipeline will also work with mixed inputs of Pacbio or Oxford Nanopore. For your own analysis, you'll need to provide the path to each file in the in the "shortread_1/shortread_2" columns.
 
 -   Sequence files may instead be hosted on ncbi. In that case, the "shortread_1/shortread_2" columns will need to be substituted with a single "SRA" column. The pipeline will download these sequences from the ncbi automatically. See test/data/metadata/xanthomonas.csv for an example.
 

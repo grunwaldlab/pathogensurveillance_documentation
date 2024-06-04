@@ -1,0 +1,146 @@
+[
+  {
+    "objectID": "documentation.html",
+    "href": "documentation.html",
+    "title": "documentation",
+    "section": "",
+    "text": "The nf-core/pathogensurveillance pipeline comes with documentation about the pipeline usage, parameters and output.",
+    "crumbs": [
+      "documentation"
+    ]
+  },
+  {
+    "objectID": "documentation.html#benchmarks",
+    "href": "documentation.html#benchmarks",
+    "title": "documentation",
+    "section": "Benchmarks",
+    "text": "Benchmarks",
+    "crumbs": [
+      "documentation"
+    ]
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "pathogensurveillance documentation",
+    "section": "",
+    "text": "NOTE: THIS PROJECT IS UNDER DEVELOPMENT AND MAY NOT FUNCTION AS EXPECTED UNTIL THIS MESSAGE GOES AWAY",
+    "crumbs": [
+      "Home"
+    ]
+  },
+  {
+    "objectID": "index.html#introduction",
+    "href": "index.html#introduction",
+    "title": "pathogensurveillance documentation",
+    "section": "Introduction",
+    "text": "Introduction\n\nnf-core/pathogensurveillance is a population genomic pipeline for pathogen diagnosis, variant detection, and biosurveillance. The pipeline accepts the paths to raw reads for one or more organisms (in the form of a CSV file) and creates reports in the form of interactive HTML reports or PDF documents. Significant features include the ability to analyze unidentified eukaryotic and prokaryotic samples, creation of reports for multiple user-defined groupings of samples, automated discovery and downloading of reference assemblies from NCBI RefSeq, and rapid initial identification based on k-mer sketches followed by a more robust core genome phylogeny and SNP-based phylogeny.\nThe pipeline is built using Nextflow, a workflow tool to run tasks across multiple compute infrastructures in a very portable manner. It uses Docker/Singularity containers making installation trivial and results highly reproducible. The Nextflow DSL2 implementation of this pipeline uses one container per process which makes it much easier to maintain and update software dependencies. Where possible, these processes have been submitted to and installed from nf-core/modules in order to make them available to all nf-core pipelines, and to everyone within the Nextflow community!\n\nOn release, automated continuous integration tests run the pipeline on a full-sized dataset on the AWS cloud infrastructure. This ensures that the pipeline runs on AWS, has sensible resource allocation defaults set to run on real-world data sets, and permits the persistent storage of results to benchmark between pipeline releases and other analysis sources.The results obtained from the full-sized test can be viewed on the nf-core website.",
+    "crumbs": [
+      "Home"
+    ]
+  },
+  {
+    "objectID": "index.html#pipelinesummary",
+    "href": "index.html#pipelinesummary",
+    "title": "pathogensurveillance documentation",
+    "section": "Pipeline summary",
+    "text": "Pipeline summary\n\nDownload sequences and references if they are not provided locally\nQuickly obtain several initial sample references (bbmap)\nMore accurately select appropriate reference genomes. Genome “sketches” are compared between first-pass references, samples, and any references directly provided by the user (sourmash)\nGenome assembly\n\nIllumina shortreads: (spades)\nPacbio or Oxford Nanopore longreads: (flye)\n\nGenome annotation (bakta)\nAlign reads to reference sequences (bwa)\nVariant calling and filtering (graphtyper, vcflib)\nDetermine relationship between samples and references\n\nBuild SNP tree from variant calls (iqtree)\nFor Prokaryotes:\n\nIdentify shared orthologs (pirate)\nBuild tree from core genome phylogeny (iqtree)\n\nFor Eukaryotes:\n\nIdentify BUSCO genes (busco)\nBuild tree from BUSCO genes (read2tree)\n\n\nGenerate interactive html report/pdf file\n\nSequence and assembly information (fastqc, multiqc, quast)\nsample identification tables and heatmaps\nPhylogenetic trees from genome-wide SNPs and core genes\nminimum spanning network",
+    "crumbs": [
+      "Home"
+    ]
+  },
+  {
+    "objectID": "index.html#flowchart",
+    "href": "index.html#flowchart",
+    "title": "pathogensurveillance documentation",
+    "section": "Flowchart",
+    "text": "Flowchart",
+    "crumbs": [
+      "Home"
+    ]
+  },
+  {
+    "objectID": "quickstart.html",
+    "href": "quickstart.html",
+    "title": "quickstart",
+    "section": "",
+    "text": "Install Nextflow (&gt;=21.10.3)\nInstall any of Docker, Singularity (you can follow this tutorial), Podman, Shifter or Charliecloud for full pipeline reproducibility (you can use Conda both to install Nextflow itself and also to manage software within pipelines. Please only use it within pipelines as a last resort; see docs).\nDownload the pipeline and test it on a minimal dataset with a single command:\nnextflow run nf-core/pathogensurveillance -profile test,YOURPROFILE --outdir &lt;OUTDIR&gt; --download_bakta_db true -resume \nNote that some form of configuration will be needed so that Nextflow knows how to fetch the required software. This is usually done in the form of a config profile (YOURPROFILE in the example command above). You can chain multiple config profiles in a comma-separated string.\n\n\nThe pipeline comes with config profiles called docker, singularity, podman, shifter, charliecloud and conda which instruct the pipeline to use the named tool for software management. For example, -profile test,docker.\nPlease check nf-core/configs to see if a custom config file to run nf-core pipelines already exists for your Institute. If so, you can simply use -profile &lt;institute&gt; in your command. This will enable either docker or singularity and set the appropriate execution settings for your local compute environment.\nIf you are using singularity, please use the nf-core download command to download images first, before running the pipeline. Setting the NXF_SINGULARITY_CACHEDIR or singularity.cacheDir Nextflow options enables you to store and re-use the images from a central location for future pipeline runs.\nIf you are using conda, it is highly recommended to use the NXF_CONDA_CACHEDIR or conda.cacheDir settings to store the environments in a central location for future pipeline runs.\n\n\nStart running your own analysis!\n\nnextflow run nf-core/pathogensurveillance --input samplesheet.csv --outdir &lt;OUTDIR&gt; --download_bakta_db true -profile &lt;docker/singularity/podman/shifter/charliecloud/conda/institute&gt; -resume\n\nYou can also try running a small example dataset hosted with the source code using the following command (no need to download anything):\nnextflow run nf-core/pathogensurveillance --input https://raw.githubusercontent.com/grunwaldlab/pathogensurveillance/master/test/data/metadata_small.csv --outdir test_out --download_bakta_db true -profile docker -resume",
+    "crumbs": [
+      "quickstart"
+    ]
+  },
+  {
+    "objectID": "tutorial.html",
+    "href": "tutorial.html",
+    "title": "tutorial",
+    "section": "",
+    "text": "This example uses sequencing reads from an outbreak of Xanthomonas hortorum in several plant nurseries. For the sake of this example, we’ll treat the pathogen as an unknown and use the pathogensurveillance pipeline to help determine its identity. We’ll also explore how isolates from different nursery populations relate to each other and the reference sequences of other closely-related organisms. Finally, we’ll see how a single grower released infected geranium cuttings, serving as a common basis for 18/27 strains infected. This information can be obtained from several plots that the pathogensurveillance pipeline generates automatically.\n\nSample input\nThe pipeline is designed to work with a wide variety of existing metadata sheets without extensive changes. Here’s a look at “xanthomonas.csv”, which serves as the only unique input file within the command to run the pipeline:\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nsample_id\nshortread_1\nshortread_2\nreference\nreference_id\nreport_group\ncolor_by\ndate_isolated\ndate_received\nyear\nhost\ncv_key\nnursery\n\n\n\n\n22-299\ntest/data/reads/22-299_R1.fastq.gz\ntest/data/reads/22-299_R2.fastq.gz\n\n\nxan_test;subgroup\nyear;nursery\n3/2/22\n3/29/22\n2022\nPelargonium x hortorum\nCV-1\nMD\n\n\n22-300\ntest/data/reads/22-300_R1.fastq.gz\ntest/data/reads/22-300_R2.fastq.gz\n\n\nxan_test;subgroup\nyear;nursery\n3/2/22\n3/30/22\n2022\nPelargonium x hortorum\nCV-2\nMD\n\n\n22-301\ntest/data/reads/22-301_R1.fastq.gz\ntest/data/reads/22-301_R2.fastq.gz\n\n\nxan_test;subgroup\nyear;nursery\n3/2/22\n3/31/22\n2022\nPelargonium x hortorum\nCV-3\nMD\n\n\n22-302\ntest/data/reads/22-302_R1.fastq.gz\ntest/data/reads/22-302_R2.fastq.gz\n\n\nxan_test;subgroup\nyear;nursery\n3/2/22\n4/1/22\n2022\nPelargonium x hortorum\nCV-4\nMD\n\n\n22-303\ntest/data/reads/22-303_R1.fastq.gz\ntest/data/reads/22-303_R2.fastq.gz\n\n\nxan_test;subgroup\nyear;nursery\n3/2/22\n4/2/22\n2022\nPelargonium x hortorum\nCV-5\nMD\n\n\n22-304\ntest/data/reads/22-304_R1.fastq.gz\ntest/data/reads/22-304_R2.fastq.gz\n\n\nxan_test;subgroup\nyear;nursery\n3/7/22\n4/3/22\n2022\nPelargonium x hortorum\nCV-6\nMD\n\n\n\n\n\n\nThere is quite a bit of information in this file, but only a few columns are essential.\n\nColumns “shortread_1” and “shortread_2” specify the forward and reverse reads. Each row corresponds to one individual sample. These reads for this tutorial are hosted on the pathogensurveilance github repo. In this case, the sequences are paired-end illumina shortreads, but the pipeline will also work with mixed inputs of Pacbio or Oxford Nanopore. For your own analysis, you’ll need to provide the path to each file in the in the “shortread_1/shortread_2” columns.\nSequence files may instead be hosted on ncbi. In that case, the “shortread_1/shortread_2” columns will need to be substituted with a single “SRA” column. The pipeline will download these sequences from the ncbi automatically. See test/data/metadata/xanthomonas.csv for an example.\nThe “reference_refseq” column is optional, but may be useful when you are relatively confident as to the identity of your samples and would like to include one particular reference for comparison. See Documentation for an in-depth explanation of how to designate mandatory and optional references.\nThe optional column “color_by” is used for data visualization. It will assign one or more columns to serve as grouping factors for the output report. Here, samples will be grouped by the values of the “year” and “nursery” columns. Note that multiple factors need to be separated by semicolons within the color_by column.\n\n\n\nRunning the pipeline\nHere is the full command used execute this example, using a docker container:\nnextflow run nf-core/pathogensurveillance --input [https://raw.githubusercontent.com/grunwaldlab/pathogensurveillance/master/test/data/metadata](https://raw.githubusercontent.com/grunwaldlab/pathogensurveillance/master/test/data/metadata_small.csv){.uri}[/xanthomonas.csv](https://raw.githubusercontent.com/grunwaldlab/pathogensurveillance/master/test/data/metadata/xanthomonas.csv) --outdir xanthomonas --download_bakta_db true -profile docker -resume --max_cpus 8 --max_memory 31GB -resume\n\nWhen running your own analysis, you will need to provide your own path to the input CSV file.\nBy default, the pipeline will run on 128 GB of RAM and 16 threads. This is more resources than is strictly necessary and beyond the capacity of most desktop computers. We can scale this back a bit for this lightweight test run. This analysis will work with 8 threads and 30 GB of RAM (albeit more slowly), which is specified by the –max_cpus and –max_memory settings.\nThe setting -resume is only necessary when resuming a previous analysis. However, it doesn’t hurt to include it at the start. If the pipeline were to be interrupted, this allows it to pick up where it left off as long as the previous command is executed from the same working directory.\n\nIf the pipeline begins successfully, you should see a screen tracking your progress:\n[25/63dcee] process &gt; PATHOGENSURVEILLANCE:INPUT_CHECK:SAMPLESHEET_CHECK (xanthomonas.csv)[100%] 1 of 1\n\n[-        ] process &gt; PATHOGENSURVEILLANCE:SRATOOLS_FASTERQDUMP                              -\n\n[-        ] process &gt; PATHOGENSURVEILLANCE:DOWNLOAD_ASSEMBLIES                               -\n\n[-        ] process &gt; PATHOGENSURVEILLANCE:SEQKIT_SLIDING                                    -\n\n[-        ] process &gt; PATHOGENSURVEILLANCE:FASTQC                                            -\n\n[-        ] process &gt; PATHOGENSURVEILLANCE:COARSE_SAMPLE_TAXONOMY:BBMAP_SENDSKETCH           -\nThe input and output of each process can be accessed from the work/ directory. The subdirectory within work/ is designated by the string to left of each step. Note that this location will be different each time the pipeline is run, and only the first part of the name of the subdirectory is shown. For this run, we could navigate to work/25/63dcee(etc) to access the input csv that is used for the next step.\n\n\nReport\nYou should see a message similar to this if the pipeline finishes successfully:\n-[nf-core/plantpathsurveil] Pipeline completed successfully-\n\nTo clean the cache, enter the command: \nnextflow clean evil_boyd -f \n\nCompleted at: 20-May-2024 12:44:40\nDuration    : 3h 29m 2s\nCPU hours   : 15.2\nSucceeded   : 253\nThe final report can be viewed as either a .pdf or .html file. It can be accessed inside the reports folder of the output directory (here: xanthomonas/reports). This report shows several key pieces of information about your samples.\nA note on storage management - pathogensurveillance creates a large number of intermediate files. For most users we recommend clearing these files after each run. To do so, run the script shown after the completion message (nextflow clean  -f). You would not want to do this if: (1) You still need to use the caching system. For example, imagine you would like to compare a new sample to 10 samples from a previous run. In that case some files could be reused to make the pipeline work more quickly. (2) You would like to use intermediate files for your own analysis. By default, these files are saved in the output directory as symlinks to their location in the work/ directory, so you would need to retrieve these before clearing the cache. You could use alternatively use the option –copymode high to save all intermediate files to the published directory, though in the short term this doubles the storage footprint of each run.\nThis particular report has been included as an example under test/sample_reports/xanthomonas..\nSummary:\n\nPipeline Status Report: error messages for samples or sample groups\nInput Data: Data read from the input .csv file\n\nIdentification:\n\nInitial identification: Coarse identification from the bbmap sendsketch step. The first tab shows best species ID for each sample. The second tab shows similarity metrics between sample sequences and other reference genomes: %ANI (average nucleotide identity), %WKID (weighted kmer identity), and %completeness.\n\nFor more information about each metric, click the About this table tab underneath.\n\n%ANI heatmap: \nPOCP heatmap: \nMost similar organisms: Shows relationships between samples and references using % ani and % pocp (percentage of conserved proteins). For better resolution, you can interactively zoom in/out of plots.\nPhylogenetic context \nCore gene phylogeny: A core gene phylogeny uses the sequences of all gene shared by all of the genomes included in the tree to infer evolutionary relationships. It is the most robust identification provided by this pipeline, but its precision is still limited by the availability of similar reference sequences. Methods to generate this tree differ between prokaryotes and eukaryotes. Our input to the pipeline was prokaryotic DNA sequences, and the method to build this tree is based upon many different core genes shared between samples and references (for eukaryotes, this is constrained to BUSCO genes). This tree is built with iqtree and based upon shared core genes analyzed using the program pirate. You can highlight branches by hovering over and clicking on nodes.\n\nGenetic Diversity\n\nSNP tree: \nThis tree is better suited for visualizing the genetic diversity among samples. However, the core gene phylogeny provides a much better source of information for evolutionary differences among samples and other known references.\nMSN: \nMinimum spanning network: The nodes represent unique multilocus genotypes, and the size of nodes is proportional to the # number of samples that share the same genotype. The edges represent the SNP differences between two given genotypes, and the darker the color of the edges, the fewer SNP differences between the two.",
+    "crumbs": [
+      "tutorial"
+    ]
+  },
+  {
+    "objectID": "citations.html",
+    "href": "citations.html",
+    "title": "citations",
+    "section": "",
+    "text": "nf-core/pathogensurveillance was written by:\nZachary S. L. Foster1, Martha Sudermann2, Camilo Parada-Rojas2, Fernanda Iruegas-Bocardo ()2, Ricardo Alcalá-Briseño2, Logan K. Blair 1, Alexandra J Weisberg2, Jeff H. Chang2, and Niklaus J. Grünwald (https://orcid.org/0000-0003-1656-7602)1\n1Horticultural Crops Research Laboratory, USDA Agricultural Research Service, Corvallis, Oregon 97331, USA\n2Department of Botany and Plant Pathology, Oregon State University, Corvallis, Oregon 97331, USA",
+    "crumbs": [
+      "citations"
+    ]
+  },
+  {
+    "objectID": "citations.html#credits",
+    "href": "citations.html#credits",
+    "title": "citations",
+    "section": "",
+    "text": "nf-core/pathogensurveillance was written by:\nZachary S. L. Foster1, Martha Sudermann2, Camilo Parada-Rojas2, Fernanda Iruegas-Bocardo ()2, Ricardo Alcalá-Briseño2, Logan K. Blair 1, Alexandra J Weisberg2, Jeff H. Chang2, and Niklaus J. Grünwald (https://orcid.org/0000-0003-1656-7602)1\n1Horticultural Crops Research Laboratory, USDA Agricultural Research Service, Corvallis, Oregon 97331, USA\n2Department of Botany and Plant Pathology, Oregon State University, Corvallis, Oregon 97331, USA",
+    "crumbs": [
+      "citations"
+    ]
+  },
+  {
+    "objectID": "citations.html#contributionsandsupport",
+    "href": "citations.html#contributionsandsupport",
+    "title": "citations",
+    "section": "Contributions and Support",
+    "text": "Contributions and Support\nIf you would like to contribute to this pipeline, please see the contributing guidelines.\nFor further information or help, don’t hesitate to get in touch on the Slack #pathogensurveillance channel (you can join with this invite).",
+    "crumbs": [
+      "citations"
+    ]
+  },
+  {
+    "objectID": "citations.html#citations",
+    "href": "citations.html#citations",
+    "title": "citations",
+    "section": "Citations",
+    "text": "Citations\n\n\n\nNote: these citations are for all possible programs that may be used by pathogensurveillance. The final report will only present citations of programs used in the current run.\n\n\nAndrews, Simon et al. 2010. “FastQC: A Quality Control Tool for High Throughput Sequence Data.” Cambridge, United Kingdom.\n\n\nBayliss, Sion C, Harry A Thorpe, Nicola M Coyle, Samuel K Sheppard, and Edward J Feil. 2019. “PIRATE: A Fast and Scalable Pangenomics Toolbox for Clustering Diverged Orthologues in Bacteria.” Gigascience 8 (10): giz119.\n\n\nBrown, C Titus, and Luiz Irber. 2016. “Sourmash: A Library for MinHash Sketching of DNA.” Journal of Open Source Software 1 (5): 27.\n\n\nBushnell, Brian. 2014. “BBMap: A Fast, Accurate, Splice-Aware Aligner.”\n\n\nChen, Shifu. 2023. “Ultrafast One-Pass FASTQ Data Preprocessing, Quality Control, and Deduplication Using Fastp.” Imeta 2 (2): e107.\n\n\nCrusoe, Michael R, Hussien F Alameldin, Sherine Awad, Elmar Boucher, Adam Caldwell, Reed Cartwright, Amanda Charbonneau, et al. 2015. “The Khmer Software Package: Enabling Efficient Nucleotide Sequence Analysis.” F1000Research 4.\n\n\nDanecek, Petr, Adam Auton, Goncalo Abecasis, Cornelis A Albers, Eric Banks, Mark A DePristo, Robert E Handsaker, et al. 2011. “The Variant Call Format and VCFtools.” Bioinformatics 27 (15): 2156–58.\n\n\nDanecek, Petr, James K Bonfield, Jennifer Liddle, John Marshall, Valeriu Ohan, Martin O Pollard, Andrew Whitwham, et al. 2021. “Twelve Years of SAMtools and BCFtools.” Gigascience 10 (2): giab008.\n\n\nDi Tommaso, Paolo, Maria Chatzou, Evan W Floden, Pablo Prieto Barja, Emilio Palumbo, and Cedric Notredame. 2017. “Nextflow Enables Reproducible Computational Workflows.” Nature Biotechnology 35 (4): 316–19.\n\n\nDistribution, Anaconda Software. 2016. “Computer Software.” Vers. 4: 2–2.\n\n\nDylus, David, Adrian Altenhoff, Sina Majidian, Fritz J Sedlazeck, and Christophe Dessimoz. 2024. “Inference of Phylogenetic Trees Directly from Raw Sequencing Reads Using Read2Tree.” Nature Biotechnology 42 (1): 139–47.\n\n\nEggertsson, Hannes P, Hakon Jonsson, Snaedis Kristmundsdottir, Eirikur Hjartarson, Birte Kehr, Gisli Masson, Florian Zink, et al. 2017. “Graphtyper Enables Population-Scale Genotyping Using Pangenome Graphs.” Nature Genetics 49 (11): 1654–60.\n\n\nEwels, Philip A, Alexander Peltzer, Sven Fillinger, Harshil Patel, Johannes Alneberg, Andreas Wilm, Maxime Ulysse Garcia, Paolo Di Tommaso, and Sven Nahnsen. 2020. “The Nf-Core Framework for Community-Curated Bioinformatics Pipelines.” Nature Biotechnology 38 (3): 276–78.\n\n\nEwels, Philip, Måns Magnusson, Sverker Lundin, and Max Käller. 2016. “MultiQC: Summarize Analysis Results for Multiple Tools and Samples in a Single Report.” Bioinformatics 32 (19): 3047–48.\n\n\nGarrison, Erik, Zev N Kronenberg, Eric T Dawson, Brent S Pedersen, and Pjotr Prins. 2022. “A Spectrum of Free Software Tools for Processing the VCF Variant Call Format: Vcflib, Bio-Vcf, Cyvcf2, Hts-Nim and Slivar.” PLoS Computational Biology 18 (5): e1009123.\n\n\nGrüning, Björn, Ryan Dale, Andreas Sjödin, Brad A Chapman, Jillian Rowe, Christopher H Tomkins-Tinch, Renan Valieris, Johannes Köster, and Bioconda Team. 2018. “Bioconda: Sustainable and Comprehensive Software Distribution for the Life Sciences.” Nature Methods 15 (7): 475–76.\n\n\nKamvar, Zhian N, Javier F Tabima, and Niklaus J Grünwald. 2014. “Poppr: An r Package for Genetic Analysis of Populations with Clonal, Partially Clonal, and/or Sexual Reproduction.” PeerJ 2: e281.\n\n\nKatoh, Kazutaka, Kazuharu Misawa, Kei-ichi Kuma, and Takashi Miyata. 2002. “MAFFT: A Novel Method for Rapid Multiple Sequence Alignment Based on Fast Fourier Transform.” Nucleic Acids Research 30 (14): 3059–66.\n\n\nKolmogorov, Mikhail, Jeffrey Yuan, Yu Lin, and Pavel A Pevzner. 2019. “Assembly of Long, Error-Prone Reads Using Repeat Graphs.” Nature Biotechnology 37 (5): 540–46.\n\n\nKurtzer, Gregory M, Vanessa Sochat, and Michael W Bauer. 2017. “Singularity: Scientific Containers for Mobility of Compute.” PloS One 12 (5): e0177459.\n\n\nLi, Heng. 2011. “Tabix: Fast Retrieval of Sequence Features from Generic TAB-Delimited Files.” Bioinformatics 27 (5): 718–19.\n\n\nLi, Heng, and Richard Durbin. 2009. “Fast and Accurate Short Read Alignment with Burrows–Wheeler Transform.” Bioinformatics 25 (14): 1754–60.\n\n\nManni, Mosè, Matthew R Berkeley, Mathieu Seppey, Felipe A Simão, and Evgeny M Zdobnov. 2021. “BUSCO Update: Novel and Streamlined Workflows Along with Broader and Deeper Phylogenetic Coverage for Scoring of Eukaryotic, Prokaryotic, and Viral Genomes.” Molecular Biology and Evolution 38 (10): 4647–54.\n\n\nMikheenko, Alla, Andrey Prjibelski, Vladislav Saveliev, Dmitry Antipov, and Alexey Gurevich. 2018. “Versatile Genome Assembly Evaluation with QUAST-LG.” Bioinformatics 34 (13): i142–50.\n\n\nNguyen, Lam-Tung, Heiko A Schmidt, Arndt Von Haeseler, and Bui Quang Minh. 2015. “IQ-TREE: A Fast and Effective Stochastic Algorithm for Estimating Maximum-Likelihood Phylogenies.” Molecular Biology and Evolution 32 (1): 268–74.\n\n\n“Picard Toolkit.” 2019. Broad Institute, GitHub Repository. https://broadinstitute.github.io/picard/; Broad Institute.\n\n\nPrjibelski, Andrey, Dmitry Antipov, Dmitry Meleshko, Alla Lapidus, and Anton Korobeynikov. 2020. “Using SPAdes de Novo Assembler.” Current Protocols in Bioinformatics 70 (1): e102.\n\n\nQin, Qi-Long, Bin-Bin Xie, Xi-Ying Zhang, Xiu-Lan Chen, Bai-Cheng Zhou, Jizhong Zhou, Aharon Oren, and Yu-Zhong Zhang. 2014. “A Proposed Genus Boundary for the Prokaryotes Based on Genomic Insights.” Journal of Bacteriology 196 (12): 2210–15.\n\n\nR Core Team. 2021. R: A Language and Environment for Statistical Computing. Vienna, Austria: R Foundation for Statistical Computing. https://www.R-project.org/.\n\n\nSayers, Eric W, Evan E Bolton, J Rodney Brister, Kathi Canese, Jessica Chan, Donald C Comeau, Ryan Connor, et al. 2022. “Database Resources of the National Center for Biotechnology Information.” Nucleic Acids Research 50 (D1): D20.\n\n\nSchwengers, Oliver, Lukas Jelonek, Marius Alfred Dieckmann, Sebastian Beyvers, Jochen Blom, and Alexander Goesmann. 2021. “Bakta: Rapid and Standardized Annotation of Bacterial Genomes via Alignment-Free Sequence Identification.” Microbial Genomics 7 (11): 000685.\n\n\nShen, Wei, Shuai Le, Yan Li, and Fuquan Hu. 2016. “SeqKit: A Cross-Platform and Ultrafast Toolkit for FASTA/q File Manipulation.” PloS One 11 (10): e0163962.\n\n\nVan der Auwera, Geraldine A, and Brian D O’Connor. 2020. Genomics in the Cloud: Using Docker, GATK, and WDL in Terra. O’Reilly Media.\n\n\nVeiga Leprevost, Felipe da, Björn A Grüning, Saulo Alves Aflitos, Hannes L Röst, Julian Uszkoreit, Harald Barsnes, Marc Vaudel, et al. 2017. “BioContainers: An Open-Source and Community-Driven Framework for Software Standardization.” Bioinformatics 33 (16): 2580–82.",
+    "crumbs": [
+      "citations"
+    ]
+  },
+  {
+    "objectID": "faq.html",
+    "href": "faq.html",
+    "title": "faq",
+    "section": "",
+    "text": "How long does the pathogensurveillance take to run?\nHow many samples can be run at once?\nWhat are the minimum computational resources necessary to run pathogensurveillance?\nHow much sequencing coverage is needed?\nCan pathogensurveillance be run on macOS?"
+  },
+  {
+    "objectID": "examplereports.html",
+    "href": "examplereports.html",
+    "title": "example reports",
+    "section": "",
+    "text": "Xanthomonas\nhttps://github.com/grunwaldlab/pathogensurveillance_documentation/tree/main/example_reports/xanthomonas.html\nData from Iruegas-Bocardo et al 2023:\n\nWhole Genome Sequencing-Based Tracing of a 2022 Introduction and Outbreak of Xanthomonas hortorum pv. pelargonii doi: 10.1094/PHYTO-09-22-0321-R.\n\n\n\nMycobacteroides Small\nhttps://github.com/grunwaldlab/pathogensurveillance_documentation/tree/main/example_reports/mycobacteroides_small.html\nData from Bryant et al. 2016:\n\nEmergence and spread of a human-transmissible multidrug-resistant nontuberculous mycobacterium doi: DOI: 10.1126/science.aaf8156.",
+    "crumbs": [
+      "example reports"
+    ]
+  },
+  {
+    "objectID": "about.html",
+    "href": "about.html",
+    "title": "About",
+    "section": "",
+    "text": "About this site\n\n1 + 1\n\n[1] 2"
+  }
+]
