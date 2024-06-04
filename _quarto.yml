@@ -2,6 +2,9 @@ project:
   type: website
   output-dir: docs
 
+include-in-header:
+  - text: |
+     <link rel = "shortcut icon" href = "images/favicon.png" />
 
 website:
   title: "pathogensurveillance documentation"
