@@ -6,7 +6,7 @@ format:
     df-print: kable
 ---
 
-This example uses sequencing reads from an outbreak of *Xanthomonas hortorum* in several plant nurseries. For the sake of this example, we'll treat the pathogen as an unknown and use the pathogensurveillance pipeline to help determine its identity. We'll also explore how isolates from different nursery populations relate to each other and the reference sequences of other closely-related organisms. Finally, we'll see how a single grower released infected geranium cuttings, serving as a common basis for 18/27 strains infected. This information can be obtained from several plots that the pathogensurveillance pipeline generates automatically.
+This example uses sequencing reads from an outbreak of *Xanthomonas hortorum* in several plant nurseries. For the sake of this example, we'll treat the pathogen as an unknown and use the pathogensurveillance pipeline to help determine its identity. We'll also explore how isolates from different nursery populations relate to each other and the reference sequences of other closely-related organisms. This information can be obtained from several plots that the pathogensurveillance pipeline generates automatically.
 
 ### Sample input
 
@@ -41,7 +41,7 @@ nextflow run nf-core/pathogensurveillance --input [https://raw.githubusercontent
 
 -   When running your own analysis, you will need to provide your own path to the input CSV file.
 
--   By default, the pipeline will run on 128 GB of RAM and 16 threads. This is more resources than is strictly necessary and beyond the capacity of most desktop computers. We can scale this back a bit for this lightweight test run. This analysis will work with 8 threads and 30 GB of RAM (albeit more slowly), which is specified by the --max_cpus and --max_memory settings.
+-   By default, the pipeline will run on 128 GB of RAM and 16 threads. This is more resources than is strictly necessary and beyond the capacity of most desktop computers. We can scale this back a bit for this lightweight test run. This analysis will work with 8 cpus and 30 GB of RAM (albeit more slowly), which is specified by the --max_cpus and --max_memory settings.
 
 -   The setting `-resume` is only necessary when resuming a previous analysis. However, it doesn't hurt to include it at the start. If the pipeline were to be interrupted, this allows it to pick up where it left off as long as the previous command is executed from the same working directory.
 
