@@ -2,6 +2,7 @@ project:
   type: website
   output-dir: docs
 
+
 website:
   title: "pathogensurveillance documentation"
   sidebar:
@@ -10,13 +11,17 @@ website:
     contents:
       - href: index.qmd
         text: Home
-      - quickstart.qmd
-      - documentation.qmd
-      - tutorial.qmd
-      - examplereports.qmd
-      - citations.qmd
-
-
+      - href: quickstart.qmd
+        text: Quickstart
+      - href: documentation.qmd
+        text: Documentation
+      - href: tutorial.qmd
+        text: Tutorial
+      - href: examplereports.qmd
+        text: Example Reports
+      - href: citations.qmd
+        text: Citations
+      
 format:
   html:
     theme: cosmo

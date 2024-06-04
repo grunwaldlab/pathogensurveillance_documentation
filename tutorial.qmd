@@ -21,7 +21,7 @@ df = read.csv("data/xanthomonas.csv")
 df |> head()
 ```
 
-There is quite a bit of information in this file, but only a few columns are essential.
+There is quite a bit of information in this file, but only a few columns are essential. Note that columns can be in any order.
 
 -   Columns "shortread_1" and "shortread_2" specify the forward and reverse reads. Each row corresponds to one individual sample. These reads for this tutorial are hosted on the pathogensurveilance github repo. In this case, the sequences are paired-end illumina shortreads, but the pipeline will also work with mixed inputs of Pacbio or Oxford Nanopore. For your own analysis, you'll need to provide the path to each file in the in the "shortread_1/shortread_2" columns.
 
