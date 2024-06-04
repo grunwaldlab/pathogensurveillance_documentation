@@ -1,5 +1,5 @@
 ---
-title: "tutorial"
+title: "Tutorial"
 editor: visual
 format:
   html:
