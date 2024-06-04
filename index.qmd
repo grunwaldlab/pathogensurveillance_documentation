@@ -49,4 +49,4 @@ This ensures that the pipeline runs on AWS, has sensible resource allocation def
 
 ## Flowchart {#flowchart}
 
-![](images/pipeline_diagram.png)
+![](images/pipeline_diagram.png){width=700}

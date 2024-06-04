@@ -7,7 +7,7 @@ include-in-header:
      <link rel = "shortcut icon" href = "images/favicon.png" />
 
 website:
-  title: "pathogensurveillance documentation"
+  title: "Pathogen Surveillance Documentation"
   sidebar:
     style: "docked"
     search: true
