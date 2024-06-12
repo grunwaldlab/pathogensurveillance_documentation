@@ -5,10 +5,9 @@ project:
 include-in-header:
   - text: |
      <link rel = "shortcut icon" href = "images/favicon.png" />
-
 website:
-  title: "Pathogen Surveillance Documentation"
   sidebar:
+    title: "Pathogen Surveillance Documentation" 
     style: "docked"
     search: true
     contents:
