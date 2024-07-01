@@ -1,28 +1,45 @@
----
----
-![](images/logo.png){width=500}
+![](images/logo.png){width="600"}
 
- NOTE: THIS PROJECT IS UNDER DEVELOPMENT AND MAY NOT FUNCTION AS EXPECTED UNTIL THIS MESSAGE GOES AWAY
+NOTE: THIS PROJECT IS UNDER DEVELOPMENT AND MAY NOT FUNCTION AS EXPECTED UNTIL THIS MESSAGE GOES AWAY
 
 ## Introduction {#introduction}
 
-<!-- TODO nf-core: Write a 1-2 sentence summary of what data the pipeline is for and what it does -->
+**nf-core/pathogensurveillance** is a population genomic pipeline for pathogen diagnosis, variant detection, and biosurveillance. The pipeline accepts the paths to raw reads for one or more organisms (in the form of a CSV file) and creates reports in the form of interactive HTML reports or PDF documents. Significant features include the ability to analyze unidentified eukaryotic and prokaryotic samples, creation of reports for multiple user-defined groupings of samples, automated discovery and downloading of reference assemblies from NCBI RefSeq, and rapid initial identification based on k-mer sketches followed by a more robust core genome phylogeny and SNP-based phylogeny.
 
-**nf-core/pathogensurveillance** is a population genomic pipeline for pathogen diagnosis, variant detection, and biosurveillance.
-The pipeline accepts the paths to raw reads for one or more organisms (in the form of a CSV file) and creates reports in the form of interactive HTML reports or PDF documents.
-Significant features include the ability to analyze unidentified eukaryotic and prokaryotic samples, creation of reports for multiple user-defined groupings of samples, automated discovery and downloading of reference assemblies from NCBI RefSeq, and rapid initial identification based on k-mer sketches followed by a more robust core genome phylogeny and SNP-based phylogeny.
+## Background - why use pathogensurveilance? {#background}
 
-The pipeline is built using [Nextflow](https://www.nextflow.io), a workflow tool to run tasks across multiple compute infrastructures in a very portable manner.
-It uses Docker/Singularity containers making installation trivial and results highly reproducible.
-The [Nextflow DSL2](https://www.nextflow.io/docs/latest/dsl2.html) implementation of this pipeline uses one container per process which makes it much easier to maintain and update software dependencies.
-Where possible, these processes have been submitted to and installed from [nf-core/modules](https://github.com/nf-core/modules) in order to make them available to all nf-core pipelines, and to everyone within the Nextflow community!
+**TL;DR:** **unknown FASTQ -\> sample ID + phylogeny + publication-quality figures**
 
-<!-- TODO nf-core: Add full-sized test dataset and amend the paragraph below if applicable -->
+Most existing genomic tools are designed to be used with a reference genome. Unfortunately, this is a luxury in the pathogen diagnostic world, where researchers often are faced with unknown samples. This creates a conundrum: how can you draw a point of comparison without a starting point?
 
-On release, automated continuous integration tests run the pipeline on a full-sized dataset on the AWS cloud infrastructure.
-This ensures that the pipeline runs on AWS, has sensible resource allocation defaults set to run on real-world data sets, and permits the persistent storage of results to benchmark between pipeline releases and other analysis sources.The results obtained from the full-sized test can be viewed on the [nf-core website](https://nf-co.re/pathogensurveillance/results).
+Pathogensurveilance addresses this by **picking a good reference genome for you** through a process of k-mer sketching. In most cases, this will be the best reference. It is therefore a great option for identification of an unknown sample, or when you would like some empirical data suggesting which references are available in nearby species. Conversely, if you already have a good understanding of your system, you also have the ability to supply which reference genome should be used.
+
+Pathogensurveilance uses several strategies to address the emerging complexity of working with sequences that could anything from plants to bacteria to fungi. First, pathogensurveilance uses **reasonable baseline parameters** that work very well with most species. There are some processes where a one-size-fits-all strategy isn't feasible. In such cases, Pathogensurveilance will change the analysis workflow automatically (e.g. assembling Prokaryotic vs Eukaryotic core genes). These analysis branchpoints are facilitated by the Nextflow framework, and require no additional inputs from the user.
+
+While pathogensurveilance may be a useful tool for researchers of all levels, it was designed with clinicians in mind who may have limited bioinformatics training. **Pathogensurveilance is very simple to run**. At a minimum, all that needs to be supplied is a .CSV file with a single column specifying the path to your sample's sequencing reads. For more experienced users, there are opportunities to customize the parameters of the pipeline. In particular, the final report is designed for configuration through by nature of Quarto and the psminer plugin system.
+
+**Pathogensurveilance is particularly good for:**
+
+-   unknown sample identification
+-   exploratory population analysis using minimal input parameters
+-   inexperienced bioinformatics users
+-   efficient parallelization of tasks
+-   repeated analysis where you would like to compare a few new samples to a past run.
+
+**Pathogensurveilance is not designed for:**
+
+-   viral sequence
+-   non gDNA datasets (RNA-seq, RAD-seq, ChIP-seq, etc.)
+-   mixed/impure samples
+-   Researchers who want to use a highly configurable pipeline, or those who would like to extensively test the pipeline at each stage
+
+::: {.callout-note}
+Pathogensuveilance manages its many software dependancies through containers. The pipeline works with Linux machines and HPC clusters, but Singularity and Docker have **compatability issues with MacOS and Windows computers**. 
+:::
 
 ## Pipeline summary {#pipelinesummary}
+
+This is a quick breakdown of the processes used by pathogensurveilance:
 
 -   Download sequences and references if they are not provided locally
 -   Quickly obtain several initial sample references (`bbmap`)
@@ -49,4 +66,4 @@ This ensures that the pipeline runs on AWS, has sensible resource allocation def
 
 ## Flowchart {#flowchart}
 
-![](images/pipeline_diagram.png){width=700}
+![](images/pipeline_diagram.png){width="700"}

@@ -1,17 +1,14 @@
 ---
-title: "example reports"
+title: "Example Reports"
 editor: visual
 ---
 
-<a href="https://grunwaldlab.github.io/pathogensurveillance_documentation/xanthomonas" target="_blank">Xanthomonas</a>
+## Example 1 - xanthomonas
+<a href="https://grunwaldlab.github.io/pathogensurveillance_documentation/xanthomonas" target="_blank">example 1 report</a>
 
+>Iruegas-Bocardo, Fernanda, et al. "Whole genome sequencing-based tracing of a 2022 introduction and outbreak of Xanthomonas hortorum pv. pelargonii." Phytopathology® 113.6 (2023): 975-984.
 
-Data from Iruegas-Bocardo et al 2023:
+## Example 2 - mycobacterium 
+<a href="https://grunwaldlab.github.io/pathogensurveillance_documentation/mycobateroides_small" target="_blank">example 2 report</a>
 
-> **Whole Genome Sequencing-Based Tracing of a 2022 Introduction and Outbreak of Xanthomonas hortorum pv. pelargonii** doi: [10.1094/PHYTO-09-22-0321-R](https://doi.org/10.1094/phyto-09-22-0321-r).
-
-<a href="https://grunwaldlab.github.io/pathogensurveillance_documentation/mycobateroides_small" target="_blank">Mycobacteroides Small</a>
-
-Data from Bryant et al. 2016:
-
-> **Emergence and spread of a human-transmissible multidrug-resistant nontuberculous mycobacterium** doi: [DOI: 10.1126/science.aaf8156](https://doi.org/10.1126/science.aaf8156).
+> Bryant, Josephine M., et al. "Population-level genomics identifies the emergence and global spread of a human transmissible multidrug-resistant nontuberculous mycobacterium." Science (New York, NY) 354.6313 (2016): 751.

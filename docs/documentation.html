@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.4.553">
+<meta name="generator" content="quarto-1.3.433">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -45,13 +45,7 @@ ul.task-list li input[type="checkbox"] {
   "collapse-after": 3,
   "panel-placement": "start",
   "type": "textbox",
-  "limit": 50,
-  "keyboard-shortcut": [
-    "f",
-    "/",
-    "s"
-  ],
-  "show-item-context": false,
+  "limit": 20,
   "language": {
     "search-no-results-text": "No results",
     "search-matching-documents-text": "matching documents",
@@ -60,7 +54,6 @@ ul.task-list li input[type="checkbox"] {
     "search-more-match-text": "more match in this document",
     "search-more-matches-text": "more matches in this document",
     "search-clear-button-title": "Clear",
-    "search-text-placeholder": "",
     "search-detached-cancel-button-title": "Cancel",
     "search-submit-button-title": "Submit",
     "search-label": "Search"
@@ -78,12 +71,12 @@ ul.task-list li input[type="checkbox"] {
   <header id="quarto-header" class="headroom fixed-top">
   <nav class="quarto-secondary-nav">
     <div class="container-fluid d-flex">
-      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./documentation.html">Documentation</a></li></ol></nav>
-        <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
-        </a>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./documentation.html">Documentation</a></li></ol></nav>
+      <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+      </a>
       <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
         <i class="bi bi-search"></i>
       </button>
@@ -93,7 +86,7 @@ ul.task-list li input[type="checkbox"] {
 <!-- content -->
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
 <!-- sidebar -->
-  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto">
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal sidebar-navigation docked overflow-auto">
     <div class="pt-lg-2 mt-2 text-left sidebar-header">
     <div class="sidebar-title mb-0 py-0">
       <a href="./">Pathogen Surveillance Documentation</a> 
@@ -145,14 +138,18 @@ ul.task-list li input[type="checkbox"] {
     </ul>
     </div>
 </nav>
-<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         <nav id="TOC" role="doc-toc" class="toc-active">
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#input-format" id="toc-input-format" class="nav-link active" data-scroll-target="#input-format">Input format</a></li>
+  <li><a href="#input-format" id="toc-input-format" class="nav-link active" data-scroll-target="#input-format">Input format</a>
+  <ul class="collapse">
+  <li><a href="#primary-csv-file" id="toc-primary-csv-file" class="nav-link" data-scroll-target="#primary-csv-file">Primary CSV file</a></li>
+  <li><a href="#specifying-custom-references" id="toc-specifying-custom-references" class="nav-link" data-scroll-target="#specifying-custom-references">Specifying custom references</a></li>
+  </ul></li>
   <li><a href="#command-line-options" id="toc-command-line-options" class="nav-link" data-scroll-target="#command-line-options">Command-line options</a></li>
   <li><a href="#benchmarks" id="toc-benchmarks" class="nav-link" data-scroll-target="#benchmarks">Benchmarks</a></li>
   </ul>
@@ -176,38 +173,56 @@ ul.task-list li input[type="checkbox"] {
   </div>
   
 
-
 </header>
 
-
-<p>The nf-core/pathogensurveillance pipeline comes with documentation about the pipeline <a href="https://nf-co.re/pathogensurveillance/usage">usage</a>, <a href="https://nf-co.re/pathogensurveillance/parameters">parameters</a> and <a href="https://nf-co.re/pathogensurveillance/output">output</a>.</p>
-<section id="input-format" class="level3">
-<h3 class="anchored" data-anchor-id="input-format">Input format</h3>
+<section id="input-format" class="level2">
+<h2 class="anchored" data-anchor-id="input-format">Input format</h2>
+<section id="primary-csv-file" class="level3">
+<h3 class="anchored" data-anchor-id="primary-csv-file">Primary CSV file</h3>
 <p>The primary input to the pipeline is a CSV (comma comma-separated value). Columns can be in any order and unneeded columns can be left out or left blank. Only a single column containing paths to raw sequence data or SRA (Sequence Read Archive) accessions is required and each sample can have values in different columns. Any columns not recognized by <code>pathogensurveillance</code> will be ignored, allowing users to adapt existing sample metadata table by adding new columns. Below is a description of each column used by <code>pathogensurveillance</code>:</p>
 <ul>
-<li><strong>sample_id</strong>: The unique identifier for each sample. This will be used in file names to distinguish samples in the output. Each sample ID must correspond to a single set of sequence data (The <code>shortread_*</code>, <code>nanopore</code>, and <code>sra</code> columns), although the same sequence data can be used by multiple different IDs. Any values that correspond to multiple different sets of sequence data or contain characters that cannot appear in file names (/:*?“&lt;&gt;| .) will be modified automatically. If not supplied, it will be inferred from the names of input data.</li>
-<li><strong>sample_name</strong>: A human-readable label for the sample that is used in plots and tables. If not supplied, it will be inferred from the names of <code>sample_id</code>.</li>
-<li><strong>shortread_1</strong>: Path to short read FASTQs like that produced by Illumina. When paired end sequencing is used, this is used for the forward read’s data. This can be a local file path or a URL to an online location.</li>
-<li><strong>shortread_2</strong>: Path to short read FASTQs like that produced by Illumina. This is used for the reverse read’s data when paired-end sequencing is used. This can be a local file path or a URL to an online location.</li>
-<li><strong>nanopore</strong>: Path to nanopore FASTQs. This can be a local file path or a URL to an online location.</li>
-<li><strong>pacbio</strong>: Path to pacbio FASTQs. This can be a local file path or a URL to an online location.</li>
-<li><strong>sra</strong>: Sequence Read Archive (SRA) accession numbers. These will be automatically downloaded and used as input.</li>
-<li><strong>reference_id</strong>: The unique identifier for each user-defined reference genome. This will be used in file names to distinguish samples in the output. Each reference ID must correspond to a single set of reference data (The <code>reference</code> and <code>reference_refseq</code> columns), although the same reference data can be used by multiple different IDs. Any values that correspond to multiple different sets of reference data or contain characters that cannot appear in file names (/:*?“&lt;&gt;| .) will be modified automatically. If not supplied, it will be inferred from the names of reference genomes.</li>
-<li><strong>reference_name</strong>: A human-readable label for user-defined reference genomes that is used in plots and tables. If not supplied, it will be inferred from the names of reference_id.</li>
-<li><strong>reference</strong>: Path to user-defined reference genomes for each sample. This can be a local file path or a URL to an online location.</li>
-<li><strong>reference_refseq</strong>: RefSeq accession ID for a user-defined reference genome. These will be automatically downloaded and used as input.</li>
-<li><strong>report_group</strong>: How to group samples into reports. For every unique value in this column a report will be generated. Samples can be assigned to multiple reports by separating group IDs by <code>;</code>. For example <code>all;subset</code> will put the sample in both <code>all</code> and <code>subset</code> report groups. If not included, all samples will be</li>
-<li><strong>color_by</strong>: The names of user-specific columns (not usually any of the ones described here) containing variables to base the color of some plots by (e.g.&nbsp;the minimum spanning network). If not included, plots will not be colored.</li>
+<li><strong>sample_id</strong>: The unique identifier for each sample. This will be used in file names to distinguish samples in the output. Each sample ID must correspond to a single source of sequence data (e.g.&nbsp;the <code>path</code> and <code>ncbi_accession</code> columns), although the same sequence data can be used by different IDs. Any values supplied that correspond to different sources of sequence data or contain characters that cannot appear in file names (/:*?“&lt;&gt;| .) will be modified automatically. If not supplied, it will be inferred from the <code>path</code>, <code>ncbi_accession</code>, or <code>name</code> columns.</li>
+<li><strong>name</strong>: A human-readable label for the sample that is used in plots and tables. If not supplied, it will be inferred from <code>sample_id</code>.</li>
+<li><strong>path</strong>: Path to input sequence data, typically gzipped FASTQ files. When paired end sequencing is used, this is used for the forward read’s data and <code>path_2</code> is used for the reverse reads. This can be a local file path or a URL to an online location. The <code>sequence_type</code> column must have a value.</li>
+<li><strong>path_2</strong>: Path to the FASTQ files for the reverse read when paired-end sequencing is used. This can be a local file path or a URL to an online location. The <code>sequence_type</code> column must have a value.</li>
+<li><strong>ncbi_accession</strong>: An SRA accession ID for reads to be downloaded and used as samples. Values in the <code>sequence_type</code> column will be looked up if not supplied.</li>
+<li><strong>ncbi_query</strong>: A valid NCBI search query to search the SRA for reads to download and use as samples. This will result in an unknown number of samples being analyzed. The total number downloaded is limited by the <code>ncbi_query_max</code> column. Values in the <code>sample_id</code>, <code>name</code>, and <code>description</code> columns will be append to that supplied by the user. Values in the <code>sequence_type</code> column will be looked up and does not need to be supplied by the user.</li>
+<li><strong>ncbi_query_max</strong>: The maximum number or percentage of samples downloaded for the corresponding query in the <code>ncbi_query</code> column. Adding a <code>%</code> to the end of a number indicates a percentage of the total number of results instead of a count. A random of subset of results will be downloaded if <code>ncbi_query_max</code> is less than “100%” or the total number of results.</li>
+<li><strong>sequence_type</strong>: The type of sequencing used to produce reads for the <code>reads_1</code> and <code>reads_2</code> columns. Valid values include anything containing the words “illumina”, “nanopore”, or “pacbio”. Will be looked up automatically for <code>ncbi_accession</code> and <code>ncbi_query</code> inputs but must be supplied by the user for <code>path</code> inputs.</li>
+<li><strong>report_group_ids</strong>: How to group samples into reports. For every unique value in this column a report will be generated. Samples can be assigned to multiple reports by separating group IDs by “;”. For example <code>all;subset</code> will put the sample in both <code>all</code> and <code>subset</code> report groups. Samples will be added to a default group if this is not supplied.</li>
+<li><strong>color_by</strong>: The names of other columns that contain values used to color samples in plots and figures in the report. Multiple column names can be separated by “;”. Specified columns can contain either categorical factors or specific colors, specified as a hex code. By default, samples will be one color and references another.</li>
+<li><strong>ploidy</strong>: The ploidy of the sample. Should be a number. Defaults to “1”.</li>
+<li><strong>enabled</strong>: Either “TRUE” or “FALSE”, indicating whether the sample should be included in the analysis or not. Defaults to “TRUE”.</li>
+<li><strong>ref_group_ids</strong>: One or more reference group IDs separated by “;”. These are used to supply specific references to specific samples. These IDs correspond to IDs listed in the <code>ref_group_ids</code> or <code>ref_id</code> columns of the reference metadata CSV.</li>
 </ul>
 </section>
-<section id="command-line-options" class="level3">
-<h3 class="anchored" data-anchor-id="command-line-options">Command-line options</h3>
+<section id="specifying-custom-references" class="level3">
+<h3 class="anchored" data-anchor-id="specifying-custom-references">Specifying custom references</h3>
+<p>Additionally, users can supply a reference metadata CSV that can be used to assign custom references to particular samples. This is an optional step References are assigned to samples if they share a reference group ID in the <code>ref_group_ids</code> columns that can appear in both input CSVs. The reference metadata CSV can have the following columns:</p>
+<ul>
+<li><strong>ref_group_ids</strong>: One or more reference group IDs separated by “;”. These are used to group references and supply an ID that can be used in the <code>ref_group_ids</code> column of the sample metadata CSV to assign references to particular samples.</li>
+<li><strong>ref_id</strong>: The unique identifier for each user-defined reference genome. This will be used in file names to distinguish samples in the output. Each reference ID must correspond to a single source of reference data (The <code>ref_path</code>, <code>ref_ncbi_accession</code>, and <code>ref_ncbi_query</code> columns), although the same reference data can be used by multiple IDs. Any values that correspond to different sources of reference data or contain characters that cannot appear in file names (/:*?“&lt;&gt;| .) will be modified automatically. If not supplied, it will be inferred from the <code>path</code>, <code>ref_name</code> columns or supplied automatically when <code>ref_ncbi_accession</code> or <code>ref_ncbi_query</code> are used.</li>
+<li><strong>ref_name</strong>: A human-readable label for user-defined reference genomes that is used in plots and tables. If not supplied, it will be inferred from <code>ref_id</code>. It will be supplied automatically when the <code>ref_ncbi_query</code> column is used.</li>
+<li><strong>ref_description</strong>: A longer human-readable label for user-defined reference genomes that is used in plots and tables. If not supplied, it will be inferred from <code>ref_name</code>. It will be supplied automatically when the <code>ref_ncbi_query</code> column is used.</li>
+<li><strong>ref_path</strong>: Path to user-defined reference genomes for each sample. This can be a local file path or a URL to an online location.</li>
+<li><strong>ref_ncbi_accession</strong>: RefSeq accession ID for a user-defined reference genome. These will be automatically downloaded and used as input.</li>
+<li><strong>ref_ncbi_query</strong>: A valid NCBI search query to search the assembly database for genomes to download and use as references. This will result in an unknown number of references being downloaded. The total number downloaded is limited by the <code>ref_ncbi_query_max</code> column. Values in the <code>ref_id</code>, <code>ref_name</code>, and <code>ref_description</code> columns will be append to that supplied by the user.</li>
+<li><strong>ref_ncbi_query_max</strong>: The maximum number or percentage of references downloaded for the corresponding query in the <code>ref_ncbi_query</code> column. Adding a <code>%</code> to the end of a number indicates a percentage of the total number of results instead of a count. A random of subset of results will be downloaded if <code>ncbi_query_max</code> is less than “100%” or the total number of results.</li>
+<li><strong>ref_primary_usage</strong>: Controls how the reference is used in the analysis in cases where a single “best” reference is required, such as for variant calling. Can be one of “optional” (can be used if selected by the analysis), “required” (will always be used), “exclusive” (only those marked “exclusive” will be used), or “excluded” (will not be used).</li>
+<li><strong>ref_contextual_usage</strong>: Controls how the reference is used in the analysis in cases where multiple references are required to provide context for the samples, such as for phylogeny. Can be one of “optional” (can be used if selected by the analysis), “required” (will always be used), “exclusive” (only those marked “exclusive” will be used), or “excluded” (will not be used).</li>
+<li><strong>ref_color_by</strong>: The names of other columns that contain values used to color references in plots and figures in the report. Multiple column names can be separated by “;”. Specified columns can contain either categorical factors or specific colors, specified as a hex code. By default, samples will be one color and references another.</li>
+<li><strong>ref_enabled</strong>: Either “TRUE” or “FALSE”, indicating whether the reference should be included in the analysis or not. Defaults to “TRUE”.</li>
+</ul>
+</section>
+</section>
+<section id="command-line-options" class="level2">
+<h2 class="anchored" data-anchor-id="command-line-options">Command-line options</h2>
 <p><strong>Required:</strong></p>
 <ul>
-<li><p><strong>–input:</strong> Path to comma-separated file containing information about the samples in the experiment.</p></li>
-<li><p><strong>–output:</strong> The output directory where the results will be saved. You have to use absolute paths to storage on Cloud infrastructure.</p></li>
-<li><p><strong>–bakta_db:</strong> The path to the Bakta database folder. This or <code>--download_bakta_db</code> must be included.</p></li>
-<li><p><strong>–download_bakta_db:</strong> Download the database required for running Bakta. Note that this will download gigabytes of information, so if you plan on running the pipeline repeatedly it would be better to download the database manually and specify the path with <code>--bakta_db</code></p></li>
+<li><strong>--input:</strong> Path to comma-separated file containing information about the samples in the experiment.</li>
+<li><strong>--output:</strong> The output directory where the results will be saved. You have to use absolute paths to storage on Cloud infrastructure.</li>
+<li><strong>--bakta_db:</strong> The path to the Bakta database folder. This or <code>\-\-download_bakta_db</code> must be included.</li>
+<li><strong>--download_bakta_db:</strong> Download the database required for running Bakta. Note that this will download gigabytes of information, so if you plan on running the pipeline repeatedly it would be better to download the database manually and specify the path with <code>\-\-bakta_db</code>.</li>
 </ul>
 <p><strong>Nextflow Options:</strong></p>
 <ul>
@@ -216,47 +231,48 @@ ul.task-list li input[type="checkbox"] {
 </ul>
 <p><strong>Optional:</strong></p>
 <ul>
-<li><p><strong>–email:</strong> Set this parameter to your e-mail address to get a summary e-mail with details of the run sent to you when the workflow exits. If set in your user config file (`~/.nextflow/config`) then you don’t need to specify this on the command line for every run.</p></li>
-<li><p><strong>–multiqc_title:</strong> MultiQC report title. Printed as page header, used for filename if not otherwise specified.</p></li>
+<li><strong>--email:</strong> Set this parameter to your e-mail address to get a summary e-mail with details of the run sent to you when the workflow exits. If set in your user config file (`~/.nextflow/config`) then you don’t need to specify this on the command line for every run.</li>
+<li><strong>--multiqc_title:</strong> MultiQC report title. Printed as page header, used for filename if not otherwise specified.</li>
 </ul>
 <p><strong>Performance Parameters:</strong></p>
 <ul>
-<li><p><strong>–max_cpus:</strong> Maximum number of CPUs that can be requested for any single job. Default: <code>16</code></p></li>
-<li><p><strong>–max_memory:</strong> Maximum amount of memory that can be requested for any single job. Default: <code>128.GB</code></p></li>
-<li><p><strong>–max_time:</strong> Maximum amount of time that can be requested for any single job. Default: <code>240.h</code></p></li>
+<li><strong>--max_cpus:</strong> Maximum number of CPUs that can be requested for any single job. Default: <code>16</code></li>
+<li><strong>--max_memory:</strong> Maximum amount of memory that can be requested for any single job. Default: <code>128.GB</code></li>
+<li><strong>--max_time:</strong> Maximum amount of time that can be requested for any single job. Default: <code>240.h</code></li>
 </ul>
 <p><strong>Analysis Parameters:</strong></p>
 <ul>
-<li><p><strong>–sketch_max_depth:</strong> Depth reads are subsampled to for the initial sketch-based identification. Default: <code>3</code></p></li>
-<li><p><strong>–variant_max_depth:</strong> Depth reads are subsampled to for the variant-based parts of the analysis. Default: <code>15</code></p></li>
-<li><p><strong>–assembly_max_depth:</strong> Depth reads are subsampled to for genome assembly. This will be multiplied by the predicted ploidy of each sample. Default: <code>30</code></p></li>
-<li><p><strong>–refseq_download_num:</strong> The maximum number of RefSeq sequences to select and download for each sample at each taxonomic level (species, genus, and family). The total number will vary based on the diversity of samples. Default: <code>10</code></p></li>
-<li><p><strong>–min_core_genes:</strong> The minimum number of genes needed to conduct a core gene phylogeny. Samples and references will be removed (as allowed by the <code>min_core_samps</code> and <code>min_core_refs</code> options) until this minimum is met. Default: <code>10</code></p></li>
-<li><p><strong>–min_core_samps:</strong> The minimum proportion of samples needed to conduct a core gene phylogeny. Samples will be removed until the <code>min_core_genes</code> option is satisfied or this minimum is met. Default: <code>0.8</code></p></li>
-<li><p><strong>–min_core_refs:</strong> The minimum proportion of references needed to conduct a core gene phylogeny. References will be removed until the <code>min_core_genes</code> option is satisfied or this minimum is met. Default: <code>0.5</code></p></li>
-<li><p><strong>–max_core_genes:</strong> The maximum number of genes used to conduct a core gene phylogeny. Default: <code>100</code></p></li>
-<li><p><strong>–min_ref_ani:</strong> The minimum ANI between a sample and potential reference for that reference to be used for variant calling with that sample. To force all the samples in a report group to use the same reference, set this value very low. Default: <code>0.9</code></p></li>
-<li><p><strong>–copymode:</strong> Storage management setting to determine which files will be copied from the cache into the output directory.</p>
+<li><strong>--sketch_max_depth:</strong> Depth reads are subsampled to for the initial sketch-based identification. Default: <code>3</code></li>
+<li><strong>--variant_max_depth:</strong> Depth reads are subsampled to for the variant-based parts of the analysis. Default: <code>15</code></li>
+<li><strong>--assembly_max_depth:</strong> Depth reads are subsampled to for genome assembly. This will be multiplied by the predicted ploidy of each sample. Default: <code>30</code></li>
+<li><strong>--refseq_download_num:</strong> The maximum number of RefSeq sequences to select and download for each sample at each taxonomic level (species, genus, and family). The total number will vary based on the diversity of samples. Default: <code>10</code></li>
+<li><strong>--min_core_genes:</strong> The minimum number of genes needed to conduct a core gene phylogeny. Samples and references will be removed (as allowed by the <code>min_core_samps</code> and <code>min_core_refs</code> options) until this minimum is met. Default: <code>10</code></li>
+<li><strong>--min_core_samps:</strong> The minimum proportion of samples needed to conduct a core gene phylogeny. Samples will be removed until the <code>min_core_genes</code> option is satisfied or this minimum is met. Default: <code>0.8</code></li>
+<li><strong>--min_core_refs:</strong> The minimum proportion of references needed to conduct a core gene phylogeny. References will be removed until the <code>min_core_genes</code> option is satisfied or this minimum is met. Default: <code>0.5</code></li>
+<li><strong>--max_core_genes:</strong> The maximum number of genes used to conduct a core gene phylogeny. Default: <code>100</code></li>
+<li><strong>--min_ref_ani:</strong> The minimum ANI between a sample and potential reference for that reference to be used for variant calling with that sample. To force all the samples in a report group to use the same reference, set this value very low. Default: <code>0.9</code></li>
+<li><strong>--copymode:</strong> Storage management setting to determine which files will be copied from the cache into the output directory.
 <ul>
-<li><p><code>high</code> - All files are copied into output directory.</p></li>
-<li><p><code>medium</code> - Reports are copied. Large sequencing files are not copied, but they are accessible through symlinks to their location in the cache (default).</p></li>
-<li><p><code>low</code> - No files are copied into output directory, but files are accessible through symlinks to their location in the cache.</p></li>
+<li><code>high</code> - All files are copied into output directory.</li>
+<li><code>medium</code> - Reports are copied. Large sequencing files are not copied, but they are accessible through symlinks to their location in the cache (default).</li>
+<li><code>low</code> - No files are copied into output directory, but files are accessible through symlinks to their location in the cache.</li>
 </ul></li>
 </ul>
 </section>
 <section id="benchmarks" class="level2">
 <h2 class="anchored" data-anchor-id="benchmarks">Benchmarks</h2>
-<p><strong>xanthomonas.csv</strong> (with all reads + Bakta database already downloaded)</p>
+<p><strong>xanthomonas.csv</strong></p>
+<p>(with all reads + Bakta database already downloaded):</p>
 <ul>
-<li><p>29 samples</p></li>
-<li><p>Run duration: 2h 16m 7s</p></li>
-<li><p>Storage:</p>
+<li>29 samples</li>
+<li>Run duration: 2h 16m 7s</li>
+<li>Storage:
 <ul>
 <li>local reads folder: 11 GB</li>
 <li>cache: 75 GB</li>
 <li>output directory: 19 MB</li>
 </ul></li>
-<li><p>hardware specs:</p>
+<li>hardware specs:
 <ul>
 <li>OS: Pop!_OS 22.04LTS</li>
 <li>Processor: 5.7 GHz Ryzen 9 7950X (16 cores - 32 threads)</li>
@@ -347,27 +363,10 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     // clear code selection
     e.clearSelection();
   });
-    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
-    var mailtoRegex = new RegExp(/^mailto:/);
-      var filterRegex = new RegExp('/' + window.location.host + '/');
-    var isInternal = (href) => {
-        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
-    }
-    // Inspect non-navigation links and adorn them if external
- 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool)');
-    for (var i=0; i<links.length; i++) {
-      const link = links[i];
-      if (!isInternal(link.href)) {
-        // undo the damage that might have been done by quarto-nav.js in the case of
-        // links that we want to consider external
-        if (link.dataset.originalHref !== undefined) {
-          link.href = link.dataset.originalHref;
-        }
-      }
-    }
-  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+  function tippyHover(el, contentFn) {
     const config = {
       allowHTML: true,
+      content: contentFn,
       maxWidth: 500,
       delay: 100,
       arrow: false,
@@ -377,17 +376,8 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       interactive: true,
       interactiveBorder: 10,
       theme: 'quarto',
-      placement: 'bottom-start',
+      placement: 'bottom-start'
     };
-    if (contentFn) {
-      config.content = contentFn;
-    }
-    if (onTriggerFn) {
-      config.onTrigger = onTriggerFn;
-    }
-    if (onUntriggerFn) {
-      config.onUntrigger = onUntriggerFn;
-    }
     window.tippy(el, config); 
   }
   const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
@@ -399,130 +389,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       try { href = new URL(href).hash; } catch {}
       const id = href.replace(/^#\/?/, "");
       const note = window.document.getElementById(id);
-      if (note) {
-        return note.innerHTML;
-      } else {
-        return "";
-      }
-    });
-  }
-  const xrefs = window.document.querySelectorAll('a.quarto-xref');
-  const processXRef = (id, note) => {
-    // Strip column container classes
-    const stripColumnClz = (el) => {
-      el.classList.remove("page-full", "page-columns");
-      if (el.children) {
-        for (const child of el.children) {
-          stripColumnClz(child);
-        }
-      }
-    }
-    stripColumnClz(note)
-    if (id === null || id.startsWith('sec-')) {
-      // Special case sections, only their first couple elements
-      const container = document.createElement("div");
-      if (note.children && note.children.length > 2) {
-        container.appendChild(note.children[0].cloneNode(true));
-        for (let i = 1; i < note.children.length; i++) {
-          const child = note.children[i];
-          if (child.tagName === "P" && child.innerText === "") {
-            continue;
-          } else {
-            container.appendChild(child.cloneNode(true));
-            break;
-          }
-        }
-        if (window.Quarto?.typesetMath) {
-          window.Quarto.typesetMath(container);
-        }
-        return container.innerHTML
-      } else {
-        if (window.Quarto?.typesetMath) {
-          window.Quarto.typesetMath(note);
-        }
-        return note.innerHTML;
-      }
-    } else {
-      // Remove any anchor links if they are present
-      const anchorLink = note.querySelector('a.anchorjs-link');
-      if (anchorLink) {
-        anchorLink.remove();
-      }
-      if (window.Quarto?.typesetMath) {
-        window.Quarto.typesetMath(note);
-      }
-      // TODO in 1.5, we should make sure this works without a callout special case
-      if (note.classList.contains("callout")) {
-        return note.outerHTML;
-      } else {
-        return note.innerHTML;
-      }
-    }
-  }
-  for (var i=0; i<xrefs.length; i++) {
-    const xref = xrefs[i];
-    tippyHover(xref, undefined, function(instance) {
-      instance.disable();
-      let url = xref.getAttribute('href');
-      let hash = undefined; 
-      if (url.startsWith('#')) {
-        hash = url;
-      } else {
-        try { hash = new URL(url).hash; } catch {}
-      }
-      if (hash) {
-        const id = hash.replace(/^#\/?/, "");
-        const note = window.document.getElementById(id);
-        if (note !== null) {
-          try {
-            const html = processXRef(id, note.cloneNode(true));
-            instance.setContent(html);
-          } finally {
-            instance.enable();
-            instance.show();
-          }
-        } else {
-          // See if we can fetch this
-          fetch(url.split('#')[0])
-          .then(res => res.text())
-          .then(html => {
-            const parser = new DOMParser();
-            const htmlDoc = parser.parseFromString(html, "text/html");
-            const note = htmlDoc.getElementById(id);
-            if (note !== null) {
-              const html = processXRef(id, note);
-              instance.setContent(html);
-            } 
-          }).finally(() => {
-            instance.enable();
-            instance.show();
-          });
-        }
-      } else {
-        // See if we can fetch a full url (with no hash to target)
-        // This is a special case and we should probably do some content thinning / targeting
-        fetch(url)
-        .then(res => res.text())
-        .then(html => {
-          const parser = new DOMParser();
-          const htmlDoc = parser.parseFromString(html, "text/html");
-          const note = htmlDoc.querySelector('main.content');
-          if (note !== null) {
-            // This should only happen for chapter cross references
-            // (since there is no id in the URL)
-            // remove the first header
-            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
-              note.children[0].remove();
-            }
-            const html = processXRef(null, note);
-            instance.setContent(html);
-          } 
-        }).finally(() => {
-          instance.enable();
-          instance.show();
-        });
-      }
-    }, function(instance) {
+      return note.innerHTML;
     });
   }
       let selectedAnnoteEl;
@@ -566,7 +433,6 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
             }
             div.style.top = top - 2 + "px";
             div.style.height = height + 4 + "px";
-            div.style.left = 0;
             let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
             if (gutterDiv === null) {
               gutterDiv = window.document.createElement("div");
@@ -592,32 +458,6 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
         });
         selectedAnnoteEl = undefined;
       };
-        // Handle positioning of the toggle
-    window.addEventListener(
-      "resize",
-      throttle(() => {
-        elRect = undefined;
-        if (selectedAnnoteEl) {
-          selectCodeLines(selectedAnnoteEl);
-        }
-      }, 10)
-    );
-    function throttle(fn, ms) {
-    let throttle = false;
-    let timer;
-      return (...args) => {
-        if(!throttle) { // first call gets through
-            fn.apply(this, args);
-            throttle = true;
-        } else { // all the others get throttled
-            if(timer) clearTimeout(timer); // cancel #2
-            timer = setTimeout(() => {
-              fn.apply(this, args);
-              timer = throttle = false;
-            }, ms);
-        }
-      };
-    }
       // Attach click handler to the DT
       const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
       for (const annoteDlNode of annoteDls) {
@@ -678,7 +518,6 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 });
 </script>
 </div> <!-- /content -->
-
 
 
 

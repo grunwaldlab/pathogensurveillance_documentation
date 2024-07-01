@@ -1,0 +1,4 @@
+"sample_id","sample_name","shortread_1","shortread_2","nanopore","pacbio","sra","reference_id","reference_name","reference","reference_refseq","report_group","color_by","__user_sra","__user_reference_refseq"
+"SRR12574846","SRR12574846","","","","","SRR12574846","GCF_017189435_1","GCF_017189435.1","","GCF_017189435.1","all","","SRR12574846","GCF_017189435.1"
+"SRR12574847","SRR12574847","","","","","SRR12574847","GCF_017189435_1","GCF_017189435.1","","GCF_017189435.1","all","","SRR12574847","GCF_017189435.1"
+"SRR12574848","SRR12574848","","","","","SRR12574848","GCF_017189435_1","GCF_017189435.1","","GCF_017189435.1","all","","SRR12574848","GCF_017189435.1"
