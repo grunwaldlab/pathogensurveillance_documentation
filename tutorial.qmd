@@ -8,109 +8,9 @@ params:
   inputs: "tutorial_data/all_inputs"
 ---
 
-```{r load_libraries, warning=FALSE, message=FALSE}
-#| echo: false
-library(dplyr)
-library(ggplot2)
-library(readr)
-library(knitr)
-library(purrr)
-library(yaml)
-library(phylocanvas)
-library(ape)
-library(magrittr)
-library(pheatmap)
-library(heatmaply)
-library(tidyverse)
-library(palmerpenguins)
-library(ade4)
-library(adegenet)
-library(poppr)
-library(ggtree)
-library(igraph)
-library(visNetwork)
-library(phangorn)
-library(ggplot2)
-library(ggnewscale)
-library(kableExtra)
-library(plotly)
-library(webshot2)
-library(metacoder)
-library(ggdendro)
-library(rcrossref)
-library(psminer)
-```
+## Example 1: Standard Run
 
-```{r parse_inputs}
-#| echo: false
-#| output: false
-group_path <- file.path(params$inputs, "group_id.txt")
-sample_data_path <- file.path(params$inputs, "samp_data.csv")
-ref_data_path <- file.path(params$inputs, "ref_data")
-assigned_refs_path <- file.path(params$inputs, "assigned_refs.csv")
-
-group <- read_lines(group_path)
-sample_data <- psminer::parse_sample_meta(sample_data_path, assigned_refs_path, group)
-ref_data <- psminer::parse_ref_meta(ref_data_path, assigned_refs_path, sample_data_path, group)
-
-# Parse sendsketch data
-sendsketch_paths <- list.files(file.path(params$inputs, "sendsketch"), full.names = T)
-sketch_data <- psminer::parse_sendsketch(sendsketch_paths)
-
-# Parse variant data
-variant_data_path <- file.path(params$inputs, "variant_data")
-snp_tree_paths <- list.files(variant_data_path, pattern = "\\.treefile$", full.names = TRUE)
-vcf_paths <- list.files(variant_data_path, pattern = "\\.vcf\\.gz$", full.names = TRUE)
-snp_align_paths <- list.files(variant_data_path, pattern = "\\.fasta$", full.names = TRUE)
-
-# Parse ANI matrix
-ani_matrix_path <- file.path(params$inputs, "ani_matrix.csv")
-ani_matrix <- psminer::parse_ani_matrix(ani_matrix_path)
-
-# Parse POCP matrix
-pocp_matrix_path <- file.path(params$inputs, "pocp.tsv")
-pocp_matrix <- psminer::parse_pocp_matrix(pocp_matrix_path)
-
-# Parse core gene phylogeny
-core_phylo_dir_path <- file.path(params$inputs, "core_phylo")
-core_phylo_paths <- list.files(core_phylo_dir_path, pattern = "\\.treefile$", full.names = TRUE)
-
-# Parse quality control data (currently not used)
-multiqc_path <- file.path(params$inputs, "multiqc")
-multiqc_report_path <- file.path(multiqc_path, 'multiqc_report.html')
-quast_path <- file.path(params$inputs, "quast")
-quast_ref_names <- list.files(quast_path)
-quast_report_paths <- file.path(quast_path, quast_ref_names, 'report.html')
-
-# Parse messages
-messages_path <- file.path(params$inputs, "messages.tsv")
-messages <- readr::read_tsv(messages_path)
-
-# Parse version data
-version_path <- file.path(params$inputs, "versions.yml")
-version_data <- psminer::parse_software_meta(version_path)
-
-```
-
-```{r parse_snp_align}
-#| echo: false
-#| output: false
-snp_alignments <- parse_alignment_fastas(snp_align_paths, group)
-n_variants <- unlist(lapply(snp_alignments, ncol))
-snp_ref_names <- unlist(lapply(names(snp_alignments), function(id) ref_data$reference_name[! is.na(ref_data$reference_name) & ref_data$reference_id == id]))
-names(snp_ref_names) <- names(snp_alignments)
-```
-
-```{r parse_snp_trees}
-#| echo: false
-#| output: false
-snp_trees <- parse_snp_trees(snp_tree_paths, group)
-n_samples <- unlist(lapply(snp_trees, function(tree) length(tree$tip.label) - 1))
-
-```
-
-This example uses sequencing reads from an outbreak of *Xanthomonas hortorum* in several plant nurseries. For the sake of this example, we'll treat the pathogen as an unknown and use the pathogensurveillance pipeline to help determine its identity. We'll also explore how isolates from different nursery populations relate to each other and the reference sequences of other closely-related organisms. This information can be obtained from several plots that the pathogensurveillance pipeline generates automatically.
-<br/><br/>
+This example uses sequencing reads from an outbreak of *Xanthomonas hortorum* in several plant nurseries. We'll be treating the pathogen as an unknown and using the pathogensurveillance pipeline to determine what we know already (that these samples come from *Xanthomonas hortorum*). We'll also explore how isolates from different nursery populations relate to each other and the reference sequences of other closely-related organisms. This information can be obtained from several plots that the pathogensurveillance pipeline generates automatically. <br/><br/>
 
 ### Sample input
 
@@ -133,8 +33,7 @@ There is quite a bit of information in this file, but only a few columns are ess
 
 **Specifying a reference genome (optional)**: The "reference_refseq" column may be useful when you are relatively confident as to the identity of your samples and would like to include one particular reference for comparison. See Documentation for an in-depth explanation of how to designate mandatory and optional references.
 
-**Assigning sample groups (optional)**: The optional column "color_by" is used for data visualization. It will assign one or more columns to serve as grouping factors for the output report. Here, samples will be grouped by the values of the "year" and "nursery" columns. Note that multiple factors need to be separated by semicolons within the color_by column.
-<br/><br/>
+**Assigning sample groups (optional)**: The optional column "color_by" is used for data visualization. It will assign one or more columns to serve as grouping factors for the output report. Here, samples will be grouped by the values of the "year" and "nursery" columns. Note that multiple factors need to be separated by semicolons within the color_by column. <br/><br/>
 
 ### Running the pipeline
 
@@ -154,20 +53,14 @@ If the pipeline begins successfully, you should see a screen tracking your progr
 
 ``` bash
 [25/63dcee] process > PATHOGENSURVEILLANCE:INPUT_CHECK:SAMPLESHEET_CHECK (xanthomonas.csv)[100%] 1 of 1
-
 [-        ] process > PATHOGENSURVEILLANCE:SRATOOLS_FASTERQDUMP                              -
-
 [-        ] process > PATHOGENSURVEILLANCE:DOWNLOAD_ASSEMBLIES                               -
-
 [-        ] process > PATHOGENSURVEILLANCE:SEQKIT_SLIDING                                    -
-
 [-        ] process > PATHOGENSURVEILLANCE:FASTQC                                            -
-
 [-        ] process > PATHOGENSURVEILLANCE:COARSE_SAMPLE_TAXONOMY:BBMAP_SENDSKETCH           -
 ```
 
-The input and output of each process can be accessed from the work/ directory. The subdirectory within work/ is designated by the string to left of each step. Note that this location will be different each time the pipeline is run, and only the first part of the name of the subdirectory is shown. For this run, we could navigate to `work/25/63dcee(etc)` to access the input csv that is used for the next step.
-<br/><br/>
+The input and output of each process can be accessed from the work/ directory. The subdirectory within work/ is designated by the string to left of each step. Note that this location will be different each time the pipeline is run, and only the first part of the name of the subdirectory is shown. For this run, we could navigate to `work/25/63dcee(etc)` to access the input csv that is used for the next step. <br/><br/>
 
 ### Report
 
@@ -189,14 +82,17 @@ The final report can be viewed as either a .pdf or .html file. It can be accesse
 
 A note on storage management - pathogensurveillance creates a large number of intermediate files. For most users we recommend clearing these files after each run. To do so, run the script shown after the completion message (nextflow clean <your_run_name> -f). You would not want to do this if: (1) You still need to use the caching system. For example, imagine you would like to compare a new sample to 10 samples from a previous run. In that case some files could be reused to make the pipeline work more quickly. (2) You would like to use intermediate files for your own analysis. By default, these files are saved in the output directory as symlinks to their location in the work/ directory, so you would need to retrieve these before clearing the cache. You could use alternatively use the option --copymode high to save all intermediate files to the published directory, though in the short term this doubles the storage footprint of each run.
 
-This particular report has been included as an example under `test/sample_reports/xanthomonas`.
+This particular report has been included as an <a href="https://grunwaldlab.github.io/pathogensurveillance_documentation/xanthomonas" target="_blank">example </a>
+
+
+------------------------------------------------------------------------
 
 **Summary:**
 
 -   **Pipeline Status Report**: error messages for samples or sample groups
 -   **Input Data**: Data read from the input .csv file
 
----
+------------------------------------------------------------------------
 
 **Identification:**
 
@@ -204,47 +100,27 @@ This particular report has been included as an example under `test/sample_report
 
     -   For more information about each metric, click the **About this table** tab underneath.
 
-```{r}
-#| echo: false
-psminer::print_pocp_table(pocp_matrix, sample_data, ref_data)
-```
----
 
-```{r ani_heatmap, fig.height = 5}
-#| echo: false
-psminer::make_ani_heatmap(ani_matrix * 100, ref_data, sample_data)
-```
----
+------------------------------------------------------------------------
 
-
+![](images/report_ani_heatmap.png)
 
 **Most similar organisms**: Shows relationships between samples and references using % ani and % pocp (percentage of conserved proteins). For better resolution, you can interactively zoom in/out of plots.
 
-    **Phylogenetic context** ![](images/report_core_gene_phylogeny.png)
+------------------------------------------------------------------------
+
+![](images/report_core_gene_phylogeny.png)
 
 **Core gene phylogeny**: A core gene phylogeny uses the sequences of all gene shared by all of the genomes included in the tree to infer evolutionary relationships. It is the most robust identification provided by this pipeline, but its precision is still limited by the availability of similar reference sequences. Methods to generate this tree differ between prokaryotes and eukaryotes. Our input to the pipeline was prokaryotic DNA sequences, and the method to build this tree is based upon many different core genes shared between samples and references (for eukaryotes, this is constrained to BUSCO genes). This tree is built with iqtree and based upon shared core genes analyzed using the program pirate. You can highlight branches by hovering over and clicking on nodes.
 
----
+------------------------------------------------------------------------
 
-**SNP trees**
+![](images/report_snp_tree.png)
 
-```{r plot_snp_trees, results='asis', eval = length(snp_trees) > 0, fig.height = 5, fig.width=5}
-#| echo: false
-for (id in names(snp_trees)) {
-    #cat(paste0('::: panel-tabset\n### ', id, '\n\n'))
-    #cat(paste0('#### **', n_samples[id], ' samples with ', n_variants[id], ' variants aligned to reference "', snp_ref_names[id], '":** \n\n'))
-    snp_tree_plot <- psminer::make_phylogeny(snp_trees[[id]], sample_data, ref_data)
-    #if (knitr::is_html_output()) {cat(as.character(htmltools::as.tags(a_plot, standalone = TRUE)))} #else {
-#        print(a_plot)
-#    }
-    #cat('\n:::')
-}
-snp_tree_plot
-```
 
--   This tree is better suited for visualizing the genetic diversity among samples. However, the core gene phylogeny provides a much better source of information for evolutionary differences among samples and other known references.
+-   **SNP trees**: This tree is better suited for visualizing the genetic diversity among samples. However, the core gene phylogeny provides a much better source of information for evolutionary differences among samples and other known references.
 
----
+------------------------------------------------------------------------
 
 **Minimum spanning network**
 
@@ -252,5 +128,99 @@ snp_tree_plot
 
 **Minimum spanning network**: The nodes represent unique multilocus genotypes, and the size of nodes is proportional to the \# number of samples that share the same genotype. The edges represent the SNP differences between two given genotypes, and the darker the color of the edges, the fewer SNP differences between the two.
 
----
+------------------------------------------------------------------------
 
+## Example 2: Defining References
+
+You may already know what your samples are. If so, you may also know the best reference genome and want to tell the pipeline to use it. Other users may have a few different organisms of interest that they want to use as a points of comparison. For example, maybe there is a particularly nasty strain of *V. cholerae* that you want to see in relation to your other samples. There are a few options to select (or not select) reference genomes for these cases.
+
+Pathogensurveillance has two different categories of reference genomes. Primary references are used for alignment and will always be displayed in phylogenetic trees. In contrast, contextual references are selected before the primary reference is known and may not be used later on in the pipeline. Some contextual references are chosen because they are really close matches to your samples, and these may be selected to become primary references. However, pathogensurveillance will select a few distantly related contextual references too. Some of these are used to "fill out" the phylogeny, and you may want a higher or lower number of contextual references depending on how you want your phylogenetic trees to look.
+
+### Chosing primary references
+
+Take this sample list containing three *Mycobacterium abscessus* samples and three *Mycobacterium leprae* samples:
+
+```{r}
+#| echo: false
+#| message: false
+#| comment: ""
+library(tidyverse)
+df = read.csv("data/mycobacterium_1.csv")
+df |> head()
+```
+
+To force the pipeline to use the NCBI specified *Mycobacterium abscessus* reference genome for the three *Mycobacterium abscessus* samples, and likewise make the three *Mycobacterium leprae* samples use the NCBI specified *Mycobacterium leprae* genome, we need to tell pathogensurveillance both where to find these reference sequences and how to use them. We can either specify a local path to the reads, or this can instead be specified through the ref_ncbi_accession column. Here, how the references are used here is controlled by the ref_primary_usage column:
+
+```{r}
+#| echo: false
+#| message: false
+#| comment: ""
+library(tidyverse)
+df = read.csv("data/mycobacterium_2.csv")
+df |> head()
+```
+
+------------------------------------------------------------------------
+
+### Specifying contextual references
+
+Taking the previous *Mycobacterium abscessus/leprae* example, imagine we would like to see the comparison between *Mycobacterium leprae* and *Mycobacterium tuberculosis*. We can do this by including *Mycobacterium tuberculosis* as a mandatory contextual reference:
+```{r}
+#| echo: false
+#| message: false
+#| comment: ""
+library(tidyverse)
+df = read.csv("data/mycobacterium_3.csv")
+df |> head()
+```
+
+------------------------------------------------------------------------
+
+### Selecting references from an ncbi query
+
+It is also possible to submit a valid NCBI query to the pipeline, with reference genomes selected from query hits. For example, if you wanted to test how your *Mycobacterium leprae* samples compared to a bunch of different other *Mycobacterium leprae* genomes, your reference csv file may look like:
+
+```{r}
+#| echo: false
+#| message: false
+#| comment: ""
+library(tidyverse)
+df = read.csv("data/mycobacterium_4.csv")
+df |> head()
+```
+
+Some things to keep in mind:
+
+-   Depending on your organism, this may a massive amount of data. **Make sure you have queried NCBI beforehand to get a good handle on how many references you are downloading**.
+-   The optional parameter `ref_ncbi_query_max` is a good way of limiting this number when you are sampling from a densely populated clade, such as *Mycobacterium leprae*. This parameter can either be a set number (like shown here) or a percentage.
+-   The NCBI API will fail if there are too many requests. See [`ncbi support`](https://support.nlm.nih.gov/) for more detail.
+
+------------------------------------------------------------------------
+
+### Multiple references per sample
+
+If we would like to add multiple references per sample, we can enter this information through a separate reference csv. In this example, we specify one primary reference each for *Mycobacterium abscessus* and *Mycobacterium leprae*, then three additional contextual references for *Mycobacterium leprae*:
+
+```{r}
+#| echo: false
+#| message: false
+#| comment: ""
+library(tidyverse)
+df = read.csv("data/mycobacterium_5.csv")
+df |> head()
+```
+
+Note that the "ref_group_ids" column in the sample input csv needs to match the sample csv:
+```{r}
+#| echo: false
+#| message: false
+#| comment: ""
+library(tidyverse)
+df = read.csv("data/mycobacterium_6.csv")
+df |> head()
+```
+
+When enter the command to run the pipeline, the path this reference csv will need to be specified:
+``` bash
+nextflow run nf-core/pathogensurveillance --sample_inut mycobacterium_samples.csv --reference_input mycobacterium_references.csv --output_dir mycobacterium_test --download_bakta_db true -profile docker 
+```

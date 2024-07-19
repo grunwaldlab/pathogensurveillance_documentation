@@ -4,11 +4,13 @@ editor: visual
 ---
 
 ## Example 1 - xanthomonas
+
 <a href="https://grunwaldlab.github.io/pathogensurveillance_documentation/xanthomonas" target="_blank">example 1 report</a>
 
->Iruegas-Bocardo, Fernanda, et al. "Whole genome sequencing-based tracing of a 2022 introduction and outbreak of Xanthomonas hortorum pv. pelargonii." Phytopathology® 113.6 (2023): 975-984.
+> Iruegas-Bocardo, Fernanda, et al. "Whole genome sequencing-based tracing of a 2022 introduction and outbreak of Xanthomonas hortorum pv. pelargonii." Phytopathology® 113.6 (2023): 975-984.
 
-## Example 2 - mycobacterium 
+## Example 2 - mycobacterium
+
 <a href="https://grunwaldlab.github.io/pathogensurveillance_documentation/mycobacteroides_small" target="_blank">example 2 report</a>
 
 > Bryant, Josephine M., et al. "Population-level genomics identifies the emergence and global spread of a human transmissible multidrug-resistant nontuberculous mycobacterium." Science (New York, NY) 354.6313 (2016): 751.

@@ -1,0 +1,6 @@
+ref_group_ids,ref_path,Ref_primary_usage,Ref_contextual_Usage
+abscessus,test/data/refs/mycobacterium_abscessus_reference1.fna,required,
+leprae,test/data/refs/mycobacterium_leprae_reference1.fna,required,
+leprae,test/data/refs/mycobacterium_leprae_reference2.fna,,optional
+leprae,test/data/refs/mycobacterium_leprae_reference3.fna,,optional
+leprae,test/data/refs/mycobacterium_leprae_reference4.fna,,optional
