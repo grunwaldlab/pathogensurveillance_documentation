@@ -194,9 +194,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </ul></li>
   <li><a href="#example-2-defining-references" id="toc-example-2-defining-references" class="nav-link" data-scroll-target="#example-2-defining-references">Example 2: Defining References</a>
   <ul class="collapse">
-  <li><a href="#specifying-primary-references" id="toc-specifying-primary-references" class="nav-link" data-scroll-target="#specifying-primary-references">specifying primary references</a></li>
-  <li><a href="#specifying-contextual-references" id="toc-specifying-contextual-references" class="nav-link" data-scroll-target="#specifying-contextual-references">specifying contextual references</a></li>
-  <li><a href="#selecting-references-from-an-ncbi-query" id="toc-selecting-references-from-an-ncbi-query" class="nav-link" data-scroll-target="#selecting-references-from-an-ncbi-query">selecting references from an ncbi query</a></li>
+  <li><a href="#chosing-primary-references" id="toc-chosing-primary-references" class="nav-link" data-scroll-target="#chosing-primary-references">Chosing primary references</a></li>
+  <li><a href="#specifying-contextual-references" id="toc-specifying-contextual-references" class="nav-link" data-scroll-target="#specifying-contextual-references">Specifying contextual references</a></li>
+  <li><a href="#selecting-references-from-an-ncbi-query" id="toc-selecting-references-from-an-ncbi-query" class="nav-link" data-scroll-target="#selecting-references-from-an-ncbi-query">Selecting references from an NCBI query</a></li>
   <li><a href="#multiple-references-per-sample" id="toc-multiple-references-per-sample" class="nav-link" data-scroll-target="#multiple-references-per-sample">Multiple references per sample</a></li>
   </ul></li>
   </ul>
@@ -224,9 +224,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
+<hr>
+<p>Before starting, first take a look at the Quickstart for instructions on how to download pathogensurveillance and install both Docker and Nextflow. <br><br></p>
 <section id="example-1-standard-run" class="level2">
 <h2 class="anchored" data-anchor-id="example-1-standard-run">Example 1: Standard Run</h2>
-<p>This example uses sequencing reads from an outbreak of <em>Xanthomonas hortorum</em> in several plant nurseries. We’ll be treating the pathogen as an unknown and using the pathogensurveillance pipeline to determine what we know already (that these samples come from <em>Xanthomonas hortorum</em>). We’ll also explore how isolates from different nursery populations relate to each other and the reference sequences of other closely-related organisms. This information can be obtained from several plots that the pathogensurveillance pipeline generates automatically. <br><br></p>
+<p>This example uses sequencing reads from an 2022 outbreak of <em>Xanthomonas hortorum</em> across several plant nurseries. Using whole-genome sequencing, researchers determined a shared genetic basis between strains at different locations. With this information, they traced the origin of the outbreak to a single supplier that sold infected cuttings. You can read more about the study <a href="https://doi.org/10.1094/PHYTO-09-22-0321-R" target="_blank">here. </a></p>
+<p>We’ll be treating the pathogen as an unknown and using the pathogensurveillance pipeline to determine what we know already (that these samples come from <em>Xanthomonas hortorum</em>). We’ll also see the high degree of shared DNA sequence between samples, which is seen from several plots that the pathogensurveillance pipeline generates automatically. <br></p>
 <section id="sample-input" class="level3">
 <h3 class="anchored" data-anchor-id="sample-input">Sample input</h3>
 <p>The pipeline is designed to work with a wide variety of existing metadata sheets without extensive changes. Here’s a look at “xanthomonas.csv”, which serves as the only unique input file within the command to run the pipeline:</p>
@@ -236,34 +239,40 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <table class="table table-sm table-striped small">
 <colgroup>
 <col style="width: 4%">
-<col style="width: 17%">
-<col style="width: 17%">
+<col style="width: 15%">
+<col style="width: 15%">
+<col style="width: 6%">
+<col style="width: 4%">
+<col style="width: 5%">
+<col style="width: 5%">
 <col style="width: 4%">
 <col style="width: 6%">
-<col style="width: 8%">
 <col style="width: 6%">
-<col style="width: 6%">
-<col style="width: 6%">
+<col style="width: 3%">
+<col style="width: 3%">
+<col style="width: 3%">
+<col style="width: 10%">
 <col style="width: 2%">
-<col style="width: 11%">
-<col style="width: 3%">
-<col style="width: 3%">
+<col style="width: 1%">
 </colgroup>
 <thead>
 <tr class="header">
 <th style="text-align: left;">sample_id</th>
-<th style="text-align: left;">shortread_1</th>
-<th style="text-align: left;">shortread_2</th>
+<th style="text-align: left;">path_1</th>
+<th style="text-align: left;">path_2</th>
+<th style="text-align: left;">sequence_type</th>
 <th style="text-align: left;">reference</th>
 <th style="text-align: left;">reference_id</th>
 <th style="text-align: left;">report_group</th>
 <th style="text-align: left;">color_by</th>
 <th style="text-align: left;">date_isolated</th>
 <th style="text-align: left;">date_received</th>
-<th style="text-align: right;">year</th>
+<th style="text-align: left;">year</th>
 <th style="text-align: left;">host</th>
 <th style="text-align: left;">cv_key</th>
 <th style="text-align: left;">nursery</th>
+<th style="text-align: left;">X</th>
+<th style="text-align: left;">X.1</th>
 </tr>
 </thead>
 <tbody>
@@ -271,13 +280,16 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <td style="text-align: left;">22-299</td>
 <td style="text-align: left;">test/data/reads/22-299_R1.fastq.gz</td>
 <td style="text-align: left;">test/data/reads/22-299_R2.fastq.gz</td>
+<td style="text-align: left;">Illumina</td>
 <td style="text-align: left;"></td>
 <td style="text-align: left;"></td>
-<td style="text-align: left;">xan_test;subgroup</td>
-<td style="text-align: left;">year;nursery</td>
+<td style="text-align: left;">xan_test</td>
+<td style="text-align: left;">subgroup</td>
+<td style="text-align: left;">year</td>
+<td style="text-align: left;">nursery</td>
 <td style="text-align: left;">3/2/22</td>
 <td style="text-align: left;">3/29/22</td>
-<td style="text-align: right;">2022</td>
+<td style="text-align: left;">2022</td>
 <td style="text-align: left;">Pelargonium x hortorum</td>
 <td style="text-align: left;">CV-1</td>
 <td style="text-align: left;">MD</td>
@@ -286,13 +298,16 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <td style="text-align: left;">22-300</td>
 <td style="text-align: left;">test/data/reads/22-300_R1.fastq.gz</td>
 <td style="text-align: left;">test/data/reads/22-300_R2.fastq.gz</td>
+<td style="text-align: left;">Illumina</td>
 <td style="text-align: left;"></td>
 <td style="text-align: left;"></td>
-<td style="text-align: left;">xan_test;subgroup</td>
-<td style="text-align: left;">year;nursery</td>
+<td style="text-align: left;">xan_test</td>
+<td style="text-align: left;">subgroup</td>
+<td style="text-align: left;">year</td>
+<td style="text-align: left;">nursery</td>
 <td style="text-align: left;">3/2/22</td>
 <td style="text-align: left;">3/30/22</td>
-<td style="text-align: right;">2022</td>
+<td style="text-align: left;">2022</td>
 <td style="text-align: left;">Pelargonium x hortorum</td>
 <td style="text-align: left;">CV-2</td>
 <td style="text-align: left;">MD</td>
@@ -301,13 +316,16 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <td style="text-align: left;">22-301</td>
 <td style="text-align: left;">test/data/reads/22-301_R1.fastq.gz</td>
 <td style="text-align: left;">test/data/reads/22-301_R2.fastq.gz</td>
+<td style="text-align: left;">Illumina</td>
 <td style="text-align: left;"></td>
 <td style="text-align: left;"></td>
-<td style="text-align: left;">xan_test;subgroup</td>
-<td style="text-align: left;">year;nursery</td>
+<td style="text-align: left;">xan_test</td>
+<td style="text-align: left;">subgroup</td>
+<td style="text-align: left;">year</td>
+<td style="text-align: left;">nursery</td>
 <td style="text-align: left;">3/2/22</td>
 <td style="text-align: left;">3/31/22</td>
-<td style="text-align: right;">2022</td>
+<td style="text-align: left;">2022</td>
 <td style="text-align: left;">Pelargonium x hortorum</td>
 <td style="text-align: left;">CV-3</td>
 <td style="text-align: left;">MD</td>
@@ -316,13 +334,16 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <td style="text-align: left;">22-302</td>
 <td style="text-align: left;">test/data/reads/22-302_R1.fastq.gz</td>
 <td style="text-align: left;">test/data/reads/22-302_R2.fastq.gz</td>
+<td style="text-align: left;">Illumina</td>
 <td style="text-align: left;"></td>
 <td style="text-align: left;"></td>
-<td style="text-align: left;">xan_test;subgroup</td>
-<td style="text-align: left;">year;nursery</td>
+<td style="text-align: left;">xan_test</td>
+<td style="text-align: left;">subgroup</td>
+<td style="text-align: left;">year</td>
+<td style="text-align: left;">nursery</td>
 <td style="text-align: left;">3/2/22</td>
 <td style="text-align: left;">4/1/22</td>
-<td style="text-align: right;">2022</td>
+<td style="text-align: left;">2022</td>
 <td style="text-align: left;">Pelargonium x hortorum</td>
 <td style="text-align: left;">CV-4</td>
 <td style="text-align: left;">MD</td>
@@ -331,13 +352,16 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <td style="text-align: left;">22-303</td>
 <td style="text-align: left;">test/data/reads/22-303_R1.fastq.gz</td>
 <td style="text-align: left;">test/data/reads/22-303_R2.fastq.gz</td>
+<td style="text-align: left;">Illumina</td>
 <td style="text-align: left;"></td>
 <td style="text-align: left;"></td>
-<td style="text-align: left;">xan_test;subgroup</td>
-<td style="text-align: left;">year;nursery</td>
+<td style="text-align: left;">xan_test</td>
+<td style="text-align: left;">subgroup</td>
+<td style="text-align: left;">year</td>
+<td style="text-align: left;">nursery</td>
 <td style="text-align: left;">3/2/22</td>
 <td style="text-align: left;">4/2/22</td>
-<td style="text-align: right;">2022</td>
+<td style="text-align: left;">2022</td>
 <td style="text-align: left;">Pelargonium x hortorum</td>
 <td style="text-align: left;">CV-5</td>
 <td style="text-align: left;">MD</td>
@@ -346,13 +370,16 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <td style="text-align: left;">22-304</td>
 <td style="text-align: left;">test/data/reads/22-304_R1.fastq.gz</td>
 <td style="text-align: left;">test/data/reads/22-304_R2.fastq.gz</td>
+<td style="text-align: left;">Illumina</td>
 <td style="text-align: left;"></td>
 <td style="text-align: left;"></td>
-<td style="text-align: left;">xan_test;subgroup</td>
-<td style="text-align: left;">year;nursery</td>
+<td style="text-align: left;">xan_test</td>
+<td style="text-align: left;">subgroup</td>
+<td style="text-align: left;">year</td>
+<td style="text-align: left;">nursery</td>
 <td style="text-align: left;">3/7/22</td>
 <td style="text-align: left;">4/3/22</td>
-<td style="text-align: right;">2022</td>
+<td style="text-align: left;">2022</td>
 <td style="text-align: left;">Pelargonium x hortorum</td>
 <td style="text-align: left;">CV-6</td>
 <td style="text-align: left;">MD</td>
@@ -362,10 +389,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </div>
-<p>There is quite a bit of information in this file, but only a few columns are essential (and can be in any order). The input csv needs show the pipeline where to find the sequencing reads. These can be present either locally or they can be downloaded.</p>
-<p><strong>Using local reads</strong>: Columns “shortread_1” and “shortread_2” specify the path to forward and reverse reads. Each row corresponds to one individual sample. Reads for this tutorial are hosted on the pathogensurveilance github repo. They are derived from paired-end illumina shortreads, but the pipeline will also work with mixed inputs of Pacbio or Oxford Nanopore sequences.</p>
-<p><strong>Downloading reads</strong>: Sequence files may instead be hosted on the ncbi. In that case, the “shortread_1/shortread_2” columns should be substituted with a single “SRA” column, and they will be downloaded from the ncbi automatically. See test/data/metadata/xanthomonas.csv for an example using this input format.</p>
-<p><strong>Specifying a reference genome (optional)</strong>: The “reference_refseq” column may be useful when you are relatively confident as to the identity of your samples and would like to include one particular reference for comparison. See Documentation for an in-depth explanation of how to designate mandatory and optional references.</p>
+<p><br>There is quite a bit of information in this file, but only a few columns are essential (and can be in any order). The input csv needs show the pipeline where to find the sequencing reads. These can either be present locally or they can be downloaded from the NCBI.</p>
+<p><strong>Using local reads</strong>: Columns “path_1” and “path_2” specify the path to forward and reverse reads. Each row corresponds to one individual sample. Reads for this tutorial are hosted on the pathogensurveilance <a href="https://github.com/nf-core/pathogensurveillance/tree/dev/test/data" target="_blank">github repo. </a>. If your reads are single-ended, “path_2” should be left blank.</p>
+<p><strong>Shortread/Longread sequences</strong>*: Information in the column “sequencing_type” tells the pipeline these are derived from illumina shortreads. Other options for this column are “nanopore” and “pacbio”.</p>
+<p><strong>Downloading reads</strong>: Sequence files may instead be hosted on the NCBI. In that case, the “shortread_1/shortread_2” columns should be substituted with a single “SRA” column, and they will be downloaded right after the pipeline checks the sample sheet. These downloads will show up in the folder path_surveil_data/reads. See test/data/metadata/xanthomonas.csv for an example using this input format.</p>
+<p><strong>Specifying a reference genome (optional)</strong>: The “reference_refseq” column may be useful when you are relatively confident as to the identity of your samples and would like to include one particular reference for comparison. See Example 2 for an explanation of how to designate mandatory and optional references.</p>
 <p><strong>Assigning sample groups (optional)</strong>: The optional column “color_by” is used for data visualization. It will assign one or more columns to serve as grouping factors for the output report. Here, samples will be grouped by the values of the “year” and “nursery” columns. Note that multiple factors need to be separated by semicolons within the color_by column. <br><br></p>
 </section>
 <section id="running-the-pipeline" class="level3">
@@ -397,7 +425,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a><span class="ex">CPU</span> hours   : 15.2</span>
 <span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a><span class="ex">Succeeded</span>   : 253</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>The final report can be viewed as either a .pdf or .html file. It can be accessed inside the reports folder of the output directory (here: <code>xanthomonas/reports</code>). This report shows several key pieces of information about your samples.</p>
-<p>A note on storage management - pathogensurveillance creates a large number of intermediate files. For most users we recommend clearing these files after each run. To do so, run the script shown after the completion message (nextflow clean <your_run_name> -f). You would not want to do this if: (1) You still need to use the caching system. For example, imagine you would like to compare a new sample to 10 samples from a previous run. In that case some files could be reused to make the pipeline work more quickly. (2) You would like to use intermediate files for your own analysis. By default, these files are saved in the output directory as symlinks to their location in the work/ directory, so you would need to retrieve these before clearing the cache. You could use alternatively use the option –copymode high to save all intermediate files to the published directory, though in the short term this doubles the storage footprint of each run.</your_run_name></p>
+<p>A note on storage management - pathogensurveillance creates a large number of intermediate files. For most users we recommend clearing these files after each run. To do so, run the script shown after the completion message (nextflow clean <your_run_name> -f). You would not want to do this if: (1) You still need to use the caching system. For example, imagine you would like to compare a new sample to 10 samples from a previous run. In that case, some files could be reused to make the pipeline work more quickly. (2) You would like to use intermediate files for your own analysis. By default, these files are saved in the output directory as symlinks to their location in the work/ directory, so you would need to retrieve these before clearing the cache. You could use alternatively use the option –copymode high to save all intermediate files to the published directory, though in the short term this doubles the storage footprint of each run.</your_run_name></p>
 <p>This particular report has been included as an <a href="https://grunwaldlab.github.io/pathogensurveillance_documentation/xanthomonas" target="_blank">example </a></p>
 <hr>
 <p><strong>Summary:</strong></p>
@@ -433,10 +461,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="example-2-defining-references" class="level2">
 <h2 class="anchored" data-anchor-id="example-2-defining-references">Example 2: Defining References</h2>
-<p>You may already know what your samples are. If so, you may also know the best reference genome and want to tell the pipeline to use it. Other users may have a few different organisms of interest that they want to use as a points of comparison. For example, maybe there is a particularly nasty strain of <em>V. cholerae</em> that you want to see in relation to your other samples. There are a few options to select (or not select) reference genomes for these cases.</p>
-<p>Pathogensurveilance has two different categories of reference genomes. Primary references are used for alignment and will always be displayed in phylogenetic trees. In contrast, contextual references are selected before the primary reference is known and may not be used later on in the pipeline. Some contextual references are chosen because they are really close matches to your samples, and these may be selected to become primary references. However, pathogensurveilance will select a few distantly related contextual references too. Some of these are used to “fill out” the phylogeny, and you may want a higher or lower number of contextual references depending on how you want your phylogenetic trees to look.</p>
-<section id="specifying-primary-references" class="level3">
-<h3 class="anchored" data-anchor-id="specifying-primary-references">specifying primary references</h3>
+<p>If you know what your samples are already, you may want to tell the pipeline to use a “standard” reference genome instead of picking one that is more obscure (even if pathogensurveillance deems it to be a better fit). Other users may have a few different organisms of interest that they want to use as a points of comparison. For example, maybe there is a particularly nasty strain of <em>V. cholerae</em> that you want to see in relation to your other samples. There are a few options to select (or not select) reference genomes for these cases.</p>
+<p>Pathogensurveillance uses two categories of reference genomes. Primary references are used for alignment and will always be displayed in phylogenetic trees. In contrast, contextual references are selected before the primary reference is known and they may or may not be used later. Some contextual references are chosen because they are really close matches to your samples, and these may be selected to become primary references. However, pathogensurveillance will select a few distantly related contextual references too. Some of these are used to “fill out” the phylogeny, and you may want a higher or lower number of contextual references depending on how you want your phylogenetic trees to look.</p>
+<section id="chosing-primary-references" class="level3">
+<h3 class="anchored" data-anchor-id="chosing-primary-references">Chosing primary references</h3>
 <p>Take this sample list containing three <em>Mycobacterium abscessus</em> samples and three <em>Mycobacterium leprae</em> samples:</p>
 <div class="cell">
 <div class="cell-output-display">
@@ -478,7 +506,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </div>
-<p>To force the pipeline to use the NCBI specified <em>Mycobacterium abscessus</em> reference genome for the three <em>Mycobacterium abscessus</em> samples, and likewise make the three <em>Mycobacterium leprae</em> samples use the NCBI specified <em>Mycobacterium leprae</em> genome, we need to tell pathogenserveilance where to find the reference sequences and how to use them. We can either specify a local path to the reads, or this can instead be specified through the ref_ncbi_accession column. Here, how the references are used here is controlled by the ref_primary_usage column:</p>
+<p>To force the pipeline to use the NCBI specified <em>Mycobacterium abscessus</em> reference genome for the three <em>Mycobacterium abscessus</em> samples, and likewise make the three <em>Mycobacterium leprae</em> samples use the NCBI specified <em>Mycobacterium leprae</em> genome, we need to tell pathogensurveillance both where to find these reference sequences and how to use them. We can either specify a local path to the reads, or this can instead be specified through the ref_ncbi_accession column. Here, how the references are used here is controlled by the ref_primary_usage column:</p>
 <div class="cell">
 <div class="cell-output-display">
 <div class="kable-table">
@@ -542,8 +570,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <hr>
 </section>
 <section id="specifying-contextual-references" class="level3">
-<h3 class="anchored" data-anchor-id="specifying-contextual-references">specifying contextual references</h3>
-<p>Taking the previous <em>Mycobacterium abscessus/leprae</em> example, imagine we would like to see the comparison between <em>Mycobacterium leprae</em> and <em>Mycobacterium tuberculosis</em>. We can do this by including <em>Mycobacterium tuberculosis</em> as a mandatory contextual reference:</p>
+<h3 class="anchored" data-anchor-id="specifying-contextual-references">Specifying contextual references</h3>
+<p>Taking the previous <em>Mycobacterium abscessus/leprae</em> example, imagine we would like to see the comparison between <em>Mycobacterium abscessus</em> and <em>Mycobacterium tuberculosis</em>. We can do this by including <em>Mycobacterium tuberculosis</em> as a mandatory contextual reference:</p>
 <div class="cell">
 <div class="cell-output-display">
 <div class="kable-table">
@@ -607,8 +635,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <hr>
 </section>
 <section id="selecting-references-from-an-ncbi-query" class="level3">
-<h3 class="anchored" data-anchor-id="selecting-references-from-an-ncbi-query">selecting references from an ncbi query</h3>
-<p>It is also possible to submit a valid NCBI query to the pipeline, with reference genomes selected from query hits. For example, if you wanted to test how your Mycobacterium leprae samples compared to a bunch of different other Mycobacterium leprae genomes, your reference csv file may look like:</p>
+<h3 class="anchored" data-anchor-id="selecting-references-from-an-ncbi-query">Selecting references from an NCBI query</h3>
+<p>It is also possible to submit a valid NCBI query to the pipeline with reference genomes selected from query hits. For example, you could test how your <em>Mycobacterium leprae</em> samples compared to a bunch of different other <em>Mycobacterium leprae</em> genomes:</p>
 <div class="cell">
 <div class="cell-output-display">
 <div class="kable-table">
@@ -782,7 +810,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </div>
-<p>When enter the command to run the pipeline, the path this reference csv will need to be specified:</p>
+<p>The path to this reference csv needs to be specified in the command to run the pipeline:</p>
 <div class="sourceCode" id="cb4"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="ex">nextflow</span> run nf-core/pathogensurveillance <span class="at">--sample_inut</span> mycobacterium_samples.csv <span class="at">--reference_input</span> mycobacterium_references.csv <span class="at">--output_dir</span> mycobacterium_test <span class="at">--download_bakta_db</span> true <span class="at">-profile</span> docker </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 
 
