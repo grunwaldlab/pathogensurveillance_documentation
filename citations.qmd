@@ -10,7 +10,7 @@ nocite: |
 
 nf-core/pathogensurveillance was written by:
 
-[Zachary S. L. Foster](https://orcid.org/0000-0002-5075-0948)^1^, [Martha Sudermann](https://orcid.org/0000-0001-6912-3461)^2^, [Camilo Parada-Rojas](https://orcid.org/0000-0002-8372-6012)^2^, [Fernanda Iruegas-Bocardo](https://scholar.google.com/citations?user=JIc7VPUAAAAJ&hl=en)^2^, [Ricardo Alcalá-Briseño](https://orcid.org/0000-0002-7031-2195)^2^, [Logan K. Blair](https://scholar.google.com/citations?user=6pnLWcAAAAAJ&hl=en&oi=ao) ^1^, [Alexandra J Weisberg](https://orcid.org/0000-0002-0045-1368)^2^, [Jeff H. Chang](https://orcid.org/0000-0002-1833-0695)^2^, and [Niklaus J. Grünwald](https://orcid.org/0000-0003-1656-7602)^1^
+[Zachary S. L. Foster](https://orcid.org/0000-0002-5075-0948)^1^, [Martha Sudermann](https://orcid.org/0000-0001-6912-3461)^2^, [Camilo Parada-Rojas](https://orcid.org/0000-0002-8372-6012)^2^, [Logan K. Blair](https://scholar.google.com/citations?user=6pnLWcAAAAAJ&hl=en&oi=ao) ^1^, [Fernanda Iruegas-Bocardo](https://scholar.google.com/citations?user=JIc7VPUAAAAJ&hl=en)^2^, [Ricardo Alcalá-Briseño](https://orcid.org/0000-0002-7031-2195)^2^, [Alexandra J Weisberg](https://orcid.org/0000-0002-0045-1368)^2^, [Jeff H. Chang](https://orcid.org/0000-0002-1833-0695)^2^, and [Niklaus J. Grünwald](https://orcid.org/0000-0003-1656-7602)^1^
 
 ^1^Horticultural Crops Research Laboratory, USDA Agricultural Research Service, Corvallis, Oregon 97331, USA
 
