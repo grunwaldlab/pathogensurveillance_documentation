@@ -153,9 +153,9 @@ ul.task-list li input[type="checkbox"] {
    
   <ul>
   <li><a href="#introduction" id="toc-introduction" class="nav-link active" data-scroll-target="#introduction">Introduction</a></li>
-  <li><a href="#background" id="toc-background" class="nav-link" data-scroll-target="#background">Background - why use pathogensurveilance?</a></li>
+  <li><a href="#background" id="toc-background" class="nav-link" data-scroll-target="#background">Background - why use PathogenSurveillance?</a></li>
   <li><a href="#pipelinesummary" id="toc-pipelinesummary" class="nav-link" data-scroll-target="#pipelinesummary">Pipeline summary</a></li>
-  <li><a href="#flowchart" id="toc-flowchart" class="nav-link" data-scroll-target="#flowchart">Flowchart</a></li>
+  <li><a href="#flowchart" id="toc-flowchart" class="nav-link" data-scroll-target="#flowchart">PathogenSurveillance pipeline chart</a></li>
   </ul>
 </nav>
     </div>
@@ -172,26 +172,40 @@ ul.task-list li input[type="checkbox"] {
 <p><strong>nf-core/pathogensurveillance</strong> is a population genomic pipeline for pathogen diagnosis, variant detection, and biosurveillance. The pipeline accepts the paths to raw reads for one or more organisms (in the form of a CSV file) and creates reports in the form of interactive HTML reports or PDF documents. Significant features include the ability to analyze unidentified eukaryotic and prokaryotic samples, creation of reports for multiple user-defined groupings of samples, automated discovery and downloading of reference assemblies from NCBI RefSeq, and rapid initial identification based on k-mer sketches followed by a more robust core genome phylogeny and SNP-based phylogeny.</p>
 </section>
 <section id="background" class="level2">
-<h2 class="anchored" data-anchor-id="background">Background - why use pathogensurveilance?</h2>
-<p><strong>TL;DR:</strong> <strong>unknown FASTQ -&gt; sample ID + phylogeny + publication-quality figures</strong></p>
-<p>Most existing genomic tools are designed to be used with a reference genome. Unfortunately, this is a luxury in the pathogen diagnostic world, where researchers often are faced with unknown samples. This creates a conundrum: how can you draw a point of comparison without a starting point?</p>
-<p>Pathogensurveilance addresses this by <strong>picking a good reference genome for you</strong> through a process of k-mer sketching. In most cases, this will be the best reference. It is therefore a great option for identification of an unknown sample, or when you would like some empirical data suggesting which references are available in nearby species. Conversely, if you already have a good understanding of your system, you also have the ability to supply which reference genome should be used.</p>
-<p>Pathogensurveilance uses several strategies to address the emerging complexity of working with sequences that could anything from plants to bacteria to fungi. First, pathogensurveilance uses <strong>reasonable baseline parameters</strong> that work very well with most species. There are some processes where a one-size-fits-all strategy isn’t feasible. In such cases, Pathogensurveilance will change the analysis workflow automatically (e.g.&nbsp;assembling Prokaryotic vs Eukaryotic core genes). These analysis branchpoints are facilitated by the Nextflow framework, and require no additional inputs from the user.</p>
-<p>While pathogensurveilance may be a useful tool for researchers of all levels, it was designed with clinicians in mind who may have limited bioinformatics training. <strong>Pathogensurveilance is very simple to run</strong>. At a minimum, all that needs to be supplied is a .CSV file with a single column specifying the path to your sample’s sequencing reads. For more experienced users, there are opportunities to customize the parameters of the pipeline. In particular, the final report is designed for configuration through by nature of Quarto and the psminer plugin system.</p>
-<p><strong>Pathogensurveilance is particularly good for:</strong></p>
+<h2 class="anchored" data-anchor-id="background">Background - why use PathogenSurveillance?</h2>
+<p><strong>TL;DR:</strong> <strong>unknown gDNA FASTQ -&gt; sample ID + phylogeny + publication-quality figures</strong></p>
+<p>Most genomic tools are designed to be used with a reference genome. Yet this is at odds with the work of pathogen diagnosticians, who often deal with unknown samples. Finding the right reference manually may be cumbersome and require a suprising amount of technical skill.</p>
+<p><strong>PathogenSurveillance picks a good reference genome for you</strong>. It does this through the program sourmash. In simple terms, this takes a sample’s DNA “fingerprint” and finds the closest match in a “DNA fingerprint library” spanning the tree of life. In more technical terms, the pipeline generates k-mer sketches from your reads assembled into genomes, then uses the identified reference to do a boilerplate, but robust phylogenetic analysis of your submitted samples.</p>
+<p>In our experience, the pipeline usually chooses the best possible reference genome. At a minimum it will choose a reference that is good enough to build an informative phylogeny and allow you to see the contextual placement your samples.</p>
+<p>Pathogensurveillance is designed to use as many types of genomic DNA input as possible. It works for common shortread and longread sequencing technologies and for both prokaryotes and eukaryotes. There is a good deal of emergent complexity required to work with such a broad sample range, but Pathogensurveillance handles this automatically.</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Tip
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Ignore the name - Pathogensurveillance works great for non pathogens too.</p>
+</div>
+</div>
+<p>While PathogenSurveillance may be a useful tool for researchers of all levels, it was designed with those who may have limited bioinformatics training in mind. <strong>PathogenSurveillance is very simple to run</strong>. At a minimum, all that needs to be supplied is a .CSV file with a single column specifying the path to your sample’s sequencing reads. Other information is optional, but if provided will used to customize the output report or conditionally use particular reference genomes.</p>
+<p><strong>Pathogensurveillance is particularly good for:</strong></p>
 <ul>
 <li>unknown sample identification</li>
 <li>exploratory population analysis using minimal input parameters</li>
 <li>inexperienced bioinformatics users</li>
 <li>efficient parallelization of tasks</li>
-<li>repeated analysis where you would like to compare a few new samples to a past run.</li>
+<li>repeated analysis (given caching) where you would like to add new samples to a past run</li>
 </ul>
-<p><strong>Pathogensurveilance is not designed for:</strong></p>
+<p><strong>Pathogensurveillance is not designed for:</strong></p>
 <ul>
 <li>viral sequence</li>
-<li>non gDNA datasets (RNA-seq, RAD-seq, ChIP-seq, etc.)</li>
-<li>mixed/impure samples</li>
-<li>Researchers who want to use a highly configurable pipeline, or those who would like to extensively test the pipeline at each stage</li>
+<li>non gDNA datasets (DNA assembly fasta files, RNA-seq, RAD-seq, ChIP-seq, etc.)</li>
+<li>mixed/impure samples (this may change in future versions)</li>
+<li>Highly specialized population genetic analysis, or researchers who would like to extensively test parameters at each stage</li>
 </ul>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
@@ -203,22 +217,22 @@ Note
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Pathogensuveilance manages its many software dependancies through containers. The pipeline works with Linux machines and HPC clusters, but Singularity and Docker have <strong>compatability issues with MacOS and Windows computers</strong>.</p>
+<p>Pathogensuveillance is built with Nextflow, which is a scientific workflow management system. Typically, Nextflow pipelines manage their many software dependencies through containers. It be complicated to get the recommended container systems (Singularity/Apptainer or Docker) working on MacOS or Windows, but running the pipeline in Linux machines or HPC clusters is typically straightforward.</p>
 </div>
 </div>
 </section>
 <section id="pipelinesummary" class="level2">
 <h2 class="anchored" data-anchor-id="pipelinesummary">Pipeline summary</h2>
-<p>This is a quick breakdown of the processes used by pathogensurveilance:</p>
+<p>This is a quick breakdown of the processes used by PathogenSurveillance:</p>
 <ul>
 <li>Download sequences and references if they are not provided locally</li>
-<li>Quickly obtain several initial sample references (<code>bbmap</code>)</li>
-<li>More accurately select appropriate reference genomes. Genome “sketches” are compared between first-pass references, samples, and any references directly provided by the user (<code>sourmash</code>)</li>
 <li>Genome assembly
 <ul>
 <li>Illumina shortreads: (<code>spades</code>)</li>
 <li>Pacbio or Oxford Nanopore longreads: (<code>flye</code>)</li>
 </ul></li>
+<li>Quickly obtain several initial sample references (<code>bbmap</code>)</li>
+<li>More accurately select appropriate reference genomes. Genome “sketches” are compared between first-pass references, samples, and any references directly provided by the user (<code>sourmash</code>)</li>
 <li>Genome annotation (<code>bakta</code>)</li>
 <li>Align reads to reference sequences (<code>bwa</code>)</li>
 <li>Variant calling and filtering (<code>graphtyper</code>, <code>vcflib</code>)</li>
@@ -246,7 +260,7 @@ Note
 </ul>
 </section>
 <section id="flowchart" class="level2">
-<h2 class="anchored" data-anchor-id="flowchart">Flowchart</h2>
+<h2 class="anchored" data-anchor-id="flowchart">PathogenSurveillance pipeline chart</h2>
 <p><img src="images/pipeline_diagram.png" class="img-fluid" width="700"></p>
 
 

@@ -220,7 +220,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li>If you are using <code>conda</code>, it is highly recommended to use the <a href="https://www.nextflow.io/docs/latest/conda.html"><code>NXF_CONDA_CACHEDIR</code> or <code>conda.cacheDir</code></a> settings to store the environments in a central location for future pipeline runs.</li>
 </ul>
 </blockquote></li>
-<li><p>Start running your own analysis!</p>
+<li><p>Start running your own analysis:</p>
 <!-- TODO nf-core: Update the example "typical command" below used to run the pipeline -->
 <div class="sourceCode" id="cb2"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="ex">nextflow</span> run nf-core/pathogensurveillance <span class="at">--input</span> samplesheet.csv <span class="at">--outdir</span> <span class="op">&lt;</span>OUTDIR<span class="op">&gt;</span> --download_bakta_db true <span class="at">-profile</span> <span class="op">&lt;</span>docker/singularity/podman/shifter/charliecloud/conda/institute<span class="op">&gt;</span> -resume</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
 </ol>

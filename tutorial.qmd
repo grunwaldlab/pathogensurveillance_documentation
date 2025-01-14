@@ -7,13 +7,14 @@ format:
 params: 
   inputs: "tutorial_data/all_inputs"
 ---
+
 ------------------------------------------------------------------------
 
 Before starting, first take a look at the Quickstart for instructions on how to download pathogensurveillance and install both Docker and Nextflow. <br/><br/>
 
 ## Example 1: Standard Run
 
-This example uses sequencing reads from an 2022 outbreak of the bacterial pathogen *Xanthomonas hortorum* found infecting geranium in several plant nurseries. Using whole-genome sequencing, researchers determined a shared genetic basis between strains at different locations. With this information, they traced the origin of the outbreak to a single supplier that sold infected cuttings. You can read more about the study <a href="https://doi.org/10.1094/PHYTO-09-22-0321-R" target="_blank">here. </a> 
+This example uses sequencing reads from an 2022 outbreak of the bacterial pathogen *Xanthomonas hortorum* found infecting geranium in several plant nurseries. Using whole-genome sequencing, researchers determined a shared genetic basis between strains at different locations. With this information, they traced the origin of the outbreak to a single supplier that sold infected cuttings. You can read more about the study <a href="https://doi.org/10.1094/PHYTO-09-22-0321-R" target="_blank">here. </a>
 
 We'll be treating the pathogen as an unknown and using the pathogensurveillance pipeline to determine what we know already (that these samples come from *Xanthomonas hortorum*). We'll also see the high degree of shared DNA sequence between samples, which is seen from several plots that the pathogensurveillance pipeline generates automatically. <br/>
 
@@ -36,7 +37,7 @@ df |> head()
 
 **Using local reads**: Columns "path_1" and "path_2" specify the path to forward and reverse reads. Each row corresponds to one individual sample. Reads for this tutorial are hosted on the pathogensurveilance <a href="https://github.com/nf-core/pathogensurveillance/tree/dev/test/data" target="_blank">github repo. </a>. If your reads are single-ended, "path_2" should be left blank.
 
-**Shortread/Longread sequences***: Information in the column "sequencing_type" tells the pipeline these are derived from illumina shortreads. Other options for this column are "nanopore" and "pacbio".
+**Shortread/Longread sequences**\*: Information in the column "sequencing_type" tells the pipeline these are derived from illumina shortreads. Other options for this column are "nanopore" and "pacbio".
 
 **Downloading reads**: Sequence files may instead be hosted on the NCBI. In that case, the "shortread_1/shortread_2" columns should be substituted with a single "SRA" column, and they will be downloaded right after the pipeline checks the sample sheet. These downloads will show up in the folder path_surveil_data/reads. See test/data/metadata/xanthomonas.csv for an example using this input format.
 
@@ -49,7 +50,7 @@ df |> head()
 Here is the full command used execute this example, using a docker container:
 
 ``` bash
-nextflow run nf-core/pathogensurveillance --sample_data https://raw.githubusercontent.com/grunwaldlab/pathogensurveillance/master/test/data/metadata/xanthomonas.csv --out_dir xanthomonas --download_bakta_db true -profile docker -resume --max_cpus 8 --max_memory 30GB -resume
+nextflow run nf-core/pathogensurveillance --inout https://raw.githubusercontent.com/grunwaldlab/pathogensurveillance/master/test/data/metadata/xanthomonas.csv --outdir xanthomonas --download_bakta_db true -profile docker -resume --max_cpus 8 --max_memory 30GB -resume
 ```
 
 When running your own analysis, you will need to provide your own path to the input CSV file.
@@ -93,7 +94,6 @@ A note on storage management - pathogensurveillance creates a large number of in
 
 This particular report has been included as an <a href="https://grunwaldlab.github.io/pathogensurveillance_documentation/xanthomonas" target="_blank">example </a>
 
-
 ------------------------------------------------------------------------
 
 **Summary:**
@@ -108,7 +108,6 @@ This particular report has been included as an <a href="https://grunwaldlab.gith
 -   **Initial identification**: Coarse identification from the bbmap sendsketch step. The first tab shows best species ID for each sample. The second tab shows similarity metrics between sample sequences and other reference genomes: %ANI (average nucleotide identity), %WKID (weighted kmer identity), and %completeness.
 
     -   For more information about each metric, click the **About this table** tab underneath.
-
 
 ------------------------------------------------------------------------
 
@@ -125,7 +124,6 @@ This particular report has been included as an <a href="https://grunwaldlab.gith
 ------------------------------------------------------------------------
 
 ![](images/report_snp_tree.png)
-
 
 -   **SNP trees**: This tree is better suited for visualizing the genetic diversity among samples. However, the core gene phylogeny provides a much better source of information for evolutionary differences among samples and other known references.
 
@@ -174,6 +172,7 @@ df |> head()
 ### Specifying contextual references
 
 Taking the previous *Mycobacterium abscessus/leprae* example, imagine we would like to see the comparison between *Mycobacterium abscessus* and *Mycobacterium tuberculosis*. We can do this by including *Mycobacterium tuberculosis* as a mandatory contextual reference:
+
 ```{r}
 #| echo: false
 #| message: false
@@ -220,6 +219,7 @@ df |> head()
 ```
 
 Note that the "ref_group_ids" column in the sample input csv needs to match the sample csv:
+
 ```{r}
 #| echo: false
 #| message: false
@@ -230,6 +230,7 @@ df |> head()
 ```
 
 The path to this reference csv needs to be specified in the command to run the pipeline:
+
 ``` bash
 nextflow run nf-core/pathogensurveillance --sample_data mycobacterium_samples.csv --reference_input mycobacterium_references.csv --out_dir mycobacterium_test --download_bakta_db true -profile docker 
 ```

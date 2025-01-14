@@ -152,12 +152,12 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#input-format" id="toc-input-format" class="nav-link active" data-scroll-target="#input-format">Input format</a>
+  <li><a href="#command-line-options" id="toc-command-line-options" class="nav-link active" data-scroll-target="#command-line-options">Command-line options</a></li>
+  <li><a href="#input-format" id="toc-input-format" class="nav-link" data-scroll-target="#input-format">Input format</a>
   <ul class="collapse">
   <li><a href="#primary-csv-file" id="toc-primary-csv-file" class="nav-link" data-scroll-target="#primary-csv-file">Primary CSV file</a></li>
   <li><a href="#specifying-custom-references" id="toc-specifying-custom-references" class="nav-link" data-scroll-target="#specifying-custom-references">Specifying custom references</a></li>
   </ul></li>
-  <li><a href="#command-line-options" id="toc-command-line-options" class="nav-link" data-scroll-target="#command-line-options">Command-line options</a></li>
   <li><a href="#benchmarks" id="toc-benchmarks" class="nav-link" data-scroll-target="#benchmarks">Benchmarks</a></li>
   </ul>
 </nav>
@@ -184,7 +184,50 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<p>To run the pipeline, a command line statement is ex</p>
+<section id="command-line-options" class="level2">
+<h2 class="anchored" data-anchor-id="command-line-options">Command-line options</h2>
+<p><strong>Required:</strong></p>
+<ul>
+<li><strong>--input:</strong> Path to comma-separated file containing information about the samples in the experiment.</li>
+<li><strong>--output:</strong> The output directory where the results will be saved. You have to use absolute paths to storage on Cloud infrastructure.</li>
+<li><strong>--bakta_db:</strong> The path to the Bakta database folder. This or <code>--download_bakta_db</code> must be included.</li>
+<li><strong>--download_bakta_db:</strong> Download the database required for running Bakta. Note that this will download gigabytes of information, so if you plan on running the pipeline repeatedly it would be better to download the database manually and specify the path with <code>--bakta_db</code>.</li>
+</ul>
+<p><strong>Nextflow Options:</strong></p>
+<ul>
+<li><strong>-profile:</strong> Instructs the pipeline to use the named tool for software management. <code>docker</code>, <code>singularity</code>, <code>podman</code>, <code>shifter</code>, <code>charliecloud</code> and <code>conda</code>. For example, <code>-profile test,docker</code></li>
+<li><strong>-resume:</strong> Restarts an incomplete run by using cached intermediate files.</li>
+</ul>
+<p><strong>Optional:</strong></p>
+<ul>
+<li><strong>--email:</strong> Set this parameter to your e-mail address to get a summary e-mail with details of the run sent to you when the workflow exits. If set in your user config file (`~/.nextflow/config`) then you don’t need to specify this on the command line for every run.</li>
+<li><strong>--multiqc_title:</strong> MultiQC report title. Printed as page header, used for filename if not otherwise specified.</li>
+</ul>
+<p><strong>Performance Parameters:</strong></p>
+<ul>
+<li><strong>--max_cpus:</strong> Maximum number of CPUs that can be requested for any single job. Default: <code>16</code></li>
+<li><strong>--max_memory:</strong> Maximum amount of memory that can be requested for any single job. Default: <code>128.GB</code></li>
+<li><strong>--max_time:</strong> Maximum amount of time that can be requested for any single job. Default: <code>240.h</code></li>
+</ul>
+<p><strong>Analysis Parameters:</strong></p>
+<ul>
+<li><strong>--sketch_max_depth:</strong> Depth reads are subsampled to for the initial sketch-based identification. Default: <code>3</code></li>
+<li><strong>--variant_max_depth:</strong> Depth reads are subsampled to for the variant-based parts of the analysis. Default: <code>15</code></li>
+<li><strong>--assembly_max_depth:</strong> Depth reads are subsampled to for genome assembly. This will be multiplied by the predicted ploidy of each sample. Default: <code>30</code></li>
+<li><strong>--refseq_download_num:</strong> The maximum number of RefSeq sequences to select and download for each sample at each taxonomic level (species, genus, and family). The total number will vary based on the diversity of samples. Default: <code>10</code></li>
+<li><strong>--min_core_genes:</strong> The minimum number of genes needed to conduct a core gene phylogeny. Samples and references will be removed (as allowed by the <code>min_core_samps</code> and <code>min_core_refs</code> options) until this minimum is met. Default: <code>10</code></li>
+<li><strong>--min_core_samps:</strong> The minimum proportion of samples needed to conduct a core gene phylogeny. Samples will be removed until the <code>min_core_genes</code> option is satisfied or this minimum is met. Default: <code>0.8</code></li>
+<li><strong>--min_core_refs:</strong> The minimum proportion of references needed to conduct a core gene phylogeny. References will be removed until the <code>min_core_genes</code> option is satisfied or this minimum is met. Default: <code>0.5</code></li>
+<li><strong>--max_core_genes:</strong> The maximum number of genes used to conduct a core gene phylogeny. Default: <code>100</code></li>
+<li><strong>--min_ref_ani:</strong> The minimum ANI between a sample and potential reference for that reference to be used for variant calling with that sample. To force all the samples in a report group to use the same reference, set this value very low. Default: <code>0.9</code></li>
+<li><strong>--copymode:</strong> Storage management setting to determine which files will be copied from the cache into the output directory.
+<ul>
+<li><code>high</code> - All files are copied into output directory.</li>
+<li><code>medium</code> - Reports are copied. Large sequencing files are not copied, but they are accessible through symlinks to their location in the cache (default).</li>
+<li><code>low</code> - No files are copied into output directory, but files are accessible through symlinks to their location in the cache.</li>
+</ul></li>
+</ul>
+</section>
 <section id="input-format" class="level2">
 <h2 class="anchored" data-anchor-id="input-format">Input format</h2>
 <section id="primary-csv-file" class="level3">
@@ -224,50 +267,6 @@ ul.task-list li input[type="checkbox"] {
 <li><strong>ref_enabled</strong>: Either “TRUE” or “FALSE”, indicating whether the reference should be included in the analysis or not. Defaults to “TRUE”.</li>
 </ul>
 </section>
-</section>
-<section id="command-line-options" class="level2">
-<h2 class="anchored" data-anchor-id="command-line-options">Command-line options</h2>
-<p><strong>Required:</strong></p>
-<ul>
-<li><strong>–input:</strong> Path to comma-separated file containing information about the samples in the experiment.</li>
-<li><strong>–output:</strong> The output directory where the results will be saved. You have to use absolute paths to storage on Cloud infrastructure.</li>
-<li><strong>–bakta_db:</strong> The path to the Bakta database folder. This or <code>\-\-download_bakta_db</code> must be included.</li>
-<li><strong>–download_bakta_db:</strong> Download the database required for running Bakta. Note that this will download gigabytes of information, so if you plan on running the pipeline repeatedly it would be better to download the database manually and specify the path with <code>\-\-bakta_db</code>.</li>
-</ul>
-<p><strong>Nextflow Options:</strong></p>
-<ul>
-<li><strong>-profile:</strong> Instructs the pipeline to use the named tool for software management. <code>docker</code>, <code>singularity</code>, <code>podman</code>, <code>shifter</code>, <code>charliecloud</code> and <code>conda</code>. For example, <code>-profile test,docker</code></li>
-<li><strong>-resume:</strong> Restarts an incomplete run by using cached intermediate files.</li>
-</ul>
-<p><strong>Optional:</strong></p>
-<ul>
-<li><strong>–email:</strong> Set this parameter to your e-mail address to get a summary e-mail with details of the run sent to you when the workflow exits. If set in your user config file (`~/.nextflow/config`) then you don’t need to specify this on the command line for every run.</li>
-<li><strong>–multiqc_title:</strong> MultiQC report title. Printed as page header, used for filename if not otherwise specified.</li>
-</ul>
-<p><strong>Performance Parameters:</strong></p>
-<ul>
-<li><strong>–max_cpus:</strong> Maximum number of CPUs that can be requested for any single job. Default: <code>16</code></li>
-<li><strong>–max_memory:</strong> Maximum amount of memory that can be requested for any single job. Default: <code>128.GB</code></li>
-<li><strong>–max_time:</strong> Maximum amount of time that can be requested for any single job. Default: <code>240.h</code></li>
-</ul>
-<p><strong>Analysis Parameters:</strong></p>
-<ul>
-<li><strong>–sketch_max_depth:</strong> Depth reads are subsampled to for the initial sketch-based identification. Default: <code>3</code></li>
-<li><strong>–variant_max_depth:</strong> Depth reads are subsampled to for the variant-based parts of the analysis. Default: <code>15</code></li>
-<li><strong>–assembly_max_depth:</strong> Depth reads are subsampled to for genome assembly. This will be multiplied by the predicted ploidy of each sample. Default: <code>30</code></li>
-<li><strong>–refseq_download_num:</strong> The maximum number of RefSeq sequences to select and download for each sample at each taxonomic level (species, genus, and family). The total number will vary based on the diversity of samples. Default: <code>10</code></li>
-<li><strong>–min_core_genes:</strong> The minimum number of genes needed to conduct a core gene phylogeny. Samples and references will be removed (as allowed by the <code>min_core_samps</code> and <code>min_core_refs</code> options) until this minimum is met. Default: <code>10</code></li>
-<li><strong>–min_core_samps:</strong> The minimum proportion of samples needed to conduct a core gene phylogeny. Samples will be removed until the <code>min_core_genes</code> option is satisfied or this minimum is met. Default: <code>0.8</code></li>
-<li><strong>–min_core_refs:</strong> The minimum proportion of references needed to conduct a core gene phylogeny. References will be removed until the <code>min_core_genes</code> option is satisfied or this minimum is met. Default: <code>0.5</code></li>
-<li><strong>–max_core_genes:</strong> The maximum number of genes used to conduct a core gene phylogeny. Default: <code>100</code></li>
-<li><strong>–min_ref_ani:</strong> The minimum ANI between a sample and potential reference for that reference to be used for variant calling with that sample. To force all the samples in a report group to use the same reference, set this value very low. Default: <code>0.9</code></li>
-<li><strong>–copymode:</strong> Storage management setting to determine which files will be copied from the cache into the output directory.
-<ul>
-<li><code>high</code> - All files are copied into output directory.</li>
-<li><code>medium</code> - Reports are copied. Large sequencing files are not copied, but they are accessible through symlinks to their location in the cache (default).</li>
-<li><code>low</code> - No files are copied into output directory, but files are accessible through symlinks to their location in the cache.</li>
-</ul></li>
-</ul>
 </section>
 <section id="benchmarks" class="level2">
 <h2 class="anchored" data-anchor-id="benchmarks">Benchmarks</h2>

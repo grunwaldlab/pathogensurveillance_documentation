@@ -8,15 +8,21 @@ NOTE: THIS PROJECT IS UNDER DEVELOPMENT AND MAY NOT FUNCTION AS EXPECTED UNTIL T
 
 ## Background - why use PathogenSurveillance? {#background}
 
-**TL;DR:** **unknown FASTQ -\> sample ID + phylogeny + publication-quality figures**
+**TL;DR:** **unknown gDNA FASTQ -\> sample ID + phylogeny + publication-quality figures**
 
-Most existing genomic tools are designed to be used with a reference genome. Unfortunately, this is a luxury in the pathogen diagnostic world, where researchers often are faced with unknown samples. This creates a conundrum: how can you draw a point of comparison without a starting point?
+Most genomic tools are designed to be used with a reference genome. Yet this is at odds with the work of pathogen diagnosticians, who often deal with unknown samples. Finding the right reference manually may be cumbersome and require a suprising amount of technical skill.
 
-PathogenSurveillance addresses this by **picking a good reference genome for you** through a process of k-mer sketch comparisons. In most cases, this will be the best reference. It is therefore a great option for identification of an unknown sample, or when you would like some empirical data suggesting which references are available in nearby species. Conversely, if you already have a good understanding of your system, you also have the ability to supply your choice of a reference genome.
+**PathogenSurveillance picks a good reference genome for you**. It does this through the program sourmash. In simple terms, this takes a sample's DNA "fingerprint" and finds the closest match in a "DNA fingerprint library" spanning the tree of life. In more technical terms, the pipeline generates k-mer sketches from your reads assembled into genomes, then uses the identified reference to do a boilerplate, but robust phylogenetic analysis of your submitted samples. 
 
-Pathogensurveillance uses several strategies to address the emerging complexity of working with sequences that could be anything ranging from neamtodes to bacteria or fungi. First, PathogenSurveillance uses **reasonable baseline parameters** that work very well with most species. There are some processes where a one-size-fits-all strategy isn't feasible. In such cases, PathogenSurveillance will change the analysis workflow automatically (e.g. assembling prokaryotic vs eukaryotic core genes). These analysis branchpoints are facilitated by the nextflow framework, and require no additional inputs from the user.
+In our experience, the pipeline usually chooses the best possible reference genome. At a minimum it will choose a reference that is good enough to build an informative phylogeny and allow you to see the contextual placement your samples. 
 
-While PathogenSurveillance may be a useful tool for researchers of all levels, it was designed with clinicians in mind who may have limited bioinformatics training. **PathogenSurveillance is very simple to run**. At a minimum, all that needs to be supplied is a .CSV file with a single column specifying the path to your sample's sequencing reads. For more experienced users, there are opportunities to customize the parameters of the pipeline, for example by porviding information on geogrpahic locations, hsots, etc. In particular, the final report is designed for configuration through Quarto and the PSminer widget R package.
+Pathogensurveillance is designed to use as many types of genomic DNA input as possible. It works for common shortread and longread sequencing technologies and for both prokaryotes and eukaryotes. There is a good deal of emergent complexity required to work with such a broad sample range, but Pathogensurveillance handles this automatically. 
+
+::: {.callout-tip}
+Ignore the name - Pathogensurveillance works great for non pathogens too.
+:::
+
+While PathogenSurveillance may be a useful tool for researchers of all levels, it was designed with those who may have limited bioinformatics training in mind. **PathogenSurveillance is very simple to run**. At a minimum, all that needs to be supplied is a .CSV file with a single column specifying the path to your sample's sequencing reads. Other information is optional, but if provided will used to customize the output report or conditionally use particular reference genomes. 
 
 **Pathogensurveillance is particularly good for:**
 
@@ -29,12 +35,12 @@ While PathogenSurveillance may be a useful tool for researchers of all levels, i
 **Pathogensurveillance is not designed for:**
 
 -   viral sequence
--   non gDNA datasets (RNA-seq, RAD-seq, ChIP-seq, etc.)
--   mixed/impure samples
--   Researchers who want to use a highly configurable pipeline, or those who would like to extensively test the pipeline at each stage
+-   non gDNA datasets (DNA assembly fasta files, RNA-seq, RAD-seq, ChIP-seq, etc.)
+-   mixed/impure samples (this may change in future versions)
+-   Highly specialized population genetic analysis, or researchers who would like to extensively test parameters at each stage
 
 ::: {.callout-note}
-Pathogensuveillance manages its many software dependencies through containers. The pipeline works with Linux machines and HPC clusters, but Singularity and Docker currently have **compatibility issues with MacOS and Windows computers**. 
+Pathogensuveillance is built with Nextflow, which is a scientific workflow management system. Typically, Nextflow pipelines manage their many software dependencies through containers. It be complicated to get the recommended container systems (Singularity/Apptainer or Docker) working on MacOS or Windows, but running the pipeline in Linux machines or HPC clusters is typically straightforward.
 :::
 
 ## Pipeline summary {#pipelinesummary}
@@ -42,11 +48,11 @@ Pathogensuveillance manages its many software dependencies through containers. T
 This is a quick breakdown of the processes used by PathogenSurveillance:
 
 -   Download sequences and references if they are not provided locally
--   Quickly obtain several initial sample references (`bbmap`)
--   More accurately select appropriate reference genomes. Genome "sketches" are compared between first-pass references, samples, and any references directly provided by the user (`sourmash`)
 -   Genome assembly
     -   Illumina shortreads: (`spades`)
     -   Pacbio or Oxford Nanopore longreads: (`flye`)
+-   Quickly obtain several initial sample references (`bbmap`)
+-   More accurately select appropriate reference genomes. Genome "sketches" are compared between first-pass references, samples, and any references directly provided by the user (`sourmash`)
 -   Genome annotation (`bakta`)
 -   Align reads to reference sequences (`bwa`)
 -   Variant calling and filtering (`graphtyper`, `vcflib`)
