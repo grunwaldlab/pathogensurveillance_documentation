@@ -6,25 +6,48 @@ NOTE: THIS PROJECT IS UNDER DEVELOPMENT AND MAY NOT FUNCTION AS EXPECTED UNTIL T
 
 **nf-core/pathogensurveillance** is a population genomic pipeline for pathogen diagnosis, variant detection, and biosurveillance. The pipeline accepts the paths to raw reads for one or more organisms (in the form of a CSV file) and creates reports in the form of interactive HTML reports or PDF documents. Significant features include the ability to analyze unidentified eukaryotic and prokaryotic samples, creation of reports for multiple user-defined groupings of samples, automated discovery and downloading of reference assemblies from NCBI RefSeq, and rapid initial identification based on k-mer sketches followed by a more robust core genome phylogeny and SNP-based phylogeny.
 
-## Background - why use PathogenSurveillance? {#background}
+## Quickstart {#quickstart}
+
+1.  Install [`Nextflow`](https://www.nextflow.io/docs/latest/getstarted.html#installation) (`>=21.10.3`)
+
+2.  Install any of [`Docker`](https://docs.docker.com/engine/installation/), [`Singularity`](https://www.sylabs.io/guides/3.0/user-guide/) (you can follow [this tutorial](https://singularity-tutorial.github.io/01-installation/)), [`Podman`](https://podman.io/), [`Shifter`](https://nersc.gitlab.io/development/shifter/how-to-use/) or [`Charliecloud`](https://hpc.github.io/charliecloud/) for full pipeline reproducibility *(you can use [`Conda`](https://conda.io/miniconda.html) both to install Nextflow itself and also to manage software within pipelines. Please only use it within pipelines as a last resort; see [docs](https://nf-co.re/usage/configuration#basic-configuration-profiles))*.
+
+3.  Download the pipeline and test it on a minimal dataset with a single command:
+
+    ``` bash
+    nextflow run nf-core/pathogensurveillance -profile test,YOURPROFILE --outdir <OUTDIR> -resume 
+    ```
+
+4.  Start running your own analysis:
+
+    <!-- TODO nf-core: Update the example "typical command" below used to run the pipeline -->
+
+    ``` bash
+    nextflow run nf-core/pathogensurveillance --input <samplesheet.csv> --outdir <OUTDIR>  -profile <docker/singularity/podman/shifter/charliecloud/conda/institute> -resume
+    ```
+
+You can also try running a small example dataset hosted with the source code using the following command (no need to download anything):
+
+``` bash
+nextflow run nf-core/pathogensurveillance --input https://raw.githubusercontent.com/grunwaldlab/pathogensurveillance/master/test/data/metadata_small.csv --outdir test_out -profile docker -resume
+```
+
+
+## Background - why use pathogensurveillance? {#background}
 
 **TL;DR:** **unknown gDNA FASTQ -\> sample ID + phylogeny + publication-quality figures**
 
 Most genomic tools are designed to be used with a reference genome. Yet this is at odds with the work of pathogen diagnosticians, who often deal with unknown samples. Finding the right reference manually may be cumbersome and require a suprising amount of technical skill.
 
-**PathogenSurveillance picks a good reference genome for you**. It does this through the program sourmash. In simple terms, this takes a sample's DNA "fingerprint" and finds the closest match in a "DNA fingerprint library" spanning the tree of life. In more technical terms, the pipeline generates k-mer sketches from your reads assembled into genomes, then uses the identified reference to do a boilerplate, but robust phylogenetic analysis of your submitted samples. 
+**PathogenSurveillance picks a good reference genome for you**. It does this through the program sourmash. In simple terms, this takes a sample's DNA "fingerprint" and finds the closest match in a "DNA fingerprint library" spanning the tree of life. In more technical terms, the pipeline generates k-mer sketches from your reads assembled into genomes, then uses the identified reference to do a boilerplate, but robust phylogenetic analysis of your submitted samples.
 
-In our experience, the pipeline usually chooses the best possible reference genome. At a minimum it will choose a reference that is good enough to build an informative phylogeny and allow you to see the contextual placement your samples. 
+In our experience, the pipeline usually chooses the best possible reference genome. At a minimum it will choose a reference that is good enough to build an informative phylogeny and allow you to see the contextual placement your samples.
 
-Pathogensurveillance is designed to use as many types of genomic DNA input as possible. It works for common shortread and longread sequencing technologies and for both prokaryotes and eukaryotes. There is a good deal of emergent complexity required to work with such a broad sample range, but Pathogensurveillance handles this automatically. 
+Pathogensurveillance is designed to use as many types of genomic DNA input as possible. It works for common shortread and longread sequencing technologies and for both prokaryotes and eukaryotes. There is a good deal of emergent complexity required to work with such a broad sample range, but pathogensurveillance handles this automatically.
 
-::: {.callout-tip}
-Ignore the name - Pathogensurveillance works great for non pathogens too.
-:::
+While PathogenSurveillance may be a useful tool for researchers of all levels, it was designed with those who may have limited bioinformatics training in mind. **Pathogensurveillance is very simple to run**. At a minimum, all that needs to be supplied is a .CSV file with a single column specifying the path to your sample's sequencing reads. Other information is optional, but if provided will used to customize the output report or conditionally use particular reference genomes.
 
-While PathogenSurveillance may be a useful tool for researchers of all levels, it was designed with those who may have limited bioinformatics training in mind. **PathogenSurveillance is very simple to run**. At a minimum, all that needs to be supplied is a .CSV file with a single column specifying the path to your sample's sequencing reads. Other information is optional, but if provided will used to customize the output report or conditionally use particular reference genomes. 
-
-**Pathogensurveillance is particularly good for:**
+**pathogensurveillance is particularly good for:**
 
 -   unknown sample identification
 -   exploratory population analysis using minimal input parameters
@@ -32,20 +55,22 @@ While PathogenSurveillance may be a useful tool for researchers of all levels, i
 -   efficient parallelization of tasks
 -   repeated analysis (given caching) where you would like to add new samples to a past run
 
-**Pathogensurveillance is not designed for:**
+::: callout-note
+pathogensurveillance works for non pathogens too!
+:::
+
+**pathogensurveillance is not designed for:**
 
 -   viral sequence
 -   non gDNA datasets (DNA assembly fasta files, RNA-seq, RAD-seq, ChIP-seq, etc.)
 -   mixed/impure samples (this may change in future versions)
 -   Highly specialized population genetic analysis, or researchers who would like to extensively test parameters at each stage
 
-::: {.callout-note}
-Pathogensuveillance is built with Nextflow, which is a scientific workflow management system. Typically, Nextflow pipelines manage their many software dependencies through containers. It be complicated to get the recommended container systems (Singularity/Apptainer or Docker) working on MacOS or Windows, but running the pipeline in Linux machines or HPC clusters is typically straightforward.
-:::
-
 ## Pipeline summary {#pipelinesummary}
 
-This is a quick breakdown of the processes used by PathogenSurveillance:
+![](images/pipeline_diagram.png){width="700"}
+
+This is a quick breakdown of the processes used by pathogensurveillance:
 
 -   Download sequences and references if they are not provided locally
 -   Genome assembly
@@ -63,13 +88,10 @@ This is a quick breakdown of the processes used by PathogenSurveillance:
         -   Build tree from core genome phylogeny (`iqtree`)
     -   For Eukaryotes:
         -   Identify BUSCO genes (`busco`)
-        -   Build tree from BUSCO genes (`read2tree`)
+        -   Build tree from BUSCO genes (`iqtree`)
 -   Generate interactive html report/pdf file
     -   Sequence and assembly information (`fastqc, multiqc, quast`)
     -   sample identification tables and heatmaps
     -   Phylogenetic trees from genome-wide SNPs and core genes
     -   minimum spanning network
 
-## PathogenSurveillance pipeline chart {#flowchart}
-
-![](images/pipeline_diagram.png){width="700"}

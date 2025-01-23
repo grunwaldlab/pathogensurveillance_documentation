@@ -13,8 +13,6 @@ website:
     contents:
       - href: index.qmd
         text: Home
-      - href: quickstart.qmd
-        text: Quickstart
       - href: documentation.qmd
         text: Documentation
       - href: tutorial.qmd

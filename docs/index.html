@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.4.553">
+<meta name="generator" content="quarto-1.4.555">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -19,6 +19,40 @@ ul.task-list li input[type="checkbox"] {
   width: 0.8em;
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 </style>
 
@@ -114,12 +148,6 @@ ul.task-list li input[type="checkbox"] {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./quickstart.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Quickstart</span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
   <a href="./documentation.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Documentation</span></a>
   </div>
@@ -153,9 +181,9 @@ ul.task-list li input[type="checkbox"] {
    
   <ul>
   <li><a href="#introduction" id="toc-introduction" class="nav-link active" data-scroll-target="#introduction">Introduction</a></li>
-  <li><a href="#background" id="toc-background" class="nav-link" data-scroll-target="#background">Background - why use PathogenSurveillance?</a></li>
+  <li><a href="#quickstart" id="toc-quickstart" class="nav-link" data-scroll-target="#quickstart">Quickstart</a></li>
+  <li><a href="#background" id="toc-background" class="nav-link" data-scroll-target="#background">Background - why use pathogensurveillance?</a></li>
   <li><a href="#pipelinesummary" id="toc-pipelinesummary" class="nav-link" data-scroll-target="#pipelinesummary">Pipeline summary</a></li>
-  <li><a href="#flowchart" id="toc-flowchart" class="nav-link" data-scroll-target="#flowchart">PathogenSurveillance pipeline chart</a></li>
   </ul>
 </nav>
     </div>
@@ -171,41 +199,35 @@ ul.task-list li input[type="checkbox"] {
 <h2 class="anchored" data-anchor-id="introduction">Introduction</h2>
 <p><strong>nf-core/pathogensurveillance</strong> is a population genomic pipeline for pathogen diagnosis, variant detection, and biosurveillance. The pipeline accepts the paths to raw reads for one or more organisms (in the form of a CSV file) and creates reports in the form of interactive HTML reports or PDF documents. Significant features include the ability to analyze unidentified eukaryotic and prokaryotic samples, creation of reports for multiple user-defined groupings of samples, automated discovery and downloading of reference assemblies from NCBI RefSeq, and rapid initial identification based on k-mer sketches followed by a more robust core genome phylogeny and SNP-based phylogeny.</p>
 </section>
+<section id="quickstart" class="level2">
+<h2 class="anchored" data-anchor-id="quickstart">Quickstart</h2>
+<ol type="1">
+<li><p>Install <a href="https://www.nextflow.io/docs/latest/getstarted.html#installation"><code>Nextflow</code></a> (<code>&gt;=21.10.3</code>)</p></li>
+<li><p>Install any of <a href="https://docs.docker.com/engine/installation/"><code>Docker</code></a>, <a href="https://www.sylabs.io/guides/3.0/user-guide/"><code>Singularity</code></a> (you can follow <a href="https://singularity-tutorial.github.io/01-installation/">this tutorial</a>), <a href="https://podman.io/"><code>Podman</code></a>, <a href="https://nersc.gitlab.io/development/shifter/how-to-use/"><code>Shifter</code></a> or <a href="https://hpc.github.io/charliecloud/"><code>Charliecloud</code></a> for full pipeline reproducibility <em>(you can use <a href="https://conda.io/miniconda.html"><code>Conda</code></a> both to install Nextflow itself and also to manage software within pipelines. Please only use it within pipelines as a last resort; see <a href="https://nf-co.re/usage/configuration#basic-configuration-profiles">docs</a>)</em>.</p></li>
+<li><p>Download the pipeline and test it on a minimal dataset with a single command:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ex">nextflow</span> run nf-core/pathogensurveillance <span class="at">-profile</span> test,YOURPROFILE <span class="at">--outdir</span> <span class="op">&lt;</span>OUTDIR<span class="op">&gt;</span> -resume </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
+<li><p>Start running your own analysis:</p>
+<!-- TODO nf-core: Update the example "typical command" below used to run the pipeline -->
+<div class="sourceCode" id="cb2"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="ex">nextflow</span> run nf-core/pathogensurveillance <span class="at">--input</span> <span class="op">&lt;</span>samplesheet.csv<span class="op">&gt;</span> --outdir <span class="op">&lt;</span>OUTDIR<span class="op">&gt;</span>  -profile <span class="op">&lt;</span>docker/singularity/podman/shifter/charliecloud/conda/institute<span class="op">&gt;</span> -resume</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
+</ol>
+<p>You can also try running a small example dataset hosted with the source code using the following command (no need to download anything):</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="ex">nextflow</span> run nf-core/pathogensurveillance <span class="at">--input</span> https://raw.githubusercontent.com/grunwaldlab/pathogensurveillance/master/test/data/metadata_small.csv <span class="at">--outdir</span> test_out <span class="at">-profile</span> docker <span class="at">-resume</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
 <section id="background" class="level2">
-<h2 class="anchored" data-anchor-id="background">Background - why use PathogenSurveillance?</h2>
+<h2 class="anchored" data-anchor-id="background">Background - why use pathogensurveillance?</h2>
 <p><strong>TL;DR:</strong> <strong>unknown gDNA FASTQ -&gt; sample ID + phylogeny + publication-quality figures</strong></p>
 <p>Most genomic tools are designed to be used with a reference genome. Yet this is at odds with the work of pathogen diagnosticians, who often deal with unknown samples. Finding the right reference manually may be cumbersome and require a suprising amount of technical skill.</p>
 <p><strong>PathogenSurveillance picks a good reference genome for you</strong>. It does this through the program sourmash. In simple terms, this takes a sample’s DNA “fingerprint” and finds the closest match in a “DNA fingerprint library” spanning the tree of life. In more technical terms, the pipeline generates k-mer sketches from your reads assembled into genomes, then uses the identified reference to do a boilerplate, but robust phylogenetic analysis of your submitted samples.</p>
 <p>In our experience, the pipeline usually chooses the best possible reference genome. At a minimum it will choose a reference that is good enough to build an informative phylogeny and allow you to see the contextual placement your samples.</p>
-<p>Pathogensurveillance is designed to use as many types of genomic DNA input as possible. It works for common shortread and longread sequencing technologies and for both prokaryotes and eukaryotes. There is a good deal of emergent complexity required to work with such a broad sample range, but Pathogensurveillance handles this automatically.</p>
-<div class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Tip
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>Ignore the name - Pathogensurveillance works great for non pathogens too.</p>
-</div>
-</div>
-<p>While PathogenSurveillance may be a useful tool for researchers of all levels, it was designed with those who may have limited bioinformatics training in mind. <strong>PathogenSurveillance is very simple to run</strong>. At a minimum, all that needs to be supplied is a .CSV file with a single column specifying the path to your sample’s sequencing reads. Other information is optional, but if provided will used to customize the output report or conditionally use particular reference genomes.</p>
-<p><strong>Pathogensurveillance is particularly good for:</strong></p>
+<p>Pathogensurveillance is designed to use as many types of genomic DNA input as possible. It works for common shortread and longread sequencing technologies and for both prokaryotes and eukaryotes. There is a good deal of emergent complexity required to work with such a broad sample range, but pathogensurveillance handles this automatically.</p>
+<p>While PathogenSurveillance may be a useful tool for researchers of all levels, it was designed with those who may have limited bioinformatics training in mind. <strong>Pathogensurveillance is very simple to run</strong>. At a minimum, all that needs to be supplied is a .CSV file with a single column specifying the path to your sample’s sequencing reads. Other information is optional, but if provided will used to customize the output report or conditionally use particular reference genomes.</p>
+<p><strong>pathogensurveillance is particularly good for:</strong></p>
 <ul>
 <li>unknown sample identification</li>
 <li>exploratory population analysis using minimal input parameters</li>
 <li>inexperienced bioinformatics users</li>
 <li>efficient parallelization of tasks</li>
 <li>repeated analysis (given caching) where you would like to add new samples to a past run</li>
-</ul>
-<p><strong>Pathogensurveillance is not designed for:</strong></p>
-<ul>
-<li>viral sequence</li>
-<li>non gDNA datasets (DNA assembly fasta files, RNA-seq, RAD-seq, ChIP-seq, etc.)</li>
-<li>mixed/impure samples (this may change in future versions)</li>
-<li>Highly specialized population genetic analysis, or researchers who would like to extensively test parameters at each stage</li>
 </ul>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
@@ -217,13 +239,21 @@ Note
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Pathogensuveillance is built with Nextflow, which is a scientific workflow management system. Typically, Nextflow pipelines manage their many software dependencies through containers. It be complicated to get the recommended container systems (Singularity/Apptainer or Docker) working on MacOS or Windows, but running the pipeline in Linux machines or HPC clusters is typically straightforward.</p>
+<p>pathogensurveillance works for non pathogens too!</p>
 </div>
 </div>
+<p><strong>pathogensurveillance is not designed for:</strong></p>
+<ul>
+<li>viral sequence</li>
+<li>non gDNA datasets (DNA assembly fasta files, RNA-seq, RAD-seq, ChIP-seq, etc.)</li>
+<li>mixed/impure samples (this may change in future versions)</li>
+<li>Highly specialized population genetic analysis, or researchers who would like to extensively test parameters at each stage</li>
+</ul>
 </section>
 <section id="pipelinesummary" class="level2">
 <h2 class="anchored" data-anchor-id="pipelinesummary">Pipeline summary</h2>
-<p>This is a quick breakdown of the processes used by PathogenSurveillance:</p>
+<p><img src="images/pipeline_diagram.png" class="img-fluid" width="700"></p>
+<p>This is a quick breakdown of the processes used by pathogensurveillance:</p>
 <ul>
 <li>Download sequences and references if they are not provided locally</li>
 <li>Genome assembly
@@ -247,7 +277,7 @@ Note
 <li>For Eukaryotes:
 <ul>
 <li>Identify BUSCO genes (<code>busco</code>)</li>
-<li>Build tree from BUSCO genes (<code>read2tree</code>)</li>
+<li>Build tree from BUSCO genes (<code>iqtree</code>)</li>
 </ul></li>
 </ul></li>
 <li>Generate interactive html report/pdf file
@@ -258,10 +288,6 @@ Note
 <li>minimum spanning network</li>
 </ul></li>
 </ul>
-</section>
-<section id="flowchart" class="level2">
-<h2 class="anchored" data-anchor-id="flowchart">PathogenSurveillance pipeline chart</h2>
-<p><img src="images/pipeline_diagram.png" class="img-fluid" width="700"></p>
 
 
 </section>
