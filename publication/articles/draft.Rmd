@@ -57,5 +57,22 @@ The stage in the clustering process with the highest score is chosen.
 Finally, a multigene phylogeny is created using IQ-TREE (https://doi.org/10.1093/molbev/msaa015) for each cluster using all genes shared by that cluster.
 This clustering process ensures that useful outputs are created no matter how diverse the input sequences are.
 
-## Variant analysis
 
+## Genome assembly
+
+Raw Illumina, Pacbio, and Nanopore reads are automatically assembled into genome sequences for use in downstream analysis.
+First, fastp (https://doi.org/10.1002/imt2.107) is used to detect and trim any adapter sequences and do basic quality control of reads.
+Samples with too few base pairs after filtering with fastp are automatically removed from the analysis.
+Genome assembly of filtered reads is then done with Flye (https://doi.org/10.1038/s41587-019-0072-8) for Nanopore and Pacbio reads and with SPAdes (https://doi.org/10.1002/cpbi.102) for Illumina reads.
+Assemblies are then filtered for coverage and the presence of palindromic sequences using a custom script.
+Finally, the quality of the assembly is assessed using QUAST (https://doi.org/10.1093/bioinformatics/btt086).
+The assemblies are use later in the pipeline for ANI comparisons, selecting references, and the multi gene phylogenies.
+
+
+## Estimated ANI comparisons
+
+Assembled genomes and reference assemblies are compared against each other to get pairwise estimates of ANI.
+K-mer-based sketches are made of every assembly (both samples and references) using sourmash sketch (https://doi.org/10.21105/joss.06830).
+For samples that could not be assembled due to low depth or a failed assembly (usually due to insufficient RAM), low abundance reads are filtered out using time-low-abund.py from the khmer package (https://doi.org/10.12688/f1000research.6924.1) and the sketched with sourmash sketch.
+All sketches are then compared with sourmash compare to generate a pairwise estimate ANI matrix.
+This matrix is then used to inform reference selection and provide a estimate of sample relatedness.
