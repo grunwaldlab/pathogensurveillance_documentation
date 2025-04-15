@@ -1,108 +1,72 @@
 #!/usr/bin/env Rscript
 
-library(RcppSimdJson)
+# MIT License
+#
+# Copyright (c) Zachary S.L. Foster and Niklaus J. Grunwald
+#
+# Permission is hereby granted, free of charge, to any person obtaining a copy
+# of this software and associated documentation files (the "Software"), to deal
+# in the Software without restriction, including without limitation the rights
+# to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+# copies of the Software, and to permit persons to whom the Software is
+# furnished to do so, subject to the following conditions:
+#
+# The above copyright notice and this permission notice shall be included in all
+# copies or substantial portions of the Software.
+#
+# THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+# IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+# FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+# AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+# LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+# OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+# SOFTWARE.
 
-# Set random number generator seed
-set.seed(1)
 
 # Parse taxonomy inputs
 args <- commandArgs(trailingOnly = TRUE)
 args <- c(
-    '/home/fosterz/projects/pathogensurveillance/work/33/7afb691e09b32a756b9073ce718108/LF1_families.txt',
-    '/home/fosterz/projects/pathogensurveillance/work/33/7afb691e09b32a756b9073ce718108/LF1_genera.txt',
-    '/home/fosterz/projects/pathogensurveillance/work/33/7afb691e09b32a756b9073ce718108/LF1_species.txt',
-    '3', '3', '3', 'false', 'LF1.tsv',
-    '/home/fosterz/projects/pathogensurveillance/work/33/7afb691e09b32a756b9073ce718108/Lactobacillaceae.json',
-    '/home/fosterz/projects/pathogensurveillance/work/33/7afb691e09b32a756b9073ce718108/Streptomycetaceae.json'
+    "~/projects/pathogensurveillance/work/5b/29ffb0e1e1add90d02de99307cffea/LF1_taxa_found.tsv",
+    "3",
+    "3",
+    "3",
+    "false",
+    "LF1",
+    list.files("~/projects/pathogensurveillance/work/5b/29ffb0e1e1add90d02de99307cffea", pattern = '^[0-9]+.tsv$', full.names = TRUE)
 )
-args <- as.list(args)
-families <- readLines(args[[1]])
-genera <- readLines(args[[2]])
-species <- readLines(args[[3]])
-n_ref_strains <- as.numeric(args[[4]])
-n_ref_species <- as.numeric(args[[5]])
-n_ref_genera <- as.numeric(args[[6]])
-only_binomial <- as.logical(args[[7]])
-out_path <- args[[8]]
 
-# Parse input JSONs
-if (length(args) < 9) {
+args <- as.list(args)
+taxa_found_data <- read.table(args[[1]], header = TRUE, sep = '\t', comment.char = '')
+n_ref_strains <- args[[2]]
+n_ref_species <- args[[3]]
+n_ref_genera <- args[[4]]
+only_binomial <- as.logical(args[[5]])
+out_name <- args[[6]]
+
+# Parse input TSVs
+if (length(args) < 7) {
   stop('No family-level reference metadata files supplied. Check input data.')
 }
-json_paths <- unlist(args[9:length(args)])
-json_families <- gsub(basename(json_paths), pattern = '.json', replacement = '', fixed = TRUE)
-json_data <- lapply(seq_along(json_paths), function(index) {
-  parsed_json <- RcppSimdJson::fparse(readLines(json_paths[index]), always_list = TRUE)
-  output <- do.call(rbind, lapply(parsed_json, function(assem_data) {
-    attributes <- assem_data$assembly_info$biosample$attributes
-    hosts <- paste0(attributes$value[attributes$name == 'host'], collapse = ';')
-    data_parts <- list(
-      accession = assem_data$accession,
-      assembly_level = assem_data$assembly_info$assembly_level,
-      assembly_status = assem_data$assembly_info$assembly_status,
-      assembly_type = assem_data$assembly_info$assembly_type,
-      hosts = ifelse(hosts == '', NA_character_, hosts),
-      organism_name = assem_data$organism$organism_name,
-      tax_id = as.character(assem_data$organism$tax_id),
-      contig_l50 = as.numeric(assem_data$assembly_stats$contig_l50),
-      contig_n50 = as.numeric(assem_data$assembly_stats$contig_n50),
-      coverage = as.numeric(sub(assem_data$assembly_stats$genome_coverage, pattern = 'x$', replacement = '')),
-      number_of_component_sequences = as.numeric(assem_data$assembly_stats$number_of_component_sequences),
-      number_of_contigs = as.numeric(assem_data$assembly_stats$number_of_contigs),
-      total_ungapped_length = as.numeric(assem_data$assembly_stats$total_ungapped_length),
-      total_sequence_length = as.numeric(assem_data$assembly_stats$total_sequence_length),
-      source_database = assem_data$source_database,
-      is_type = "type_material" %in% names(assem_data),
-      is_annotated = "annotation_info" %in% names(assem_data),
-      is_atypical = "atypical" %in% names(assem_data$assembly_info),
-      checkm_completeness = assem_data$checkm_info$completeness,
-      checkm_contamination = assem_data$checkm_info$contamination
-    )
-    data_parts[sapply(data_parts, length) == 0 | sapply(data_parts, is.null)] <- NA
-    as.data.frame(data_parts)
-  }))
-  if (!is.null(output)) {
-    output$family <- rep(json_families[index], nrow(output))
-  }
-  return(output)
-})
-assem_data <- do.call(rbind, json_data)
-if (is.null(assem_data)) {
-  assem_data <- data.frame(
-    accession = character(0),
-    assembly_level = character(0),
-    assembly_status = character(0),
-    assembly_type = character(0),
-    hosts = character(0),
-    organism_name = character(0),
-    tax_id = character(0),
-    contig_l50 = numeric(0),
-    contig_n50 = numeric(0),
-    coverage = numeric(0),
-    number_of_component_sequences = numeric(0),
-    number_of_contigs = numeric(0),
-    total_ungapped_length = numeric(0),
-    total_sequence_length = numeric(0),
-    source_database = character(0),
-    is_type = logical(0),
-    is_annotated = logical(0),
-    is_atypical = logical(0),
-    checkm_completeness = numeric(0),
-    checkm_contamination = numeric(0),
-    family = character(0),
-  )
-}
+tsv_paths <- unlist(args[7:length(args)])
+assem_data <- do.call(rbind, lapply(tsv_paths, function(path) {
+  out <- read.table(path, header = TRUE, sep = '\t', comment.char = '')
+  family_id <- gsub(basename(path), pattern = '.tsv', replacement = '', fixed = TRUE)
+  out$family <- taxa_found_data$name[taxa_found_data$taxon_id == family_id]
+  return(out)
+}))
 
 # Add column for modified ID
 modified_id <- gsub(assem_data$accession, pattern = '[\\/:*?"<>| .]', replacement = '_')
 assem_data <- cbind(reference_id = modified_id, assem_data)
-rownames(assem_data) <- NULL
 
 # Add taxon info columns
 assem_data$organism_name <- gsub(assem_data$organism_name, pattern = '[', replacement = '', fixed = TRUE)
 assem_data$organism_name <- gsub(assem_data$organism_name, pattern = ']', replacement = '', fixed = TRUE)
-assem_data$species <- gsub(assem_data$organism_name, pattern = '([a-zA-Z0-9.]+) ([a-zA-Z0-9.]+) (.*)', replacement = '\\1 \\2')
-assem_data$genus <- gsub(assem_data$organism_name, pattern = '([a-zA-Z0-9.]+) (.*)', replacement = '\\1')
+genus_prefixes <- c('Candidatus')
+genus_prefix_pattern <- paste0(genus_prefixes, collapse = '|')
+binomial_pattern <- paste0('^((?:', genus_prefix_pattern, ')?) ?([a-zA-Z0-9.]+) ?([a-zA-Z0-9.]+) ?(.*)$')
+assem_data$species <- trimws(gsub(assem_data$organism_name, pattern = binomial_pattern, replacement = '\\1 \\2 \\3', ignore.case = TRUE))
+assem_data$genus <- trimws(gsub(assem_data$organism_name, pattern = binomial_pattern, replacement = '\\1 \\2', ignore.case = TRUE))
 
 # Filter out references with non-standard names
 is_ambiguous <- function(x) {
@@ -110,13 +74,14 @@ is_ambiguous <- function(x) {
     'uncultured',
     'unknown',
     'incertae sedis',
-    'sp.'
+    'sp\\.',
+    'cf\\.',
+    'endosymbiont',
+    'symbiont',
+    'bacterium'
   )
-  vapply(x, FUN.VALUE = logical(1), function(one) {
-    any(vapply(ambiguous_words, FUN.VALUE = logical(1), function(word) {
-      grepl(one, pattern = word, ignore.case = TRUE)
-    }))
-  })
+  ambiguous_pattern <- paste0('\\b', ambiguous_words, '\\b', collapse = '|')
+  grepl(x, pattern = ambiguous_pattern, ignore.case = TRUE)
 }
 is_latin_binomial <- function(x) {
   grepl(x, pattern = '^[a-zA-Z]+ [a-zA-Z]+($| ).*$') & ! is_ambiguous(x)
@@ -138,18 +103,17 @@ get_count <- function(choices, count) {
 }
 
 # Sort references by desirability
-priority <- order(
-  decreasing = TRUE,
-  assem_data$is_atypical == FALSE,
-  assem_data$is_type, # Is type strain
-  assem_data$source_database == 'SOURCE_DATABASE_REFSEQ', # Is a RefSeq reference
-  is_latin_binomial(assem_data$species), # Has a species epithet
-  assem_data$is_annotated,
-  factor(assem_data$assembly_level, levels = c("Contig", "Scaffold", "Chromosome", "Complete Genome"), ordered = TRUE),
-  assem_data$checkm_completeness,
-  -1 * assem_data$checkm_contamination,
-  assem_data$contig_l50,
-  assem_data$coverage
+priority <- order(decreasing = TRUE,
+                  assem_data$is_atypical == FALSE,
+                  assem_data$is_type, # Is type strain
+                  assem_data$source_database == 'SOURCE_DATABASE_REFSEQ', # Is a RefSeq reference
+                  is_latin_binomial(assem_data$species), # Has a species epithet
+                  assem_data$is_annotated,
+                  factor(assem_data$assembly_level, levels = c("Contig", "Scaffold", "Chromosome", "Complete Genome"), ordered = TRUE),
+                  assem_data$checkm_completeness,
+                  -1 * assem_data$checkm_contamination,
+                  assem_data$contig_l50,
+                  assem_data$coverage
 )
 assem_data <- assem_data[priority, ]
 
@@ -170,13 +134,17 @@ select_for_rank <- function(assem_data, query_taxa, rank, subrank, count_per_ran
     })
     names(selected) <- subtaxa_found
     
+    # Parse count attributes, which can be percentages or integers
+    count_per_rank <- get_count(length(selected), count_per_rank)
+    count_per_subrank <- get_count(length(selected), count_per_subrank)
+    
     # Pick subtaxa with the most assemblies and best mean attributes (based on order in input)
     mean_index <- vapply(selected, mean, FUN.VALUE = numeric(1))
     subtaxa_count <- vapply(selected, length, FUN.VALUE = numeric(1))
-    selection_priority <- order(
-      is_ambiguous(names(selected)),
-      -subtaxa_count,
-      mean_index
+    selection_priority <- order(decreasing = TRUE,
+                                is_ambiguous(names(selected)) == FALSE,
+                                subtaxa_count,
+                                -mean_index
     )
     selected <- selected[selection_priority]
     selected <- selected[seq_len(min(c(count_per_rank, length(selected))))]
@@ -196,21 +164,21 @@ select_for_rank <- function(assem_data, query_taxa, rank, subrank, count_per_ran
 }
 assem_data <- select_for_rank(
   assem_data,
-  query_taxa = species,
+  query_taxa = taxa_found_data$name[taxa_found_data$rank == 'species'],
   rank = 'species',
   subrank = 'organism_name',
   count_per_rank = n_ref_strains
 )
 assem_data <- select_for_rank(
   assem_data,
-  query_taxa = genera,
+  query_taxa = taxa_found_data$name[taxa_found_data$rank == 'genus'],
   rank = 'genus',
   subrank = 'species',
   count_per_rank = n_ref_species
 )
 assem_data <- select_for_rank(
   assem_data,
-  query_taxa = families,
+  query_taxa = taxa_found_data$name[taxa_found_data$rank == 'family'],
   rank = 'family',
   subrank = 'genus',
   count_per_rank = n_ref_genera
@@ -233,17 +201,18 @@ if (nrow(result) == 0) {
     ref_color_by = character(0)
   )
 } else {
+  suffix <- paste0(
+    ifelse(result$is_type, 'T', ''),
+    ifelse(result$source_database == 'SOURCE_DATABASE_REFSEQ', 'R', ''),
+    ifelse(result$is_atypical, 'A', '')
+  )
   formatted_result <- data.frame(
     ref_id = result$reference_id,
     ref_name = result$organism_name,
     ref_description = paste0(
-      result$species, ' (',
+      result$organism_name, ' ',
       result$accession,
-      ifelse(result$is_type, '; T', ''),
-      ifelse(result$source_database == 'SOURCE_DATABASE_REFSEQ', '; RS', ''),
-      ifelse(result$is_atypical, '; A', ''),
-      # ifelse(is.na(result$hosts), '', paste0('; Host: ', result$hosts)),
-      ')'
+      ifelse(nchar(suffix) > 0, paste0(' ', suffix), '')
     ),
     ref_path = '',
     ref_ncbi_accession = result$accession,
@@ -256,6 +225,6 @@ if (nrow(result) == 0) {
 }
 
 # Save to output file
-write.table(result, file = 'raw_results.tsv', sep = '\t', quote = FALSE, row.names = FALSE)
-write.table(formatted_result, file = out_path, sep = '\t', quote = FALSE, row.names = FALSE)
-write.table(assem_data, file = 'merged_assembly_stats.tsv', sep = '\t', quote = FALSE, row.names = FALSE)
+write.table(result, file = paste0(out_name, '.tsv'), sep = '\t', quote = FALSE, row.names = FALSE)
+write.table(assem_data, file = paste0(out_name, '_raw.tsv'), sep = '\t', quote = FALSE, row.names = FALSE)
+write.table(formatted_result, file = paste0(out_name, '_formatted.tsv'), sep = '\t', quote = FALSE, row.names = FALSE)

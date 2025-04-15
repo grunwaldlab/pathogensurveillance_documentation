@@ -1,0 +1,16 @@
+ref_id	ref_name	ref_description	ref_path	ref_ncbi_accession	ref_ncbi_query	ref_ncbi_query_max	ref_primary_usage	ref_contextual_usage	ref_color_by
+GCF_008704715_1	Streptomyces chartreusis	Streptomyces chartreusis GCF_008704715.1 TR		GCF_008704715.1			optional	optional	
+GCF_030770295_1	Lacticaseibacillus styriensis	Lacticaseibacillus styriensis GCF_030770295.1 TR		GCF_030770295.1			optional	optional	
+GCF_003641165_1	Lactiplantibacillus argentoratensis	Lactiplantibacillus argentoratensis GCF_003641165.1 TR		GCF_003641165.1			optional	optional	
+GCF_030389495_1	Ligilactobacillus cholophilus	Ligilactobacillus cholophilus GCF_030389495.1 TR		GCF_030389495.1			optional	optional	
+GCF_001888925_1	Lactobacillus delbrueckii subsp. jakobsenii ZN7a-9 = DSM 26046	Lactobacillus delbrueckii subsp. jakobsenii ZN7a-9 = DSM 26046 GCF_001888925.1 TR		GCF_001888925.1			optional	optional	
+GCF_016756395_1	Actinacidiphila reveromycinica	Actinacidiphila reveromycinica GCF_016756395.1 TR		GCF_016756395.1			optional	optional	
+GCF_000236455_2	Limosilactobacillus reuteri subsp. suis	Limosilactobacillus reuteri subsp. suis GCF_000236455.2 TR		GCF_000236455.2			optional	optional	
+GCF_040571325_1	Kitasatospora camelliae	Kitasatospora camelliae GCF_040571325.1 TR		GCF_040571325.1			optional	optional	
+GCF_018987235_1	Lactobacillus crispatus	Lactobacillus crispatus GCF_018987235.1 TR		GCF_018987235.1			optional	optional	
+GCF_043386705_1	Limosilactobacillus mucosae	Limosilactobacillus mucosae GCF_043386705.1 TR		GCF_043386705.1			optional	optional	
+GCF_013394085_1	Limosilactobacillus fermentum	Limosilactobacillus fermentum GCF_013394085.1 TR		GCF_013394085.1			optional	optional	
+GCF_001435915_1	Limosilactobacillus vaginalis DSM 5837 = ATCC 49540	Limosilactobacillus vaginalis DSM 5837 = ATCC 49540 GCF_001435915.1 TR		GCF_001435915.1			optional	optional	
+GCF_000159215_1	Limosilactobacillus fermentum ATCC 14931	Limosilactobacillus fermentum ATCC 14931 GCF_000159215.1 TR		GCF_000159215.1			optional	optional	
+GCF_000159355_1	Lactobacillus johnsonii ATCC 33200	Lactobacillus johnsonii ATCC 33200 GCF_000159355.1 TR		GCF_000159355.1			optional	optional	
+GCF_000210515_1	Limosilactobacillus fermentum CECT 5716	Limosilactobacillus fermentum CECT 5716 GCF_000210515.1 R		GCF_000210515.1			optional	optional	
