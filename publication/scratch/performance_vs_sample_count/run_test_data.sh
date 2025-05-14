@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 # Define parameters
-SAMPLE_COUNTS=(1 3 5)
+SAMPLE_COUNTS=(1 3 5 10 25 50 75 100 150 200)
 OUTPUT_DIR='run_results'
 
 # Run pipeline for each sample count
