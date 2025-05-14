@@ -4,6 +4,9 @@
 SAMPLE_COUNTS=(1 3 5 10 25 50 75 100 150 200)
 OUTPUT_DIR='run_results'
 
+# Create input data (randomizes samples used each time)
+Rscript prepare_test_data.R
+
 # Run pipeline for each sample count
 for NUM in "${SAMPLE_COUNTS[@]}"; do
     echo "=================================================================================================="
