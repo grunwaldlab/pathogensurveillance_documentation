@@ -6,7 +6,7 @@ library(fs)
 run_results_dir_path <- 'run_results'
 
 # Infer sample counts used from output folder names
-sample_counts <- as.numeric(list.files(run_results_dir_path))
+sample_counts <- sort(as.numeric(list.files(run_results_dir_path)))
 
 # Find all execution trace paths
 run_data <- map_dfr(sample_counts, function(count) {
