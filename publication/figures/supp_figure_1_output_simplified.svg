@@ -1,0 +1,523 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="8.5in"
+   height="11in"
+   viewBox="0 0 215.9 279.4"
+   version="1.1"
+   id="svg1"
+   inkscape:version="1.4.2 (1:1.4.2+202505120738+ebf0e940d0)"
+   sodipodi:docname="supp_figure_1_output_simplified.svg"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview1"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:document-units="mm"
+     inkscape:zoom="1.060115"
+     inkscape:cx="387.69379"
+     inkscape:cy="621.63067"
+     inkscape:window-width="3440"
+     inkscape:window-height="1371"
+     inkscape:window-x="0"
+     inkscape:window-y="32"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="layer1" />
+  <defs
+     id="defs1">
+    <rect
+       x="34.901875"
+       y="63.200687"
+       width="904.61882"
+       height="1436.6367"
+       id="rect1" />
+  </defs>
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1">
+    <text
+       xml:space="preserve"
+       transform="matrix(0.31795862,0,0,0.31795862,-6.451392,-16.711106)"
+       id="text1"
+       style="font-size:12px;line-height:0.9;font-family:'Droid Sans Fallback';-inkscape-font-specification:'Droid Sans Fallback, Normal';text-align:start;letter-spacing:-0.4px;writing-mode:lr-tb;direction:ltr;white-space:pre;shape-inside:url(#rect1);display:inline;fill:#000000;stroke-width:3.14506"
+       x="-626.12256"
+       y="0"><tspan
+         x="34.902344"
+         y="71.752923"
+         id="tspan3"><tspan
+           style="font-weight:bold;font-size:10.6667px;font-family:FreeMono;-inkscape-font-specification:'FreeMono, Bold'"
+           id="tspan2">output_directory
+</tspan></tspan><tspan
+         x="34.902344"
+         y="82.552926"
+         id="tspan5"><tspan
+           style="font-weight:bold;font-size:10.6667px;font-family:FreeMono;-inkscape-font-specification:'FreeMono, Bold'"
+           id="tspan4">├── aligned_reads 
+</tspan></tspan><tspan
+         x="34.902344"
+         y="93.352929"
+         id="tspan7"><tspan
+           style="font-weight:bold;font-size:10.6667px;font-family:FreeMono;-inkscape-font-specification:'FreeMono, Bold'"
+           id="tspan6">│   ├── &lt;reference_id&gt;--&lt;sample_id&gt;.formatted.bam                         : Filtered read alignments 
+</tspan></tspan><tspan
+         x="34.902344"
+         y="104.15293"
+         id="tspan9"><tspan
+           style="font-weight:bold;font-size:10.6667px;font-family:FreeMono;-inkscape-font-specification:'FreeMono, Bold'"
+           id="tspan8">│   └── &lt;reference_id&gt;--&lt;sample_id&gt;.formatted.MarkDuplicates.metrics.txt  : MarkDuplicates output 
+</tspan></tspan><tspan
+         x="34.902344"
+         y="114.95293"
+         id="tspan11"><tspan
+           style="font-weight:bold;font-size:10.6667px;font-family:FreeMono;-inkscape-font-specification:'FreeMono, Bold'"
+           id="tspan10">├── annotations 
+</tspan></tspan><tspan
+         x="34.902344"
+         y="125.75294"
+         id="tspan13"><tspan
+           style="font-weight:bold;font-size:10.6667px;font-family:FreeMono;-inkscape-font-specification:'FreeMono, Bold'"
+           id="tspan12">│   └── &lt;method&gt; 
+</tspan></tspan><tspan
+         x="34.902344"
+         y="136.55294"
+         id="tspan15"><tspan
+           style="font-weight:bold;font-size:10.6667px;font-family:FreeMono;-inkscape-font-specification:'FreeMono, Bold'"
+           id="tspan14">│       ├── &lt;sample_id&gt;.embl                                              : EMBL annotations 
+</tspan></tspan><tspan
+         x="34.902344"
+         y="147.35294"
+         id="tspan17"><tspan
+           style="font-weight:bold;font-size:10.6667px;font-family:FreeMono;-inkscape-font-specification:'FreeMono, Bold'"
+           id="tspan16">│       ├── &lt;sample_id&gt;.faa                                               : CDS protein sequences 
+</tspan></tspan><tspan
+         x="34.902344"
+         y="158.15295"
+         id="tspan19"><tspan
+           style="font-weight:bold;font-size:10.6667px;font-family:FreeMono;-inkscape-font-specification:'FreeMono, Bold'"
+           id="tspan18">│       ├── &lt;sample_id&gt;.ffn                                               : Feature nucleotide sequences 
+</tspan></tspan><tspan
+         x="34.902344"
+         y="168.95295"
+         id="tspan21"><tspan
+           style="font-weight:bold;font-size:10.6667px;font-family:FreeMono;-inkscape-font-specification:'FreeMono, Bold'"
+           id="tspan20">│       ├── &lt;sample_id&gt;.fna                                               : Annotation DNA sequences 
+</tspan></tspan><tspan
+         x="34.902344"
+         y="179.75295"
+         id="tspan23"><tspan
+           style="font-weight:bold;font-size:10.6667px;font-family:FreeMono;-inkscape-font-specification:'FreeMono, Bold'"
+           id="tspan22">│       ├── &lt;sample_id&gt;.gbff                                              : Genome annotations (gbff) 
+</tspan></tspan><tspan
+         x="34.902344"
+         y="190.55296"
+         id="tspan25"><tspan
+           style="font-weight:bold;font-size:10.6667px;font-family:FreeMono;-inkscape-font-specification:'FreeMono, Bold'"
+           id="tspan24">│       ├── &lt;sample_id&gt;.gff3                                              : Genome annotations (gff3) 
+</tspan></tspan><tspan
+         x="34.902344"
+         y="201.35296"
+         id="tspan27"><tspan
+           style="font-weight:bold;font-size:10.6667px;font-family:FreeMono;-inkscape-font-specification:'FreeMono, Bold'"
+           id="tspan26">│       ├── &lt;sample_id&gt;.hypotheticals.faa                                 : Hypothetical protein sequences 
+</tspan></tspan><tspan
+         x="34.902344"
+         y="212.15296"
+         id="tspan29"><tspan
+           style="font-weight:bold;font-size:10.6667px;font-family:FreeMono;-inkscape-font-specification:'FreeMono, Bold'"
+           id="tspan28">│       ├── &lt;sample_id&gt;.hypotheticals.tsv                                 : Hypothetical protein information 
+</tspan></tspan><tspan
+         x="34.902344"
+         y="222.95297"
+         id="tspan31"><tspan
+           style="font-weight:bold;font-size:10.6667px;font-family:FreeMono;-inkscape-font-specification:'FreeMono, Bold'"
+           id="tspan30">│       └── &lt;sample_id&gt;.tsv                                               : Protein information 
+</tspan></tspan><tspan
+         x="34.902344"
+         y="233.75297"
+         id="tspan33"><tspan
+           style="font-weight:bold;font-size:10.6667px;font-family:FreeMono;-inkscape-font-specification:'FreeMono, Bold'"
+           id="tspan32">├── assemblies 
+</tspan></tspan><tspan
+         x="34.902344"
+         y="244.55297"
+         id="tspan35"><tspan
+           style="font-weight:bold;font-size:10.6667px;font-family:FreeMono;-inkscape-font-specification:'FreeMono, Bold'"
+           id="tspan34">│   ├── flye 
+</tspan></tspan><tspan
+         x="34.902344"
+         y="255.35297"
+         id="tspan37"><tspan
+           style="font-weight:bold;font-size:10.6667px;font-family:FreeMono;-inkscape-font-specification:'FreeMono, Bold'"
+           id="tspan36">│   │   ├── &lt;sample_id&gt;.assembly_graph.gfa.gz                             : Assembly graphs 
+</tspan></tspan><tspan
+         x="34.902344"
+         y="266.15298"
+         id="tspan39"><tspan
+           style="font-weight:bold;font-size:10.6667px;font-family:FreeMono;-inkscape-font-specification:'FreeMono, Bold'"
+           id="tspan38">│   │   ├── &lt;sample_id&gt;.assembly_graph.gv.gz                              : Assembly graph visualizations 
+</tspan></tspan><tspan
+         x="34.902344"
+         y="276.95297"
+         id="tspan41"><tspan
+           style="font-weight:bold;font-size:10.6667px;font-family:FreeMono;-inkscape-font-specification:'FreeMono, Bold'"
+           id="tspan40">│   │   └── &lt;sample_id&gt;.assembly.fasta.gz                                 : Genome assemblies 
+</tspan></tspan><tspan
+         x="34.902344"
+         y="287.75295"
+         id="tspan43"><tspan
+           style="font-weight:bold;font-size:10.6667px;font-family:FreeMono;-inkscape-font-specification:'FreeMono, Bold'"
+           id="tspan42">│   └── spades 
+</tspan></tspan><tspan
+         x="34.902344"
+         y="298.55294"
+         id="tspan45"><tspan
+           style="font-weight:bold;font-size:10.6667px;font-family:FreeMono;-inkscape-font-specification:'FreeMono, Bold'"
+           id="tspan44">│       ├── &lt;sample_id&gt;.assembly.gfa.gz                                   : Assembly graphs 
+</tspan></tspan><tspan
+         x="34.902344"
+         y="309.35293"
+         id="tspan47"><tspan
+           style="font-weight:bold;font-size:10.6667px;font-family:FreeMono;-inkscape-font-specification:'FreeMono, Bold'"
+           id="tspan46">│       └── &lt;sample_id&gt;.scaffolds.fa.gz                                   : Genome assemblies 
+</tspan></tspan><tspan
+         x="34.902344"
+         y="320.15292"
+         id="tspan49"><tspan
+           style="font-weight:bold;font-size:10.6667px;font-family:FreeMono;-inkscape-font-specification:'FreeMono, Bold'"
+           id="tspan48">├── busco 
+</tspan></tspan><tspan
+         x="34.902344"
+         y="330.9529"
+         id="tspan51"><tspan
+           style="font-weight:bold;font-size:10.6667px;font-family:FreeMono;-inkscape-font-specification:'FreeMono, Bold'"
+           id="tspan50">│   ├── &lt;sample_id&gt;--&lt;database&gt;-busco                                     : BUSCO output 
+</tspan></tspan><tspan
+         x="34.902344"
+         y="341.75289"
+         id="tspan53"><tspan
+           style="font-weight:bold;font-size:10.6667px;font-family:FreeMono;-inkscape-font-specification:'FreeMono, Bold'"
+           id="tspan52">│   └── &lt;sample_id&gt;--&lt;database&gt;-busco.batch_summary.txt                   : BUSCO summary statistics 
+</tspan></tspan><tspan
+         x="34.902344"
+         y="352.55288"
+         id="tspan55"><tspan
+           style="font-weight:bold;font-size:10.6667px;font-family:FreeMono;-inkscape-font-specification:'FreeMono, Bold'"
+           id="tspan54">├── downloads 
+</tspan></tspan><tspan
+         x="34.902344"
+         y="363.35287"
+         id="tspan57"><tspan
+           style="font-weight:bold;font-size:10.6667px;font-family:FreeMono;-inkscape-font-specification:'FreeMono, Bold'"
+           id="tspan56">│   ├── annotations 
+</tspan></tspan><tspan
+         x="34.902344"
+         y="374.15286"
+         id="tspan59"><tspan
+           style="font-weight:bold;font-size:10.6667px;font-family:FreeMono;-inkscape-font-specification:'FreeMono, Bold'"
+           id="tspan58">│   │   └── &lt;reference_id&gt;.gff.gz                                         : Downloaded annotations 
+</tspan></tspan><tspan
+         x="34.902344"
+         y="384.95284"
+         id="tspan61"><tspan
+           style="font-weight:bold;font-size:10.6667px;font-family:FreeMono;-inkscape-font-specification:'FreeMono, Bold'"
+           id="tspan60">│   ├── assemblies 
+</tspan></tspan><tspan
+         x="34.902344"
+         y="395.75283"
+         id="tspan63"><tspan
+           style="font-weight:bold;font-size:10.6667px;font-family:FreeMono;-inkscape-font-specification:'FreeMono, Bold'"
+           id="tspan62">│   │   └── &lt;reference_id&gt;.fasta.gz                                       : Downloaded assemblies 
+</tspan></tspan><tspan
+         x="34.902344"
+         y="406.55282"
+         id="tspan65"><tspan
+           style="font-weight:bold;font-size:10.6667px;font-family:FreeMono;-inkscape-font-specification:'FreeMono, Bold'"
+           id="tspan64">│   └── reads 
+</tspan></tspan><tspan
+         x="34.902344"
+         y="417.35281"
+         id="tspan67"><tspan
+           style="font-weight:bold;font-size:10.6667px;font-family:FreeMono;-inkscape-font-specification:'FreeMono, Bold'"
+           id="tspan66">│       └── &lt;reference_id&gt;_&lt;orientation&gt;.fastq.gz                         : Downloaded reads 
+</tspan></tspan><tspan
+         x="34.902344"
+         y="428.15279"
+         id="tspan69"><tspan
+           style="font-weight:bold;font-size:10.6667px;font-family:FreeMono;-inkscape-font-specification:'FreeMono, Bold'"
+           id="tspan68">├── fastp 
+</tspan></tspan><tspan
+         x="34.902344"
+         y="438.95278"
+         id="tspan71"><tspan
+           style="font-weight:bold;font-size:10.6667px;font-family:FreeMono;-inkscape-font-specification:'FreeMono, Bold'"
+           id="tspan70">│   └── &lt;sample_id&gt;.fastp.html                                            : Read trimming reports 
+</tspan></tspan><tspan
+         x="34.902344"
+         y="449.75277"
+         id="tspan73"><tspan
+           style="font-weight:bold;font-size:10.6667px;font-family:FreeMono;-inkscape-font-specification:'FreeMono, Bold'"
+           id="tspan72">├── metadata 
+</tspan></tspan><tspan
+         x="34.902344"
+         y="460.55276"
+         id="tspan75"><tspan
+           style="font-weight:bold;font-size:10.6667px;font-family:FreeMono;-inkscape-font-specification:'FreeMono, Bold'"
+           id="tspan74">│   ├── reference_metadata.tsv                                            : Reference metadata 
+</tspan></tspan><tspan
+         x="34.902344"
+         y="471.35275"
+         id="tspan77"><tspan
+           style="font-weight:bold;font-size:10.6667px;font-family:FreeMono;-inkscape-font-specification:'FreeMono, Bold'"
+           id="tspan76">│   └── sample_metadata.tsv                                               : Sample metadata 
+</tspan></tspan><tspan
+         x="34.902344"
+         y="482.15273"
+         id="tspan79"><tspan
+           style="font-weight:bold;font-size:10.6667px;font-family:FreeMono;-inkscape-font-specification:'FreeMono, Bold'"
+           id="tspan78">├── pipeline_info 
+</tspan></tspan><tspan
+         x="34.902344"
+         y="492.95272"
+         id="tspan81"><tspan
+           style="font-weight:bold;font-size:10.6667px;font-family:FreeMono;-inkscape-font-specification:'FreeMono, Bold'"
+           id="tspan80">│   ├── execution_report_&lt;date&gt;.html                                      : Pipeline execution statistics 
+</tspan></tspan><tspan
+         x="34.902344"
+         y="503.75271"
+         id="tspan83"><tspan
+           style="font-weight:bold;font-size:10.6667px;font-family:FreeMono;-inkscape-font-specification:'FreeMono, Bold'"
+           id="tspan82">│   └── messages.tsv                                                      : Pipeline messages 
+</tspan></tspan><tspan
+         x="34.902344"
+         y="514.5527"
+         id="tspan85"><tspan
+           style="font-weight:bold;font-size:10.6667px;font-family:FreeMono;-inkscape-font-specification:'FreeMono, Bold'"
+           id="tspan84">├── pirate 
+</tspan></tspan><tspan
+         x="34.902344"
+         y="525.35272"
+         id="tspan87"><tspan
+           style="font-weight:bold;font-size:10.6667px;font-family:FreeMono;-inkscape-font-specification:'FreeMono, Bold'"
+           id="tspan86">│   └── &lt;report_id&gt;_results                                               : Gene orthology analysis 
+</tspan></tspan><tspan
+         x="34.902344"
+         y="536.1527"
+         id="tspan89"><tspan
+           style="font-weight:bold;font-size:10.6667px;font-family:FreeMono;-inkscape-font-specification:'FreeMono, Bold'"
+           id="tspan88">├── pocp 
+</tspan></tspan><tspan
+         x="34.902344"
+         y="546.95269"
+         id="tspan91"><tspan
+           style="font-weight:bold;font-size:10.6667px;font-family:FreeMono;-inkscape-font-specification:'FreeMono, Bold'"
+           id="tspan90">│   └── &lt;report_id&gt;_pocp.tsv                                              : Conserved protein percentages 
+</tspan></tspan><tspan
+         x="34.902344"
+         y="557.75268"
+         id="tspan93"><tspan
+           style="font-weight:bold;font-size:10.6667px;font-family:FreeMono;-inkscape-font-specification:'FreeMono, Bold'"
+           id="tspan92">├── quality_control 
+</tspan></tspan><tspan
+         x="34.902344"
+         y="568.55267"
+         id="tspan95"><tspan
+           style="font-weight:bold;font-size:10.6667px;font-family:FreeMono;-inkscape-font-specification:'FreeMono, Bold'"
+           id="tspan94">│   ├── fastqc 
+</tspan></tspan><tspan
+         x="34.902344"
+         y="579.35265"
+         id="tspan97"><tspan
+           style="font-weight:bold;font-size:10.6667px;font-family:FreeMono;-inkscape-font-specification:'FreeMono, Bold'"
+           id="tspan96">│   │   └── &lt;reads_id&gt;_fastqc.html                                        : Read quality reports 
+</tspan></tspan><tspan
+         x="34.902344"
+         y="590.15264"
+         id="tspan99"><tspan
+           style="font-weight:bold;font-size:10.6667px;font-family:FreeMono;-inkscape-font-specification:'FreeMono, Bold'"
+           id="tspan98">│   ├── multiqc 
+</tspan></tspan><tspan
+         x="34.902344"
+         y="600.95263"
+         id="tspan101"><tspan
+           style="font-weight:bold;font-size:10.6667px;font-family:FreeMono;-inkscape-font-specification:'FreeMono, Bold'"
+           id="tspan100">│   │   └── &lt;report_id&gt;_multiqc 
+</tspan></tspan><tspan
+         x="34.902344"
+         y="611.75262"
+         id="tspan103"><tspan
+           style="font-weight:bold;font-size:10.6667px;font-family:FreeMono;-inkscape-font-specification:'FreeMono, Bold'"
+           id="tspan102">│   │       └── multiqc_report.html                                       : Combined quality control report 
+</tspan></tspan><tspan
+         x="34.902344"
+         y="622.55261"
+         id="tspan105"><tspan
+           style="font-weight:bold;font-size:10.6667px;font-family:FreeMono;-inkscape-font-specification:'FreeMono, Bold'"
+           id="tspan104">│   ├── nanoplot 
+</tspan></tspan><tspan
+         x="34.902344"
+         y="633.35259"
+         id="tspan107"><tspan
+           style="font-weight:bold;font-size:10.6667px;font-family:FreeMono;-inkscape-font-specification:'FreeMono, Bold'"
+           id="tspan106">│   │   └── &lt;sample_id&gt;_nanoplot-report.html                              : Nanopore read quality reports 
+</tspan></tspan><tspan
+         x="34.902344"
+         y="644.15258"
+         id="tspan109"><tspan
+           style="font-weight:bold;font-size:10.6667px;font-family:FreeMono;-inkscape-font-specification:'FreeMono, Bold'"
+           id="tspan108">│   └── quast 
+</tspan></tspan><tspan
+         x="34.902344"
+         y="654.95257"
+         id="tspan111"><tspan
+           style="font-weight:bold;font-size:10.6667px;font-family:FreeMono;-inkscape-font-specification:'FreeMono, Bold'"
+           id="tspan110">│       └── &lt;sample_id&gt; 
+</tspan></tspan><tspan
+         x="34.902344"
+         y="665.75256"
+         id="tspan113"><tspan
+           style="font-weight:bold;font-size:10.6667px;font-family:FreeMono;-inkscape-font-specification:'FreeMono, Bold'"
+           id="tspan112">│           └── report.html                                               : Assembly quality reports 
+</tspan></tspan><tspan
+         x="34.902344"
+         y="676.55254"
+         id="tspan115"><tspan
+           style="font-weight:bold;font-size:10.6667px;font-family:FreeMono;-inkscape-font-specification:'FreeMono, Bold'"
+           id="tspan114">├── reports 
+</tspan></tspan><tspan
+         x="34.902344"
+         y="687.35253"
+         id="tspan117"><tspan
+           style="font-weight:bold;font-size:10.6667px;font-family:FreeMono;-inkscape-font-specification:'FreeMono, Bold'"
+           id="tspan116">│   └── &lt;report_id&gt;_pathsurveil_report.html                               : Main analysis report 
+</tspan></tspan><tspan
+         x="34.902344"
+         y="698.15252"
+         id="tspan119"><tspan
+           style="font-weight:bold;font-size:10.6667px;font-family:FreeMono;-inkscape-font-specification:'FreeMono, Bold'"
+           id="tspan118">├── sendsketch 
+</tspan></tspan><tspan
+         x="34.902344"
+         y="708.95251"
+         id="tspan121"><tspan
+           style="font-weight:bold;font-size:10.6667px;font-family:FreeMono;-inkscape-font-specification:'FreeMono, Bold'"
+           id="tspan120">│   └── &lt;sample_id&gt;.txt                                                   : Initial sample identifications 
+</tspan></tspan><tspan
+         x="34.902344"
+         y="719.7525"
+         id="tspan123"><tspan
+           style="font-weight:bold;font-size:10.6667px;font-family:FreeMono;-inkscape-font-specification:'FreeMono, Bold'"
+           id="tspan122">├── shared_genes 
+</tspan></tspan><tspan
+         x="34.902344"
+         y="730.55248"
+         id="tspan125"><tspan
+           style="font-weight:bold;font-size:10.6667px;font-family:FreeMono;-inkscape-font-specification:'FreeMono, Bold'"
+           id="tspan124">│   └── &lt;method&gt; 
+</tspan></tspan><tspan
+         x="34.902344"
+         y="741.35247"
+         id="tspan127"><tspan
+           style="font-weight:bold;font-size:10.6667px;font-family:FreeMono;-inkscape-font-specification:'FreeMono, Bold'"
+           id="tspan126">│       └── &lt;gene_id&gt;.aligned.fas                                         : Shared gene alignments 
+</tspan></tspan><tspan
+         x="34.902344"
+         y="752.15246"
+         id="tspan129"><tspan
+           style="font-weight:bold;font-size:10.6667px;font-family:FreeMono;-inkscape-font-specification:'FreeMono, Bold'"
+           id="tspan128">├── sketch_comparisons 
+</tspan></tspan><tspan
+         x="34.902344"
+         y="762.95245"
+         id="tspan131"><tspan
+           style="font-weight:bold;font-size:10.6667px;font-family:FreeMono;-inkscape-font-specification:'FreeMono, Bold'"
+           id="tspan130">│   ├── ani_matricies 
+</tspan></tspan><tspan
+         x="34.902344"
+         y="773.75243"
+         id="tspan133"><tspan
+           style="font-weight:bold;font-size:10.6667px;font-family:FreeMono;-inkscape-font-specification:'FreeMono, Bold'"
+           id="tspan132">│   │   └── &lt;report_id&gt;_comp.csv                                          : ANI similarity matrix 
+</tspan></tspan><tspan
+         x="34.902344"
+         y="784.55242"
+         id="tspan135"><tspan
+           style="font-weight:bold;font-size:10.6667px;font-family:FreeMono;-inkscape-font-specification:'FreeMono, Bold'"
+           id="tspan134">│   └── sketches 
+</tspan></tspan><tspan
+         x="34.902344"
+         y="795.35241"
+         id="tspan137"><tspan
+           style="font-weight:bold;font-size:10.6667px;font-family:FreeMono;-inkscape-font-specification:'FreeMono, Bold'"
+           id="tspan136">│       └── &lt;id&gt;.sig                                                      : Sequence sketches 
+</tspan></tspan><tspan
+         x="34.902344"
+         y="806.1524"
+         id="tspan139"><tspan
+           style="font-weight:bold;font-size:10.6667px;font-family:FreeMono;-inkscape-font-specification:'FreeMono, Bold'"
+           id="tspan138">├── trees 
+</tspan></tspan><tspan
+         x="34.902344"
+         y="816.95239"
+         id="tspan141"><tspan
+           style="font-weight:bold;font-size:10.6667px;font-family:FreeMono;-inkscape-font-specification:'FreeMono, Bold'"
+           id="tspan140">│   ├── busco 
+</tspan></tspan><tspan
+         x="34.902344"
+         y="827.75237"
+         id="tspan143"><tspan
+           style="font-weight:bold;font-size:10.6667px;font-family:FreeMono;-inkscape-font-specification:'FreeMono, Bold'"
+           id="tspan142">│   │   └── &lt;report_id&gt;--&lt;cluster_id&gt;.treefile                            : Multigene phylogenetic trees 
+</tspan></tspan><tspan
+         x="34.902344"
+         y="838.55236"
+         id="tspan145"><tspan
+           style="font-weight:bold;font-size:10.6667px;font-family:FreeMono;-inkscape-font-specification:'FreeMono, Bold'"
+           id="tspan144">│   ├── core 
+</tspan></tspan><tspan
+         x="34.902344"
+         y="849.35235"
+         id="tspan147"><tspan
+           style="font-weight:bold;font-size:10.6667px;font-family:FreeMono;-inkscape-font-specification:'FreeMono, Bold'"
+           id="tspan146">│   │   └── &lt;report_id&gt;--&lt;cluster_id&gt;.treefile                            : Multigene phylogenetic trees 
+</tspan></tspan><tspan
+         x="34.902344"
+         y="860.15234"
+         id="tspan149"><tspan
+           style="font-weight:bold;font-size:10.6667px;font-family:FreeMono;-inkscape-font-specification:'FreeMono, Bold'"
+           id="tspan148">│   └── snp 
+</tspan></tspan><tspan
+         x="34.902344"
+         y="870.95232"
+         id="tspan151"><tspan
+           style="font-weight:bold;font-size:10.6667px;font-family:FreeMono;-inkscape-font-specification:'FreeMono, Bold'"
+           id="tspan150">│       └── &lt;report_id&gt;--&lt;reference_id&gt;.treefile                          : Variant-based phylogenetic trees 
+</tspan></tspan><tspan
+         x="34.902344"
+         y="881.75231"
+         id="tspan153"><tspan
+           style="font-weight:bold;font-size:10.6667px;font-family:FreeMono;-inkscape-font-specification:'FreeMono, Bold'"
+           id="tspan152">└── variants 
+</tspan></tspan><tspan
+         x="34.902344"
+         y="892.5523"
+         id="tspan155"><tspan
+           style="font-weight:bold;font-size:10.6667px;font-family:FreeMono;-inkscape-font-specification:'FreeMono, Bold'"
+           id="tspan154">    ├── &lt;report_id&gt;--&lt;reference_id&gt;.fasta                                 : Variant sequences 
+</tspan></tspan><tspan
+         x="34.902344"
+         y="903.35229"
+         id="tspan157"><tspan
+           style="font-weight:bold;font-size:10.6667px;font-family:FreeMono;-inkscape-font-specification:'FreeMono, Bold'"
+           id="tspan156">    └── &lt;report_id&gt;--&lt;reference_id&gt;.vcffilter.vcf.gz                      : Filtered variants </tspan></tspan></text>
+  </g>
+</svg>

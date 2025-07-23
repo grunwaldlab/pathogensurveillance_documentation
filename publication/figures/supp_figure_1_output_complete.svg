@@ -1,0 +1,697 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="8.5in"
+   height="11in"
+   viewBox="0 0 215.9 279.4"
+   version="1.1"
+   id="svg1"
+   inkscape:version="1.4.2 (1:1.4.2+202505120738+ebf0e940d0)"
+   sodipodi:docname="supp_figure_1_output_complete.svg"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview1"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:document-units="mm"
+     inkscape:zoom="2.12023"
+     inkscape:cx="275.44182"
+     inkscape:cy="165.54808"
+     inkscape:window-width="3440"
+     inkscape:window-height="1371"
+     inkscape:window-x="0"
+     inkscape:window-y="32"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="layer1" />
+  <defs
+     id="defs1">
+    <rect
+       x="34.901875"
+       y="63.200687"
+       width="904.61882"
+       height="1436.6367"
+       id="rect1" />
+  </defs>
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1">
+    <text
+       xml:space="preserve"
+       transform="matrix(0.36142965,0,0,0.36142965,-7.9686329,-19.550876)"
+       id="text1"
+       style="font-size:12px;line-height:0.52;font-family:'Droid Sans Fallback';-inkscape-font-specification:'Droid Sans Fallback, Normal';text-align:start;letter-spacing:-0.4px;writing-mode:lr-tb;direction:ltr;white-space:pre;shape-inside:url(#rect1);display:inline;fill:#000000;stroke-width:2.76679"
+       x="-626.12256"
+       y="0"><tspan
+         x="34.902344"
+         y="69.472923"
+         id="tspan3"><tspan
+           style="font-weight:bold;font-size:6.65705px;font-family:FreeMono;-inkscape-font-specification:'FreeMono, Bold'"
+           id="tspan2">output_directory
+</tspan></tspan><tspan
+         x="34.902344"
+         y="75.712921"
+         id="tspan5"><tspan
+           style="font-weight:bold;font-size:6.65705px;font-family:FreeMono;-inkscape-font-specification:'FreeMono, Bold'"
+           id="tspan4">├── aligned_reads 
+</tspan></tspan><tspan
+         x="34.902344"
+         y="81.952918"
+         id="tspan7"><tspan
+           style="font-weight:bold;font-size:6.65705px;font-family:FreeMono;-inkscape-font-specification:'FreeMono, Bold'"
+           id="tspan6">│   ├── &lt;reference_id&gt;--&lt;sample_id&gt;.bam                                   : Unfiltered read alignements to references in BAM format 
+</tspan></tspan><tspan
+         x="34.902344"
+         y="88.192916"
+         id="tspan9"><tspan
+           style="font-weight:bold;font-size:6.65705px;font-family:FreeMono;-inkscape-font-specification:'FreeMono, Bold'"
+           id="tspan8">│   ├── &lt;reference_id&gt;--&lt;sample_id&gt;.formatted.bam                         : Quality filtered read alignements to references in BAM format 
+</tspan></tspan><tspan
+         x="34.902344"
+         y="94.432914"
+         id="tspan11"><tspan
+           style="font-weight:bold;font-size:6.65705px;font-family:FreeMono;-inkscape-font-specification:'FreeMono, Bold'"
+           id="tspan10">│   ├── &lt;reference_id&gt;--&lt;sample_id&gt;.formatted.bam.csi                     : Index for the filtered BAM files produced by samtools index 
+</tspan></tspan><tspan
+         x="34.902344"
+         y="100.67291"
+         id="tspan13"><tspan
+           style="font-weight:bold;font-size:6.65705px;font-family:FreeMono;-inkscape-font-specification:'FreeMono, Bold'"
+           id="tspan12">│   └── &lt;reference_id&gt;--&lt;sample_id&gt;.formatted.MarkDuplicates.metrics.txt  : Output from picard MarkDuplicates containing summary data tables 
+</tspan></tspan><tspan
+         x="34.902344"
+         y="106.91291"
+         id="tspan15"><tspan
+           style="font-weight:bold;font-size:6.65705px;font-family:FreeMono;-inkscape-font-specification:'FreeMono, Bold'"
+           id="tspan14">├── annotations 
+</tspan></tspan><tspan
+         x="34.902344"
+         y="113.15291"
+         id="tspan17"><tspan
+           style="font-weight:bold;font-size:6.65705px;font-family:FreeMono;-inkscape-font-specification:'FreeMono, Bold'"
+           id="tspan16">│   └── &lt;method&gt; 
+</tspan></tspan><tspan
+         x="34.902344"
+         y="119.39291"
+         id="tspan19"><tspan
+           style="font-weight:bold;font-size:6.65705px;font-family:FreeMono;-inkscape-font-specification:'FreeMono, Bold'"
+           id="tspan18">│       ├── &lt;sample_id&gt;.embl                                              : Genome annotations and sequences in (multi) EMBL format 
+</tspan></tspan><tspan
+         x="34.902344"
+         y="125.6329"
+         id="tspan21"><tspan
+           style="font-weight:bold;font-size:6.65705px;font-family:FreeMono;-inkscape-font-specification:'FreeMono, Bold'"
+           id="tspan20">│       ├── &lt;sample_id&gt;.faa                                               : CDS/ORF amino acid sequences in FASTA format 
+</tspan></tspan><tspan
+         x="34.902344"
+         y="131.8729"
+         id="tspan23"><tspan
+           style="font-weight:bold;font-size:6.65705px;font-family:FreeMono;-inkscape-font-specification:'FreeMono, Bold'"
+           id="tspan22">│       ├── &lt;sample_id&gt;.ffn                                               : Feature nucleotide sequences in FASTA format 
+</tspan></tspan><tspan
+         x="34.902344"
+         y="138.11291"
+         id="tspan25"><tspan
+           style="font-weight:bold;font-size:6.65705px;font-family:FreeMono;-inkscape-font-specification:'FreeMono, Bold'"
+           id="tspan24">│       ├── &lt;sample_id&gt;.fna                                               : Replicon/contig DNA sequences in FASTA format 
+</tspan></tspan><tspan
+         x="34.902344"
+         y="144.35291"
+         id="tspan27"><tspan
+           style="font-weight:bold;font-size:6.65705px;font-family:FreeMono;-inkscape-font-specification:'FreeMono, Bold'"
+           id="tspan26">│       ├── &lt;sample_id&gt;.gbff                                              : Annotations of genomes in (multi) GenBank format 
+</tspan></tspan><tspan
+         x="34.902344"
+         y="150.59292"
+         id="tspan29"><tspan
+           style="font-weight:bold;font-size:6.65705px;font-family:FreeMono;-inkscape-font-specification:'FreeMono, Bold'"
+           id="tspan28">│       ├── &lt;sample_id&gt;.gff3                                              : Annotations of genomes in GFF3 format 
+</tspan></tspan><tspan
+         x="34.902344"
+         y="156.83292"
+         id="tspan31"><tspan
+           style="font-weight:bold;font-size:6.65705px;font-family:FreeMono;-inkscape-font-specification:'FreeMono, Bold'"
+           id="tspan30">│       ├── &lt;sample_id&gt;.hypotheticals.faa                                 : Hypothetical protein CDS amino acid sequences in FASTA format 
+</tspan></tspan><tspan
+         x="34.902344"
+         y="163.07293"
+         id="tspan33"><tspan
+           style="font-weight:bold;font-size:6.65705px;font-family:FreeMono;-inkscape-font-specification:'FreeMono, Bold'"
+           id="tspan32">│       ├── &lt;sample_id&gt;.hypotheticals.tsv                                 : Information on hypothetical protein CDSs in TSV format 
+</tspan></tspan><tspan
+         x="34.902344"
+         y="169.31293"
+         id="tspan35"><tspan
+           style="font-weight:bold;font-size:6.65705px;font-family:FreeMono;-inkscape-font-specification:'FreeMono, Bold'"
+           id="tspan34">│       ├── &lt;sample_id&gt;.tsv                                               : Information for protein CDSs in TSV format 
+</tspan></tspan><tspan
+         x="34.902344"
+         y="175.55294"
+         id="tspan37"><tspan
+           style="font-weight:bold;font-size:6.65705px;font-family:FreeMono;-inkscape-font-specification:'FreeMono, Bold'"
+           id="tspan36">│       └── &lt;sample_id&gt;.txt                                               : Genome annotation summary statistics in plain text format 
+</tspan></tspan><tspan
+         x="34.902344"
+         y="181.79295"
+         id="tspan39"><tspan
+           style="font-weight:bold;font-size:6.65705px;font-family:FreeMono;-inkscape-font-specification:'FreeMono, Bold'"
+           id="tspan38">├── assemblies 
+</tspan></tspan><tspan
+         x="34.902344"
+         y="188.03295"
+         id="tspan41"><tspan
+           style="font-weight:bold;font-size:6.65705px;font-family:FreeMono;-inkscape-font-specification:'FreeMono, Bold'"
+           id="tspan40">│   ├── flye 
+</tspan></tspan><tspan
+         x="34.902344"
+         y="194.27296"
+         id="tspan43"><tspan
+           style="font-weight:bold;font-size:6.65705px;font-family:FreeMono;-inkscape-font-specification:'FreeMono, Bold'"
+           id="tspan42">│   │   ├── &lt;sample_id&gt;.assembly_graph.gfa.gz                             : Genome assembly graphs in gzipped GFA format 
+</tspan></tspan><tspan
+         x="34.902344"
+         y="200.51296"
+         id="tspan45"><tspan
+           style="font-weight:bold;font-size:6.65705px;font-family:FreeMono;-inkscape-font-specification:'FreeMono, Bold'"
+           id="tspan44">│   │   ├── &lt;sample_id&gt;.assembly_graph.gv.gz                              : Genome assembly in gzipped Graphviz format 
+</tspan></tspan><tspan
+         x="34.902344"
+         y="206.75297"
+         id="tspan47"><tspan
+           style="font-weight:bold;font-size:6.65705px;font-family:FreeMono;-inkscape-font-specification:'FreeMono, Bold'"
+           id="tspan46">│   │   ├── &lt;sample_id&gt;.assembly_info.txt                                 : Statistics on contigs produced by Flye in TSV fomrat 
+</tspan></tspan><tspan
+         x="34.902344"
+         y="212.99297"
+         id="tspan49"><tspan
+           style="font-weight:bold;font-size:6.65705px;font-family:FreeMono;-inkscape-font-specification:'FreeMono, Bold'"
+           id="tspan48">│   │   ├── &lt;sample_id&gt;.assembly.fasta.gz                                 : Genome assemblies in gzipped FASTA format 
+</tspan></tspan><tspan
+         x="34.902344"
+         y="219.23298"
+         id="tspan51"><tspan
+           style="font-weight:bold;font-size:6.65705px;font-family:FreeMono;-inkscape-font-specification:'FreeMono, Bold'"
+           id="tspan50">│   │   ├── &lt;sample_id&gt;.flye.log                                          : Log file produced by Flye in plain text format 
+</tspan></tspan><tspan
+         x="34.902344"
+         y="225.47298"
+         id="tspan53"><tspan
+           style="font-weight:bold;font-size:6.65705px;font-family:FreeMono;-inkscape-font-specification:'FreeMono, Bold'"
+           id="tspan52">│   │   └── &lt;sample_id&gt;.params.json                                       : Parameters used to run Flye in JSON format 
+</tspan></tspan><tspan
+         x="34.902344"
+         y="231.71299"
+         id="tspan55"><tspan
+           style="font-weight:bold;font-size:6.65705px;font-family:FreeMono;-inkscape-font-specification:'FreeMono, Bold'"
+           id="tspan54">│   └── spades 
+</tspan></tspan><tspan
+         x="34.902344"
+         y="237.95299"
+         id="tspan57"><tspan
+           style="font-weight:bold;font-size:6.65705px;font-family:FreeMono;-inkscape-font-specification:'FreeMono, Bold'"
+           id="tspan56">│       ├── &lt;sample_id&gt;.assembly.gfa.gz                                   : Genome assembly graphs in gzipped GFA format 
+</tspan></tspan><tspan
+         x="34.902344"
+         y="244.193"
+         id="tspan59"><tspan
+           style="font-weight:bold;font-size:6.65705px;font-family:FreeMono;-inkscape-font-specification:'FreeMono, Bold'"
+           id="tspan58">│       ├── &lt;sample_id&gt;.scaffolds.fa.gz                                   : Genome assemblies in gzipped FASTA format 
+</tspan></tspan><tspan
+         x="34.902344"
+         y="250.43301"
+         id="tspan61"><tspan
+           style="font-weight:bold;font-size:6.65705px;font-family:FreeMono;-inkscape-font-specification:'FreeMono, Bold'"
+           id="tspan60">│       ├── &lt;sample_id&gt;.spades.log                                        : Log file produced by Spades in plain text format 
+</tspan></tspan><tspan
+         x="34.902344"
+         y="256.67301"
+         id="tspan63"><tspan
+           style="font-weight:bold;font-size:6.65705px;font-family:FreeMono;-inkscape-font-specification:'FreeMono, Bold'"
+           id="tspan62">│       └── &lt;sample_id&gt;.warnings.log                                      : Warnings produced by Spades in plain text format 
+</tspan></tspan><tspan
+         x="34.902344"
+         y="262.91302"
+         id="tspan65"><tspan
+           style="font-weight:bold;font-size:6.65705px;font-family:FreeMono;-inkscape-font-specification:'FreeMono, Bold'"
+           id="tspan64">├── busco 
+</tspan></tspan><tspan
+         x="34.902344"
+         y="269.15301"
+         id="tspan67"><tspan
+           style="font-weight:bold;font-size:6.65705px;font-family:FreeMono;-inkscape-font-specification:'FreeMono, Bold'"
+           id="tspan66">│   ├── &lt;sample_id&gt;--&lt;database&gt;-busco                                     : BUSCO output directory 
+</tspan></tspan><tspan
+         x="34.902344"
+         y="275.393"
+         id="tspan69"><tspan
+           style="font-weight:bold;font-size:6.65705px;font-family:FreeMono;-inkscape-font-specification:'FreeMono, Bold'"
+           id="tspan68">│   ├── &lt;sample_id&gt;--&lt;database&gt;-busco.batch_summary.txt                   : BUSCO analysis summary statistics in TSV format 
+</tspan></tspan><tspan
+         x="34.902344"
+         y="281.63299"
+         id="tspan71"><tspan
+           style="font-weight:bold;font-size:6.65705px;font-family:FreeMono;-inkscape-font-specification:'FreeMono, Bold'"
+           id="tspan70">│   └── &lt;sample_id&gt;--&lt;database&gt;-busco.log                                 : Log file produced by BUSCO in plain text format 
+</tspan></tspan><tspan
+         x="34.902344"
+         y="287.87298"
+         id="tspan73"><tspan
+           style="font-weight:bold;font-size:6.65705px;font-family:FreeMono;-inkscape-font-specification:'FreeMono, Bold'"
+           id="tspan72">├── downloads 
+</tspan></tspan><tspan
+         x="34.902344"
+         y="294.11297"
+         id="tspan75"><tspan
+           style="font-weight:bold;font-size:6.65705px;font-family:FreeMono;-inkscape-font-specification:'FreeMono, Bold'"
+           id="tspan74">│   ├── annotations 
+</tspan></tspan><tspan
+         x="34.902344"
+         y="300.35296"
+         id="tspan77"><tspan
+           style="font-weight:bold;font-size:6.65705px;font-family:FreeMono;-inkscape-font-specification:'FreeMono, Bold'"
+           id="tspan76">│   │   └── &lt;reference_id&gt;.gff.gz                                         : Genome annotations downloaded by the pipeline in gzipped GFF format 
+</tspan></tspan><tspan
+         x="34.902344"
+         y="306.59295"
+         id="tspan79"><tspan
+           style="font-weight:bold;font-size:6.65705px;font-family:FreeMono;-inkscape-font-specification:'FreeMono, Bold'"
+           id="tspan78">│   ├── assemblies 
+</tspan></tspan><tspan
+         x="34.902344"
+         y="312.83294"
+         id="tspan81"><tspan
+           style="font-weight:bold;font-size:6.65705px;font-family:FreeMono;-inkscape-font-specification:'FreeMono, Bold'"
+           id="tspan80">│   │   └── &lt;reference_id&gt;.fasta.gz                                       : Genome assemblies downloaded by the pipeline in gzipped FASTA format 
+</tspan></tspan><tspan
+         x="34.902344"
+         y="319.07293"
+         id="tspan83"><tspan
+           style="font-weight:bold;font-size:6.65705px;font-family:FreeMono;-inkscape-font-specification:'FreeMono, Bold'"
+           id="tspan82">│   └── reads 
+</tspan></tspan><tspan
+         x="34.902344"
+         y="325.31292"
+         id="tspan85"><tspan
+           style="font-weight:bold;font-size:6.65705px;font-family:FreeMono;-inkscape-font-specification:'FreeMono, Bold'"
+           id="tspan84">│       └── &lt;reference_id&gt;_&lt;orientation&gt;.fastq.gz                         : Reads downloaded by the pipeline in gzipped FASTQ format 
+</tspan></tspan><tspan
+         x="34.902344"
+         y="331.55291"
+         id="tspan87"><tspan
+           style="font-weight:bold;font-size:6.65705px;font-family:FreeMono;-inkscape-font-specification:'FreeMono, Bold'"
+           id="tspan86">├── fastp 
+</tspan></tspan><tspan
+         x="34.902344"
+         y="337.7929"
+         id="tspan89"><tspan
+           style="font-weight:bold;font-size:6.65705px;font-family:FreeMono;-inkscape-font-specification:'FreeMono, Bold'"
+           id="tspan88">│   ├── &lt;sample_id&gt;.fastp.html                                            : FASTP report with read quality and adapter trimming statistics in HTML format 
+</tspan></tspan><tspan
+         x="34.902344"
+         y="344.03289"
+         id="tspan91"><tspan
+           style="font-weight:bold;font-size:6.65705px;font-family:FreeMono;-inkscape-font-specification:'FreeMono, Bold'"
+           id="tspan90">│   ├── &lt;sample_id&gt;.fastp.json                                            : FASTP report with read quality and adapter trimming statistic in JSON format 
+</tspan></tspan><tspan
+         x="34.902344"
+         y="350.27288"
+         id="tspan93"><tspan
+           style="font-weight:bold;font-size:6.65705px;font-family:FreeMono;-inkscape-font-specification:'FreeMono, Bold'"
+           id="tspan92">│   └── &lt;sample_id&gt;.fastp.log                                             : Log file produced by FASTP 
+</tspan></tspan><tspan
+         x="34.902344"
+         y="356.51287"
+         id="tspan95"><tspan
+           style="font-weight:bold;font-size:6.65705px;font-family:FreeMono;-inkscape-font-specification:'FreeMono, Bold'"
+           id="tspan94">├── metadata 
+</tspan></tspan><tspan
+         x="34.902344"
+         y="362.75286"
+         id="tspan97"><tspan
+           style="font-weight:bold;font-size:6.65705px;font-family:FreeMono;-inkscape-font-specification:'FreeMono, Bold'"
+           id="tspan96">│   ├── reference_metadata.tsv                                            : Reference metadata in TSV format 
+</tspan></tspan><tspan
+         x="34.902344"
+         y="368.99285"
+         id="tspan99"><tspan
+           style="font-weight:bold;font-size:6.65705px;font-family:FreeMono;-inkscape-font-specification:'FreeMono, Bold'"
+           id="tspan98">│   └── sample_metadata.tsv                                               : Sample metadata in TSV format 
+</tspan></tspan><tspan
+         x="34.902344"
+         y="375.23284"
+         id="tspan101"><tspan
+           style="font-weight:bold;font-size:6.65705px;font-family:FreeMono;-inkscape-font-specification:'FreeMono, Bold'"
+           id="tspan100">├── pipeline_info 
+</tspan></tspan><tspan
+         x="34.902344"
+         y="381.47283"
+         id="tspan103"><tspan
+           style="font-weight:bold;font-size:6.65705px;font-family:FreeMono;-inkscape-font-specification:'FreeMono, Bold'"
+           id="tspan102">│   ├── execution_report_&lt;date&gt;.html                                      : Statistics like time and ram usage for pipeline execution as a HTML report 
+</tspan></tspan><tspan
+         x="34.902344"
+         y="387.71282"
+         id="tspan105"><tspan
+           style="font-weight:bold;font-size:6.65705px;font-family:FreeMono;-inkscape-font-specification:'FreeMono, Bold'"
+           id="tspan104">│   ├── execution_trace_&lt;date&gt;.txt                                        : Statistics like time and ram usage for pipeline execution in TSV format 
+</tspan></tspan><tspan
+         x="34.902344"
+         y="393.95281"
+         id="tspan107"><tspan
+           style="font-weight:bold;font-size:6.65705px;font-family:FreeMono;-inkscape-font-specification:'FreeMono, Bold'"
+           id="tspan106">│   ├── messages.tsv                                                      : Errors, warnings, and messages produced by the pipeline in TSV format 
+</tspan></tspan><tspan
+         x="34.902344"
+         y="400.1928"
+         id="tspan109"><tspan
+           style="font-weight:bold;font-size:6.65705px;font-family:FreeMono;-inkscape-font-specification:'FreeMono, Bold'"
+           id="tspan108">│   ├── params_&lt;date&gt;.json                                                : Parameters used when running the pipeline in JSON format 
+</tspan></tspan><tspan
+         x="34.902344"
+         y="406.43279"
+         id="tspan111"><tspan
+           style="font-weight:bold;font-size:6.65705px;font-family:FreeMono;-inkscape-font-specification:'FreeMono, Bold'"
+           id="tspan110">│   ├── pathogensurveillance_run_info.yml                                 : Pipeline run metadata in YML format 
+</tspan></tspan><tspan
+         x="34.902344"
+         y="412.67278"
+         id="tspan113"><tspan
+           style="font-weight:bold;font-size:6.65705px;font-family:FreeMono;-inkscape-font-specification:'FreeMono, Bold'"
+           id="tspan112">│   ├── pipeline_dag_&lt;date&gt;.html                                          : Flowchart of the pathogensurveillance pipeline automatically generated by Nextflow 
+</tspan></tspan><tspan
+         x="34.902344"
+         y="418.91277"
+         id="tspan115"><tspan
+           style="font-weight:bold;font-size:6.65705px;font-family:FreeMono;-inkscape-font-specification:'FreeMono, Bold'"
+           id="tspan114">│   └── version_info.yml                                                  : Versions of software used in the pipeline in YML format 
+</tspan></tspan><tspan
+         x="34.902344"
+         y="425.15276"
+         id="tspan117"><tspan
+           style="font-weight:bold;font-size:6.65705px;font-family:FreeMono;-inkscape-font-specification:'FreeMono, Bold'"
+           id="tspan116">├── pirate 
+</tspan></tspan><tspan
+         x="34.902344"
+         y="431.39275"
+         id="tspan119"><tspan
+           style="font-weight:bold;font-size:6.65705px;font-family:FreeMono;-inkscape-font-specification:'FreeMono, Bold'"
+           id="tspan118">│   └── &lt;report_id&gt;_results                                               : Pirate output directory with gene orthology information 
+</tspan></tspan><tspan
+         x="34.902344"
+         y="437.63274"
+         id="tspan121"><tspan
+           style="font-weight:bold;font-size:6.65705px;font-family:FreeMono;-inkscape-font-specification:'FreeMono, Bold'"
+           id="tspan120">├── pocp 
+</tspan></tspan><tspan
+         x="34.902344"
+         y="443.87273"
+         id="tspan123"><tspan
+           style="font-weight:bold;font-size:6.65705px;font-family:FreeMono;-inkscape-font-specification:'FreeMono, Bold'"
+           id="tspan122">│   └── &lt;report_id&gt;_pocp.tsv                                              : Percentage of conserved proteins in TSV format 
+</tspan></tspan><tspan
+         x="34.902344"
+         y="450.11272"
+         id="tspan125"><tspan
+           style="font-weight:bold;font-size:6.65705px;font-family:FreeMono;-inkscape-font-specification:'FreeMono, Bold'"
+           id="tspan124">├── quality_control 
+</tspan></tspan><tspan
+         x="34.902344"
+         y="456.35271"
+         id="tspan127"><tspan
+           style="font-weight:bold;font-size:6.65705px;font-family:FreeMono;-inkscape-font-specification:'FreeMono, Bold'"
+           id="tspan126">│   ├── fastqc 
+</tspan></tspan><tspan
+         x="34.902344"
+         y="462.5927"
+         id="tspan129"><tspan
+           style="font-weight:bold;font-size:6.65705px;font-family:FreeMono;-inkscape-font-specification:'FreeMono, Bold'"
+           id="tspan128">│   │   ├── &lt;reads_id&gt;_fastqc.html                                        : FastQC report on read quality in HTML format 
+</tspan></tspan><tspan
+         x="34.902344"
+         y="468.83269"
+         id="tspan131"><tspan
+           style="font-weight:bold;font-size:6.65705px;font-family:FreeMono;-inkscape-font-specification:'FreeMono, Bold'"
+           id="tspan130">│   │   └── &lt;reads_id&gt;_fastqc.zip                                         : Zipped directory of FastQC output 
+</tspan></tspan><tspan
+         x="34.902344"
+         y="475.07268"
+         id="tspan133"><tspan
+           style="font-weight:bold;font-size:6.65705px;font-family:FreeMono;-inkscape-font-specification:'FreeMono, Bold'"
+           id="tspan132">│   ├── multiqc 
+</tspan></tspan><tspan
+         x="34.902344"
+         y="481.31267"
+         id="tspan135"><tspan
+           style="font-weight:bold;font-size:6.65705px;font-family:FreeMono;-inkscape-font-specification:'FreeMono, Bold'"
+           id="tspan134">│   │   └── &lt;report_id&gt;_multiqc                                           : Directory of MultiQC output with intermediate files used to make the MultiQC report 
+</tspan></tspan><tspan
+         x="34.902344"
+         y="487.55267"
+         id="tspan137"><tspan
+           style="font-weight:bold;font-size:6.65705px;font-family:FreeMono;-inkscape-font-specification:'FreeMono, Bold'"
+           id="tspan136">│   │       └── multiqc_report.html                                       : MultiQC report combining the summary quality control output in HTML format 
+</tspan></tspan><tspan
+         x="34.902344"
+         y="493.79266"
+         id="tspan139"><tspan
+           style="font-weight:bold;font-size:6.65705px;font-family:FreeMono;-inkscape-font-specification:'FreeMono, Bold'"
+           id="tspan138">│   ├── nanoplot 
+</tspan></tspan><tspan
+         x="34.902344"
+         y="500.03265"
+         id="tspan141"><tspan
+           style="font-weight:bold;font-size:6.65705px;font-family:FreeMono;-inkscape-font-specification:'FreeMono, Bold'"
+           id="tspan140">│   │   ├── &lt;sample_id&gt;_nanoplot-report.html                              : Nanoplot report on read quality in HTML format 
+</tspan></tspan><tspan
+         x="34.902344"
+         y="506.27264"
+         id="tspan143"><tspan
+           style="font-weight:bold;font-size:6.65705px;font-family:FreeMono;-inkscape-font-specification:'FreeMono, Bold'"
+           id="tspan142">│   │   └── &lt;sample_id&gt;_NanoStats.txt                                     : Nanoplot report on read quality in plain text format 
+</tspan></tspan><tspan
+         x="34.902344"
+         y="512.51263"
+         id="tspan145"><tspan
+           style="font-weight:bold;font-size:6.65705px;font-family:FreeMono;-inkscape-font-specification:'FreeMono, Bold'"
+           id="tspan144">│   └── quast 
+</tspan></tspan><tspan
+         x="34.902344"
+         y="518.75265"
+         id="tspan147"><tspan
+           style="font-weight:bold;font-size:6.65705px;font-family:FreeMono;-inkscape-font-specification:'FreeMono, Bold'"
+           id="tspan146">│       ├── &lt;sample_id&gt;.tsv                                               : Quast summary statistics on genome assembly quality in headerless TSV format 
+</tspan></tspan><tspan
+         x="34.902344"
+         y="524.99264"
+         id="tspan149"><tspan
+           style="font-weight:bold;font-size:6.65705px;font-family:FreeMono;-inkscape-font-specification:'FreeMono, Bold'"
+           id="tspan148">│       └── &lt;sample_id&gt; 
+</tspan></tspan><tspan
+         x="34.902344"
+         y="531.23263"
+         id="tspan151"><tspan
+           style="font-weight:bold;font-size:6.65705px;font-family:FreeMono;-inkscape-font-specification:'FreeMono, Bold'"
+           id="tspan150">│           └── report.html                                               : Quast report with data on genome assembly quality in HTML format 
+</tspan></tspan><tspan
+         x="34.902344"
+         y="537.47262"
+         id="tspan153"><tspan
+           style="font-weight:bold;font-size:6.65705px;font-family:FreeMono;-inkscape-font-specification:'FreeMono, Bold'"
+           id="tspan152">├── reference_data 
+</tspan></tspan><tspan
+         x="34.902344"
+         y="543.71261"
+         id="tspan155"><tspan
+           style="font-weight:bold;font-size:6.65705px;font-family:FreeMono;-inkscape-font-specification:'FreeMono, Bold'"
+           id="tspan154">│   ├── considered 
+</tspan></tspan><tspan
+         x="34.902344"
+         y="549.9526"
+         id="tspan157"><tspan
+           style="font-weight:bold;font-size:6.65705px;font-family:FreeMono;-inkscape-font-specification:'FreeMono, Bold'"
+           id="tspan156">│   │   └── &lt;taxon_id&gt;.tsv                                                : Metadata of available assemblies on NCBI in TSV format 
+</tspan></tspan><tspan
+         x="34.902344"
+         y="556.19259"
+         id="tspan159"><tspan
+           style="font-weight:bold;font-size:6.65705px;font-family:FreeMono;-inkscape-font-specification:'FreeMono, Bold'"
+           id="tspan158">│   ├── downloaded 
+</tspan></tspan><tspan
+         x="34.902344"
+         y="562.43258"
+         id="tspan161"><tspan
+           style="font-weight:bold;font-size:6.65705px;font-family:FreeMono;-inkscape-font-specification:'FreeMono, Bold'"
+           id="tspan160">│   │   └── &lt;sample_id&gt;.tsv                                               : Metadata of references selected for download from NCBI in TSV format 
+</tspan></tspan><tspan
+         x="34.902344"
+         y="568.67257"
+         id="tspan163"><tspan
+           style="font-weight:bold;font-size:6.65705px;font-family:FreeMono;-inkscape-font-specification:'FreeMono, Bold'"
+           id="tspan162">│   └── selected 
+</tspan></tspan><tspan
+         x="34.902344"
+         y="574.91256"
+         id="tspan165"><tspan
+           style="font-weight:bold;font-size:6.65705px;font-family:FreeMono;-inkscape-font-specification:'FreeMono, Bold'"
+           id="tspan164">│       ├── &lt;report_id&gt;_busco_references.tsv                              : IDs of references selected for multigene phylogenies in TSV format 
+</tspan></tspan><tspan
+         x="34.902344"
+         y="581.15255"
+         id="tspan167"><tspan
+           style="font-weight:bold;font-size:6.65705px;font-family:FreeMono;-inkscape-font-specification:'FreeMono, Bold'"
+           id="tspan166">│       ├── &lt;report_id&gt;_core_references.tsv                               : IDs of references selected for multigene phylogenies in TSV format 
+</tspan></tspan><tspan
+         x="34.902344"
+         y="587.39254"
+         id="tspan169"><tspan
+           style="font-weight:bold;font-size:6.65705px;font-family:FreeMono;-inkscape-font-specification:'FreeMono, Bold'"
+           id="tspan168">│       └── &lt;report_id&gt;_mapping_references.tsv                            : IDs of references selected for multigene phylogenies in TSV format 
+</tspan></tspan><tspan
+         x="34.902344"
+         y="593.63253"
+         id="tspan171"><tspan
+           style="font-weight:bold;font-size:6.65705px;font-family:FreeMono;-inkscape-font-specification:'FreeMono, Bold'"
+           id="tspan170">├── reports 
+</tspan></tspan><tspan
+         x="34.902344"
+         y="599.87252"
+         id="tspan173"><tspan
+           style="font-weight:bold;font-size:6.65705px;font-family:FreeMono;-inkscape-font-specification:'FreeMono, Bold'"
+           id="tspan172">│   └── &lt;report_id&gt;_pathsurveil_report.html                               : Primary report for pathogensurveillance in HTML format 
+</tspan></tspan><tspan
+         x="34.902344"
+         y="606.11251"
+         id="tspan175"><tspan
+           style="font-weight:bold;font-size:6.65705px;font-family:FreeMono;-inkscape-font-specification:'FreeMono, Bold'"
+           id="tspan174">├── sendsketch 
+</tspan></tspan><tspan
+         x="34.902344"
+         y="612.3525"
+         id="tspan177"><tspan
+           style="font-weight:bold;font-size:6.65705px;font-family:FreeMono;-inkscape-font-specification:'FreeMono, Bold'"
+           id="tspan176">│   └── &lt;sample_id&gt;.txt                                                   : Table returned by BBmap sendsketch with initial identifications in TSV format 
+</tspan></tspan><tspan
+         x="34.902344"
+         y="618.59249"
+         id="tspan179"><tspan
+           style="font-weight:bold;font-size:6.65705px;font-family:FreeMono;-inkscape-font-specification:'FreeMono, Bold'"
+           id="tspan178">├── shared_genes 
+</tspan></tspan><tspan
+         x="34.902344"
+         y="624.83248"
+         id="tspan181"><tspan
+           style="font-weight:bold;font-size:6.65705px;font-family:FreeMono;-inkscape-font-specification:'FreeMono, Bold'"
+           id="tspan180">│   └── &lt;method&gt; 
+</tspan></tspan><tspan
+         x="34.902344"
+         y="631.07247"
+         id="tspan183"><tspan
+           style="font-weight:bold;font-size:6.65705px;font-family:FreeMono;-inkscape-font-specification:'FreeMono, Bold'"
+           id="tspan182">│       └── &lt;gene_id&gt;.aligned.fas                                         : Aligned sequences for each gene shared amoung a group of organisms in FASTA format 
+</tspan></tspan><tspan
+         x="34.902344"
+         y="637.31246"
+         id="tspan185"><tspan
+           style="font-weight:bold;font-size:6.65705px;font-family:FreeMono;-inkscape-font-specification:'FreeMono, Bold'"
+           id="tspan184">├── sketch_comparisons 
+</tspan></tspan><tspan
+         x="34.902344"
+         y="643.55245"
+         id="tspan187"><tspan
+           style="font-weight:bold;font-size:6.65705px;font-family:FreeMono;-inkscape-font-specification:'FreeMono, Bold'"
+           id="tspan186">│   ├── ani_matricies 
+</tspan></tspan><tspan
+         x="34.902344"
+         y="649.79244"
+         id="tspan189"><tspan
+           style="font-weight:bold;font-size:6.65705px;font-family:FreeMono;-inkscape-font-specification:'FreeMono, Bold'"
+           id="tspan188">│   │   └── &lt;report_id&gt;_comp.csv                                          : Estimated ANI similarity matrix made by sourmash compare in CSV format 
+</tspan></tspan><tspan
+         x="34.902344"
+         y="656.03243"
+         id="tspan191"><tspan
+           style="font-weight:bold;font-size:6.65705px;font-family:FreeMono;-inkscape-font-specification:'FreeMono, Bold'"
+           id="tspan190">│   └── sketches 
+</tspan></tspan><tspan
+         x="34.902344"
+         y="662.27242"
+         id="tspan193"><tspan
+           style="font-weight:bold;font-size:6.65705px;font-family:FreeMono;-inkscape-font-specification:'FreeMono, Bold'"
+           id="tspan192">│       └── &lt;id&gt;.sig                                                      : FracMinHash signature of the given sequence made by sourmash sketch in JSON 
+</tspan></tspan><tspan
+         x="34.902344"
+         y="668.51241"
+         id="tspan195"><tspan
+           style="font-weight:bold;font-size:6.65705px;font-family:FreeMono;-inkscape-font-specification:'FreeMono, Bold'"
+           id="tspan194">├── trees 
+</tspan></tspan><tspan
+         x="34.902344"
+         y="674.7524"
+         id="tspan197"><tspan
+           style="font-weight:bold;font-size:6.65705px;font-family:FreeMono;-inkscape-font-specification:'FreeMono, Bold'"
+           id="tspan196">│   ├── busco 
+</tspan></tspan><tspan
+         x="34.902344"
+         y="680.99239"
+         id="tspan199"><tspan
+           style="font-weight:bold;font-size:6.65705px;font-family:FreeMono;-inkscape-font-specification:'FreeMono, Bold'"
+           id="tspan198">│   │   └── &lt;report_id&gt;--&lt;cluster_id&gt;.treefile                            : Trees infered from multigene phylogeny in Newick format 
+</tspan></tspan><tspan
+         x="34.902344"
+         y="687.23238"
+         id="tspan201"><tspan
+           style="font-weight:bold;font-size:6.65705px;font-family:FreeMono;-inkscape-font-specification:'FreeMono, Bold'"
+           id="tspan200">│   ├── core 
+</tspan></tspan><tspan
+         x="34.902344"
+         y="693.47237"
+         id="tspan203"><tspan
+           style="font-weight:bold;font-size:6.65705px;font-family:FreeMono;-inkscape-font-specification:'FreeMono, Bold'"
+           id="tspan202">│   │   └── &lt;report_id&gt;--&lt;cluster_id&gt;.treefile                            : Trees infered from multigene phylogeny in Newick format 
+</tspan></tspan><tspan
+         x="34.902344"
+         y="699.71236"
+         id="tspan205"><tspan
+           style="font-weight:bold;font-size:6.65705px;font-family:FreeMono;-inkscape-font-specification:'FreeMono, Bold'"
+           id="tspan204">│   └── snp 
+</tspan></tspan><tspan
+         x="34.902344"
+         y="705.95235"
+         id="tspan207"><tspan
+           style="font-weight:bold;font-size:6.65705px;font-family:FreeMono;-inkscape-font-specification:'FreeMono, Bold'"
+           id="tspan206">│       └── &lt;report_id&gt;--&lt;reference_id&gt;.treefile                          : Trees inferred from variant analysis in Newick format 
+</tspan></tspan><tspan
+         x="34.902344"
+         y="712.19234"
+         id="tspan209"><tspan
+           style="font-weight:bold;font-size:6.65705px;font-family:FreeMono;-inkscape-font-specification:'FreeMono, Bold'"
+           id="tspan208">└── variants 
+</tspan></tspan><tspan
+         x="34.902344"
+         y="718.43233"
+         id="tspan211"><tspan
+           style="font-weight:bold;font-size:6.65705px;font-family:FreeMono;-inkscape-font-specification:'FreeMono, Bold'"
+           id="tspan210">    ├── &lt;report_id&gt;--&lt;reference_id&gt;.fasta                                 : Filtered variants in FASTA format 
+</tspan></tspan><tspan
+         x="34.902344"
+         y="724.67232"
+         id="tspan213"><tspan
+           style="font-weight:bold;font-size:6.65705px;font-family:FreeMono;-inkscape-font-specification:'FreeMono, Bold'"
+           id="tspan212">    ├── &lt;report_id&gt;--&lt;reference_id&gt;.vcf.gz                                : Unfiltered variants in VCF format 
+</tspan></tspan><tspan
+         x="34.902344"
+         y="730.91231"
+         id="tspan215"><tspan
+           style="font-weight:bold;font-size:6.65705px;font-family:FreeMono;-inkscape-font-specification:'FreeMono, Bold'"
+           id="tspan214">    └── &lt;report_id&gt;--&lt;reference_id&gt;.vcffilter.vcf.gz                      : Filtered variants in VCF format  </tspan></tspan></text>
+  </g>
+</svg>
