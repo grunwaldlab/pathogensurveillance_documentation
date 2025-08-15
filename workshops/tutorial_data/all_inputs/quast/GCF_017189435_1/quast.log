@@ -1,0 +1,159 @@
+/usr/local/bin/quast.py --output-dir GCF_017189435_1 -r GCF_017189435_1_genomic.fna --threads 4 SRR12574847_filtered.fasta SRR12574848_filtered.fasta SRR12574846_filtered.fasta
+
+Version: 5.2.0
+
+System information:
+  OS: Linux-6.5.4-76060504-generic-x86_64-with-glibc2.10 (linux_64)
+  Python version: 3.8.16
+  CPUs number: 8
+
+Started: 2024-04-29 18:24:54
+
+Logging to /home/buchananr/Desktop/pathogensurveillance/pathogen/work/0b/3e2312b133d7d46f46ea347a9de073/GCF_017189435_1/quast.log
+
+CWD: /home/buchananr/Desktop/pathogensurveillance/pathogen/work/0b/3e2312b133d7d46f46ea347a9de073
+Main parameters: 
+  MODE: default, threads: 4, min contig length: 500, min alignment length: 65, min alignment IDY: 95.0, \
+  ambiguity: one, min local misassembly length: 200, min extensive misassembly length: 1000
+
+Reference:
+  /home/buchananr/Desktop/pathogensurveillance/pathogen/work/0b/3e2312b133d7d46f46ea347a9de073/GCF_017189435_1_genomic.fna ==> GCF_017189435_1_genomic
+
+Contigs:
+  Pre-processing...
+  1  SRR12574847_filtered.fasta ==> SRR12574847_filtered
+  2  SRR12574848_filtered.fasta ==> SRR12574848_filtered
+  3  SRR12574846_filtered.fasta ==> SRR12574846_filtered
+
+2024-04-29 18:24:58
+Running Basic statistics processor...
+  Reference genome:
+    GCF_017189435_1_genomic.fna, length = 5377795, num fragments = 1, GC % = 64.05
+  Contig files: 
+    1  SRR12574847_filtered
+    2  SRR12574848_filtered
+    3  SRR12574846_filtered
+  Calculating N50 and L50...
+    1  SRR12574847_filtered, N50 = 163772, L50 = 10, auN = 222132.8, Total length = 5082851, GC % = 64.18, # N's per 100 kbp =  5.63
+    2  SRR12574848_filtered, N50 = 158034, L50 = 11, auN = 175811.1, Total length = 5180278, GC % = 64.18, # N's per 100 kbp =  0.00
+    3  SRR12574846_filtered, N50 = 179965, L50 = 10, auN = 179887.8, Total length = 4960615, GC % = 64.15, # N's per 100 kbp =  1.96
+  Drawing Nx plot...
+    saved to /home/buchananr/Desktop/pathogensurveillance/pathogen/work/0b/3e2312b133d7d46f46ea347a9de073/GCF_017189435_1/basic_stats/Nx_plot.pdf
+  Drawing NGx plot...
+    saved to /home/buchananr/Desktop/pathogensurveillance/pathogen/work/0b/3e2312b133d7d46f46ea347a9de073/GCF_017189435_1/basic_stats/NGx_plot.pdf
+  Drawing cumulative plot...
+    saved to /home/buchananr/Desktop/pathogensurveillance/pathogen/work/0b/3e2312b133d7d46f46ea347a9de073/GCF_017189435_1/basic_stats/cumulative_plot.pdf
+  Drawing GC content plot...
+    saved to /home/buchananr/Desktop/pathogensurveillance/pathogen/work/0b/3e2312b133d7d46f46ea347a9de073/GCF_017189435_1/basic_stats/GC_content_plot.pdf
+  Drawing SRR12574847_filtered GC content plot...
+    saved to /home/buchananr/Desktop/pathogensurveillance/pathogen/work/0b/3e2312b133d7d46f46ea347a9de073/GCF_017189435_1/basic_stats/SRR12574847_filtered_GC_content_plot.pdf
+  Drawing SRR12574848_filtered GC content plot...
+    saved to /home/buchananr/Desktop/pathogensurveillance/pathogen/work/0b/3e2312b133d7d46f46ea347a9de073/GCF_017189435_1/basic_stats/SRR12574848_filtered_GC_content_plot.pdf
+  Drawing SRR12574846_filtered GC content plot...
+    saved to /home/buchananr/Desktop/pathogensurveillance/pathogen/work/0b/3e2312b133d7d46f46ea347a9de073/GCF_017189435_1/basic_stats/SRR12574846_filtered_GC_content_plot.pdf
+  Drawing Coverage histogram (bin size: 1x)...
+    saved to /home/buchananr/Desktop/pathogensurveillance/pathogen/work/0b/3e2312b133d7d46f46ea347a9de073/GCF_017189435_1/basic_stats/coverage_histogram.pdf
+  Drawing SRR12574847_filtered coverage histogram (bin size: 1x)...
+    saved to /home/buchananr/Desktop/pathogensurveillance/pathogen/work/0b/3e2312b133d7d46f46ea347a9de073/GCF_017189435_1/basic_stats/SRR12574847_filtered_coverage_histogram.pdf
+  Drawing SRR12574848_filtered coverage histogram (bin size: 1x)...
+    saved to /home/buchananr/Desktop/pathogensurveillance/pathogen/work/0b/3e2312b133d7d46f46ea347a9de073/GCF_017189435_1/basic_stats/SRR12574848_filtered_coverage_histogram.pdf
+  Drawing SRR12574846_filtered coverage histogram (bin size: 1x)...
+    saved to /home/buchananr/Desktop/pathogensurveillance/pathogen/work/0b/3e2312b133d7d46f46ea347a9de073/GCF_017189435_1/basic_stats/SRR12574846_filtered_coverage_histogram.pdf
+Done.
+
+2024-04-29 18:25:03
+Running Contig analyzer...
+WARNING: Version of installed minimap2 differs from its version in the QUAST package (2.24). Please make sure that you use an actual version of software.
+  1  SRR12574847_filtered
+  1  Logging to files /home/buchananr/Desktop/pathogensurveillance/pathogen/work/0b/3e2312b133d7d46f46ea347a9de073/GCF_017189435_1/contigs_reports/contigs_report_SRR12574847_filtered.stdout and contigs_report_SRR12574847_filtered.stderr...
+  2  SRR12574848_filtered
+  1  Aligning contigs to the reference
+  3  SRR12574846_filtered
+  2  Logging to files /home/buchananr/Desktop/pathogensurveillance/pathogen/work/0b/3e2312b133d7d46f46ea347a9de073/GCF_017189435_1/contigs_reports/contigs_report_SRR12574848_filtered.stdout and contigs_report_SRR12574848_filtered.stderr...
+  2  Aligning contigs to the reference
+  3  Logging to files /home/buchananr/Desktop/pathogensurveillance/pathogen/work/0b/3e2312b133d7d46f46ea347a9de073/GCF_017189435_1/contigs_reports/contigs_report_SRR12574846_filtered.stdout and contigs_report_SRR12574846_filtered.stderr...
+  3  Aligning contigs to the reference
+WARNING: Version of installed minimap2 differs from its version in the QUAST package (2.24). Please make sure that you use an actual version of software.
+WARNING: Version of installed minimap2 differs from its version in the QUAST package (2.24). Please make sure that you use an actual version of software.
+WARNING: Version of installed minimap2 differs from its version in the QUAST package (2.24). Please make sure that you use an actual version of software.
+  1  /usr/local/bin/minimap2 -c -x asm10 -B5 -O4,16 --no-long-join -r 200 -N 50 -s \
+     65 -z 200 --mask-level 0.9 --min-occ 200 -g 2500 --score-N 2 --cs -t 1 GCF_017189435_1/quast_corrected_input/GCF_017189435_1_genomic.fna \
+     GCF_017189435_1/quast_corrected_input/SRR12574847_filtered.fasta > GCF_017189435_1/contigs_reports/minimap_output/SRR12574847_filtered.coords_tmp \
+     2>> GCF_017189435_1/contigs_reports/contigs_report_SRR12574847_filtered.stderr
+  3  /usr/local/bin/minimap2 -c -x asm10 -B5 -O4,16 --no-long-join -r 200 -N 50 -s \
+     65 -z 200 --mask-level 0.9 --min-occ 200 -g 2500 --score-N 2 --cs -t 1 GCF_017189435_1/quast_corrected_input/GCF_017189435_1_genomic.fna \
+     GCF_017189435_1/quast_corrected_input/SRR12574846_filtered.fasta > GCF_017189435_1/contigs_reports/minimap_output/SRR12574846_filtered.coords_tmp \
+     2>> GCF_017189435_1/contigs_reports/contigs_report_SRR12574846_filtered.stderr
+  2  /usr/local/bin/minimap2 -c -x asm10 -B5 -O4,16 --no-long-join -r 200 -N 50 -s \
+     65 -z 200 --mask-level 0.9 --min-occ 200 -g 2500 --score-N 2 --cs -t 1 GCF_017189435_1/quast_corrected_input/GCF_017189435_1_genomic.fna \
+     GCF_017189435_1/quast_corrected_input/SRR12574848_filtered.fasta > GCF_017189435_1/contigs_reports/minimap_output/SRR12574848_filtered.coords_tmp \
+     2>> GCF_017189435_1/contigs_reports/contigs_report_SRR12574848_filtered.stderr
+  1  Analysis is finished.
+
+  2  Analysis is finished.
+
+  3  Analysis is finished.
+
+  Creating total report...
+    saved to /home/buchananr/Desktop/pathogensurveillance/pathogen/work/0b/3e2312b133d7d46f46ea347a9de073/GCF_017189435_1/contigs_reports/misassemblies_report.txt, misassemblies_report.tsv, and misassemblies_report.tex
+  Transposed version of total report...
+    saved to /home/buchananr/Desktop/pathogensurveillance/pathogen/work/0b/3e2312b133d7d46f46ea347a9de073/GCF_017189435_1/contigs_reports/transposed_report_misassemblies.txt, transposed_report_misassemblies.tsv, and transposed_report_misassemblies.tex
+  Creating total report...
+    saved to /home/buchananr/Desktop/pathogensurveillance/pathogen/work/0b/3e2312b133d7d46f46ea347a9de073/GCF_017189435_1/contigs_reports/unaligned_report.txt, unaligned_report.tsv, and unaligned_report.tex
+  Drawing misassemblies by types plot...
+    saved to /home/buchananr/Desktop/pathogensurveillance/pathogen/work/0b/3e2312b133d7d46f46ea347a9de073/GCF_017189435_1/contigs_reports/misassemblies_plot.pdf
+  Drawing misassemblies FRCurve plot...
+    saved to /home/buchananr/Desktop/pathogensurveillance/pathogen/work/0b/3e2312b133d7d46f46ea347a9de073/GCF_017189435_1/contigs_reports/misassemblies_frcurve_plot.pdf
+Done.
+
+2024-04-29 18:25:06
+Running NA-NGA calculation...
+  1  SRR12574847_filtered, Largest alignment = 481956, NA50 = 87727, NGA50 = 83707, LA50 = 19, LGA50 = 21
+  2  SRR12574848_filtered, Largest alignment = 264685, NA50 = 87797, NGA50 = 80674, LA50 = 20, LGA50 = 22
+  3  SRR12574846_filtered, Largest alignment = 197508, NA50 = 64022, NGA50 = 59641, LA50 = 25, LGA50 = 28
+  Drawing cumulative plot...
+    saved to /home/buchananr/Desktop/pathogensurveillance/pathogen/work/0b/3e2312b133d7d46f46ea347a9de073/GCF_017189435_1/aligned_stats/cumulative_plot.pdf
+  Drawing NAx plot...
+    saved to /home/buchananr/Desktop/pathogensurveillance/pathogen/work/0b/3e2312b133d7d46f46ea347a9de073/GCF_017189435_1/aligned_stats/NAx_plot.pdf
+  Drawing NGAx plot...
+    saved to /home/buchananr/Desktop/pathogensurveillance/pathogen/work/0b/3e2312b133d7d46f46ea347a9de073/GCF_017189435_1/aligned_stats/NGAx_plot.pdf
+Done.
+
+2024-04-29 18:25:06
+Running Genome analyzer...
+  NOTICE: No file with genomic features were provided. Use the --features option if you want to specify it.
+
+  NOTICE: No file with operons were provided. Use the -O option if you want to specify it.
+  1  SRR12574847_filtered
+  2  SRR12574848_filtered
+  3  SRR12574846_filtered
+  3  Analysis is finished.
+  1  Analysis is finished.
+  2  Analysis is finished.
+  Drawing Genome fraction, % histogram...
+    saved to /home/buchananr/Desktop/pathogensurveillance/pathogen/work/0b/3e2312b133d7d46f46ea347a9de073/GCF_017189435_1/genome_stats/genome_fraction_histogram.pdf
+Done.
+
+NOTICE: Genes are not predicted by default. Use --gene-finding or --glimmer option to enable it.
+
+2024-04-29 18:25:08
+Creating large visual summaries...
+This may take a while: press Ctrl-C to skip this step..
+  1 of 2: Creating PDF with all tables and plots...
+  2 of 2: Creating Icarus viewers...
+Done
+
+2024-04-29 18:25:10
+RESULTS:
+  Text versions of total report are saved to /home/buchananr/Desktop/pathogensurveillance/pathogen/work/0b/3e2312b133d7d46f46ea347a9de073/GCF_017189435_1/report.txt, report.tsv, and report.tex
+  Text versions of transposed total report are saved to /home/buchananr/Desktop/pathogensurveillance/pathogen/work/0b/3e2312b133d7d46f46ea347a9de073/GCF_017189435_1/transposed_report.txt, transposed_report.tsv, and transposed_report.tex
+  HTML version (interactive tables and plots) is saved to /home/buchananr/Desktop/pathogensurveillance/pathogen/work/0b/3e2312b133d7d46f46ea347a9de073/GCF_017189435_1/report.html
+  PDF version (tables and plots) is saved to /home/buchananr/Desktop/pathogensurveillance/pathogen/work/0b/3e2312b133d7d46f46ea347a9de073/GCF_017189435_1/report.pdf
+  Icarus (contig browser) is saved to /home/buchananr/Desktop/pathogensurveillance/pathogen/work/0b/3e2312b133d7d46f46ea347a9de073/GCF_017189435_1/icarus.html
+  Log is saved to /home/buchananr/Desktop/pathogensurveillance/pathogen/work/0b/3e2312b133d7d46f46ea347a9de073/GCF_017189435_1/quast.log
+
+Finished: 2024-04-29 18:25:10
+Elapsed time: 0:00:16.345559
+NOTICEs: 3; WARNINGs: 1; non-fatal ERRORs: 0
+
+Thank you for using QUAST!

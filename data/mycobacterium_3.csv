@@ -1,7 +1,0 @@
-sample_id,ncbi accession,ref_ncbi_accession,ref_contextual_usage
-mycobacterium_abscessus1,ERR7253671,GCF_001632805.1,required
-mycobacterium_abscessus2,ERR7253669,GCF_001632805.1,required
-mycobacterium_abscessus3,ERR7253671,GCF_001632805.1,required
-mycobacterium_leprae1,SRR6241707,,
-mycobacterium_leprae2,SRR6241708,,
-mycobacterium_leprae3,SRR6241709,,

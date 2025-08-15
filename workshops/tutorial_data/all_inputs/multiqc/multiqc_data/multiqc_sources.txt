@@ -1,0 +1,7 @@
+Module	Section	Sample Name	Source
+FastQC	all_sections	SRR12574846_2	/home/buchananr/Desktop/pathogensurveillance/pathogen/work/3a/ffff9f02cc71f574f2f42a301b54e7/6/SRR12574846_2_fastqc.zip
+FastQC	all_sections	SRR12574846_1	/home/buchananr/Desktop/pathogensurveillance/pathogen/work/3a/ffff9f02cc71f574f2f42a301b54e7/5/SRR12574846_1_fastqc.zip
+FastQC	all_sections	SRR12574848_1	/home/buchananr/Desktop/pathogensurveillance/pathogen/work/3a/ffff9f02cc71f574f2f42a301b54e7/1/SRR12574848_1_fastqc.zip
+FastQC	all_sections	SRR12574847_2	/home/buchananr/Desktop/pathogensurveillance/pathogen/work/3a/ffff9f02cc71f574f2f42a301b54e7/4/SRR12574847_2_fastqc.zip
+FastQC	all_sections	SRR12574848_2	/home/buchananr/Desktop/pathogensurveillance/pathogen/work/3a/ffff9f02cc71f574f2f42a301b54e7/2/SRR12574848_2_fastqc.zip
+FastQC	all_sections	SRR12574847_1	/home/buchananr/Desktop/pathogensurveillance/pathogen/work/3a/ffff9f02cc71f574f2f42a301b54e7/3/SRR12574847_1_fastqc.zip
