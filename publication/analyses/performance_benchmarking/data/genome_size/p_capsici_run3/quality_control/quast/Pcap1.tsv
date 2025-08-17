@@ -1,0 +1,23 @@
+Assembly	Pcap1.scaffolds
+# contigs (>= 0 bp)	151421
+# contigs (>= 1000 bp)	11197
+# contigs (>= 5000 bp)	2330
+# contigs (>= 10000 bp)	919
+# contigs (>= 25000 bp)	192
+# contigs (>= 50000 bp)	47
+Total length (>= 0 bp)	76995874
+Total length (>= 1000 bp)	47072969
+Total length (>= 5000 bp)	28557698
+Total length (>= 10000 bp)	18810454
+Total length (>= 25000 bp)	8140723
+Total length (>= 50000 bp)	3129822
+# contigs	22440
+Largest contig	106088
+Total length	54839006
+GC (%)	50.07
+N50	5424
+N90	816
+auN	12591.8
+L50	2112
+L90	13726
+# N's per 100 kbp	289.25

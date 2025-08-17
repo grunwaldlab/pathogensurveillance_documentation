@@ -1,0 +1,10 @@
+command_line: nextflow run main.nf -profile docker --input /home/marthasudermann/pathsurv_data/benchmark_exp/input_data_subset.csv --outdir /home/marthasudermann/pathsurv_data/output_dirs_benchmark/200_run2 --max_samples 200 -with-report -with-trace --data_dir /home/marthasudermann/pathsurv_data/k_pneumoniae
+commit_id: null
+container_engine: docker
+profile: docker
+revision: null
+run_name: jovial_snyder
+session_id: faac4731-38c3-45dc-a181-7a07ed3fdb2d
+start_time: 2025-05-30T00:11:46.695920673-07:00
+nextflow_version: 24.10.0
+pipeline_version: 1.0.0

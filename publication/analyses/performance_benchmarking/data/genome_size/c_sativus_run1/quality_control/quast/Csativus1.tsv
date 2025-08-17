@@ -1,0 +1,23 @@
+Assembly	Csativus1.scaffolds
+# contigs (>= 0 bp)	645265
+# contigs (>= 1000 bp)	14712
+# contigs (>= 5000 bp)	6878
+# contigs (>= 10000 bp)	4688
+# contigs (>= 25000 bp)	2137
+# contigs (>= 50000 bp)	864
+Total length (>= 0 bp)	269425461
+Total length (>= 1000 bp)	190060590
+Total length (>= 5000 bp)	173585029
+Total length (>= 10000 bp)	157737619
+Total length (>= 25000 bp)	116949741
+Total length (>= 50000 bp)	72512452
+# contigs	28104
+Largest contig	305854
+Total length	199243351
+GC (%)	32.22
+N50	33324
+N90	3195
+auN	48856.1
+L50	1535
+L90	8302
+# N's per 100 kbp	347.65

@@ -1,0 +1,10 @@
+command_line: nextflow run main.nf -profile docker --input /home/marthasudermann/pathsurv_data/metadata/bradyrhizobium_japonica_sub.csv --outdir /home/marthasudermann/pathsurv_data/output_dirs_rnd2/b_japonica_run3 -with-report -with-trace --data_dir /home/marthasudermann/pathsurv_data/b_japonica
+commit_id: null
+container_engine: docker
+profile: docker
+revision: null
+run_name: ridiculous_volta
+session_id: e7d06618-2c19-4851-bea3-d0e5e9f2ca0b
+start_time: 2025-06-06T16:36:00.883915951-07:00
+nextflow_version: 24.10.0
+pipeline_version: 1.0.0

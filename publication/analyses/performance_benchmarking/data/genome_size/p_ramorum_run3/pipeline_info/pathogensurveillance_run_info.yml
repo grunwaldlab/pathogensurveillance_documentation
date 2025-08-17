@@ -1,0 +1,10 @@
+command_line: nextflow run main.nf -profile docker --input /home/marthasudermann/pathsurv_data/metadata/phytophthora_ramorum_sub.csv --outdir /home/marthasudermann/pathsurv_data/output_dirs_rnd2/p_ramorum_run3 -with-report -with-trace --data_dir /home/marthasudermann/pathsurv_data/p_ramorum
+commit_id: null
+container_engine: docker
+profile: docker
+revision: null
+run_name: suspicious_spence
+session_id: 9ecf1c0e-69cc-412b-8368-c0a8f79e58b1
+start_time: 2025-06-07T15:33:35.564913803-07:00
+nextflow_version: 24.10.0
+pipeline_version: 1.0.0

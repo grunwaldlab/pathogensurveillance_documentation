@@ -1,0 +1,10 @@
+command_line: nextflow run main.nf -profile docker --input /home/marthasudermann/pathsurv_data/metadata/limosilactobacillus_fermentum_sub.csv --outdir /home/marthasudermann/pathsurv_data/output_dirs_rnd2/l_fermentum_run2 -with-report -with-trace --data_dir /home/marthasudermann/pathsurv_data/l_fermentum/
+commit_id: null
+container_engine: docker
+profile: docker
+revision: null
+run_name: fervent_spence
+session_id: 05002707-f559-4cb3-8869-9944ec183cff
+start_time: 2025-05-20T15:07:48.410099342-07:00
+nextflow_version: 24.10.0
+pipeline_version: 1.0.0

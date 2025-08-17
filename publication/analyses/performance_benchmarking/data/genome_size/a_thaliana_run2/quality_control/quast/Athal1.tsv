@@ -1,0 +1,23 @@
+Assembly	Athal1_filtered
+# contigs (>= 0 bp)	44888
+# contigs (>= 1000 bp)	3792
+# contigs (>= 5000 bp)	2267
+# contigs (>= 10000 bp)	1772
+# contigs (>= 25000 bp)	1105
+# contigs (>= 50000 bp)	629
+Total length (>= 0 bp)	120422141
+Total length (>= 1000 bp)	112917561
+Total length (>= 5000 bp)	109339255
+Total length (>= 10000 bp)	105783437
+Total length (>= 25000 bp)	94912281
+Total length (>= 50000 bp)	78261221
+# contigs	5043
+Largest contig	780717
+Total length	113769969
+GC (%)	35.99
+N50	93491
+N90	14575
+auN	135506.4
+L50	318
+L90	1491
+# N's per 100 kbp	7.99

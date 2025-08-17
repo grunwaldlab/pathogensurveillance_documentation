@@ -1,0 +1,10 @@
+command_line: nextflow run main.nf -profile docker --input /home/marthasudermann/pathsurv_data/benchmark_exp/input_data_subset.csv --outdir /home/marthasudermann/pathsurv_data/output_dirs_benchmark/75_run2 --max_samples 75 -with-report -with-trace --data_dir /home/marthasudermann/pathsurv_data/k_pneumoniae
+commit_id: null
+container_engine: docker
+profile: docker
+revision: null
+run_name: serene_crick
+session_id: 714fea17-ba68-44c1-8cb6-771121129822
+start_time: 2025-05-29T04:32:34.864931737-07:00
+nextflow_version: 24.10.0
+pipeline_version: 1.0.0

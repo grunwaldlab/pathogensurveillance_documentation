@@ -1,0 +1,10 @@
+command_line: nextflow run main.nf -profile docker --input /home/marthasudermann/pathsurv_data/metadata/fusarium_oxysporum_sub.csv --outdir /home/marthasudermann/pathsurv_data/output_dirs_rnd2/f_oxysporum_run1 -with-report -with-trace --data_dir /home/marthasudermann/pathsurv_data/f_oxysporum/
+commit_id: null
+container_engine: docker
+profile: docker
+revision: null
+run_name: adoring_jepsen
+session_id: 5b041898-6ad1-449d-83c0-20e957ef315e
+start_time: 2025-05-21T06:44:48.402858540-07:00
+nextflow_version: 24.10.0
+pipeline_version: 1.0.0

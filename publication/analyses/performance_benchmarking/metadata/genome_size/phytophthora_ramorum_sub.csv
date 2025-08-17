@@ -1,0 +1,4 @@
+sample_id,path,path_2,ploidy,sequence_type
+Pram1,/home/marthasudermann/pathsurv_data/p_ramorum/reads/sub_SRR16939097_1.fastq.gz,/home/marthasudermann/pathsurv_data/p_ramorum/reads/sub_SRR16939097_2.fastq.gz,2,illumina
+Pram2,/home/marthasudermann/pathsurv_data/p_ramorum/reads/sub_SRR16939100_1.fastq.gz,/home/marthasudermann/pathsurv_data/p_ramorum/reads/sub_SRR16939100_2.fastq.gz,2,illumina
+Pram3,/home/marthasudermann/pathsurv_data/p_ramorum/reads/sub_SRR16939107_1.fastq.gz,/home/marthasudermann/pathsurv_data/p_ramorum/reads/sub_SRR16939107_2.fastq.gz,2,illumina

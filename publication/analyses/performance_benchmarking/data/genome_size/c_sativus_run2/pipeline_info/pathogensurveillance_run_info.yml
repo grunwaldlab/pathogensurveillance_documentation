@@ -1,0 +1,10 @@
+command_line: nextflow run main.nf -profile docker --input /home/marthasudermann/pathsurv_data/metadata/cucumis_satvius_sub.csv --outdir /home/marthasudermann/pathsurv_data/output_dirs_rnd2/c_sativus_run2 -with-report -with-trace --data_dir /home/marthasudermann/pathsurv_data/c_sativus
+commit_id: null
+container_engine: docker
+profile: docker
+revision: null
+run_name: gigantic_gilbert
+session_id: 2c6e40bd-a85e-4845-8977-d07b819353e7
+start_time: 2025-06-23T21:59:16.904187771-07:00
+nextflow_version: 24.10.0
+pipeline_version: 1.0.0

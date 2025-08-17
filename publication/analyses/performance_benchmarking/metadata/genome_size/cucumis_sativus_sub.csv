@@ -1,0 +1,4 @@
+sample_id,path,path_2,ploidy,sequence_type
+Csativus1,/home/marthasudermann/pathsurv_data/c_sativus/reads/sub_SRR25709139_1.fastq.gz,/home/marthasudermann/pathsurv_data/c_sativus/reads/sub_SRR25709139_2.fastq.gz,2,illumina
+Csativus2,/home/marthasudermann/pathsurv_data/c_sativus/reads/sub_SRR25709141_1.fastq.gz,/home/marthasudermann/pathsurv_data/c_sativus/reads/sub_SRR25709141_2.fastq.gz,2,illumina
+Csativus3,/home/marthasudermann/pathsurv_data/c_sativus/reads/sub_SRR25709138_1.fastq.gz,/home/marthasudermann/pathsurv_data/c_sativus/reads/sub_SRR25709138_2.fastq.gz,2,illumina

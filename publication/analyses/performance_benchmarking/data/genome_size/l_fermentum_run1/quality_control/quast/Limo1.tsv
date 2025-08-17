@@ -1,0 +1,23 @@
+Assembly	Limo1_filtered
+# contigs (>= 0 bp)	454
+# contigs (>= 1000 bp)	334
+# contigs (>= 5000 bp)	125
+# contigs (>= 10000 bp)	50
+# contigs (>= 25000 bp)	2
+# contigs (>= 50000 bp)	0
+Total length (>= 0 bp)	1901032
+Total length (>= 1000 bp)	1842254
+Total length (>= 5000 bp)	1298396
+Total length (>= 10000 bp)	774718
+Total length (>= 25000 bp)	67880
+Total length (>= 50000 bp)	0
+# contigs	390
+Largest contig	40253
+Total length	1884871
+GC (%)	52.44
+N50	8114
+N90	2170
+auN	10161.4
+L50	69
+L90	240
+# N's per 100 kbp	5.84

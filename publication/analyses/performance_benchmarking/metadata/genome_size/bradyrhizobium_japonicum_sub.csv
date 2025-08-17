@@ -1,0 +1,4 @@
+sample_id,path,path_2,ploidy,sequence_type
+Brady1,/home/marthasudermann/pathsurv_data/b_japonicum/reads/sub_SRR17382571_1.fastq.gz,/home/marthasudermann/pathsurv_data/b_japonicum/reads/sub_SRR17382571_2.fastq.gz,1,illumina
+Brady2,/home/marthasudermann/pathsurv_data/b_japonicum/reads/sub_SRR17382844_1.fastq.gz,/home/marthasudermann/pathsurv_data/b_japonicum/reads/sub_SRR17382844_2.fastq.gz,1,illumina
+Brady3,/home/marthasudermann/pathsurv_data/b_japonicum/reads/sub_SRR17388438_1.fastq.gz,/home/marthasudermann/pathsurv_data/b_japonicum/reads/sub_SRR17388438_2.fastq.gz,1,illumina

@@ -1,0 +1,10 @@
+command_line: nextflow run main.nf -profile docker --input /home/marthasudermann/pathsurv_data/benchmark_exp/input_data_subset.csv --outdir /home/marthasudermann/pathsurv_data/output_dirs_benchmark/150_run3 --max_samples 150 -with-report -with-trace --data_dir /home/marthasudermann/pathsurv_data/k_pneumoniae
+commit_id: null
+container_engine: docker
+profile: docker
+revision: null
+run_name: sharp_khorana
+session_id: 68f3f4db-b38f-419a-9d26-a08c5ebc058c
+start_time: 2025-05-31T05:09:08.157171602-07:00
+nextflow_version: 24.10.0
+pipeline_version: 1.0.0

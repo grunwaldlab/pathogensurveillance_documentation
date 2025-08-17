@@ -1,0 +1,4 @@
+sample_id,path,path_2,ploidy,sequence_type
+Otaur1,/home/marthasudermann/pathsurv_data/o_tauri/reads/sub_ERR5417781_1.fastq.gz,/home/marthasudermann/pathsurv_data/o_tauri/reads/sub_ERR5417781_2.fastq.gz,1,illumina
+Otaur2,/home/marthasudermann/pathsurv_data/o_tauri/reads/sub_ERR5417780_1.fastq.gz,/home/marthasudermann/pathsurv_data/o_tauri/reads/sub_ERR5417780_2.fastq.gz,1,illumina
+Otaur3,/home/marthasudermann/pathsurv_data/o_tauri/reads/sub_ERR5417779_1.fastq.gz,/home/marthasudermann/pathsurv_data/o_tauri/reads/sub_ERR5417779_2.fastq.gz,1,illumina

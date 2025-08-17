@@ -1,0 +1,10 @@
+command_line: nextflow run main.nf -profile docker --input /home/marthasudermann/pathsurv_data/benchmark_exp/input_data_subset.csv --outdir /home/marthasudermann/pathsurv_data/output_dirs_serratia/75_run1 --max_samples 75 -with-report -with-trace --data_dir /home/marthasudermann/pathsurv_data/s_marcescens
+commit_id: null
+container_engine: docker
+profile: docker
+revision: null
+run_name: grave_curie
+session_id: 2a983335-8d70-4022-8cf1-6bd164cbd6b9
+start_time: 2025-05-23T16:45:19.240227309-07:00
+nextflow_version: 24.10.0
+pipeline_version: 1.0.0

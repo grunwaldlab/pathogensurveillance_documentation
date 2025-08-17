@@ -1,0 +1,23 @@
+Assembly	Fus2_filtered
+# contigs (>= 0 bp)	5950
+# contigs (>= 1000 bp)	1711
+# contigs (>= 5000 bp)	803
+# contigs (>= 10000 bp)	506
+# contigs (>= 25000 bp)	286
+# contigs (>= 50000 bp)	169
+Total length (>= 0 bp)	50971893
+Total length (>= 1000 bp)	49582784
+Total length (>= 5000 bp)	47459061
+Total length (>= 10000 bp)	45378267
+Total length (>= 25000 bp)	41939273
+Total length (>= 50000 bp)	37811834
+# contigs	2465
+Largest contig	1758961
+Total length	50096609
+GC (%)	47.79
+N50	215698
+N90	10970
+auN	414160.2
+L50	49
+L90	479
+# N's per 100 kbp	10.58

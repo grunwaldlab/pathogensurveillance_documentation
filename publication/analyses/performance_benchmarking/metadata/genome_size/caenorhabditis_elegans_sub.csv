@@ -1,0 +1,4 @@
+sample_id,path,path_2,ploidy,sequence_type
+Celg1,/home/marthasudermann/pathsurv_data/c_elegans/reads/sub_SRR28479892_1.fastq.gz,/home/marthasudermann/pathsurv_data/c_elegans/reads/sub_SRR28479892_2.fastq.gz,2,illumina
+Celg2,/home/marthasudermann/pathsurv_data/c_elegans/reads/sub_SRR28479941_1.fastq.gz,/home/marthasudermann/pathsurv_data/c_elegans/reads/sub_SRR28479941_2.fastq.gz,2,illumina
+Celg3,/home/marthasudermann/pathsurv_data/c_elegans/reads/sub_SRR28479942_1.fastq.gz,/home/marthasudermann/pathsurv_data/c_elegans/reads/sub_SRR28479942_2.fastq.gz,2,illumina

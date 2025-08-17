@@ -1,0 +1,23 @@
+Assembly	Otaur3_filtered
+# contigs (>= 0 bp)	7627
+# contigs (>= 1000 bp)	2226
+# contigs (>= 5000 bp)	294
+# contigs (>= 10000 bp)	151
+# contigs (>= 25000 bp)	108
+# contigs (>= 50000 bp)	80
+Total length (>= 0 bp)	19566339
+Total length (>= 1000 bp)	17102646
+Total length (>= 5000 bp)	13352783
+Total length (>= 10000 bp)	12383163
+Total length (>= 25000 bp)	11710975
+Total length (>= 50000 bp)	10751858
+# contigs	4346
+Largest contig	362917
+Total length	18601365
+GC (%)	59.44
+N50	75597
+N90	1170
+auN	109892.7
+L50	58
+L90	1892
+# N's per 100 kbp	72.41

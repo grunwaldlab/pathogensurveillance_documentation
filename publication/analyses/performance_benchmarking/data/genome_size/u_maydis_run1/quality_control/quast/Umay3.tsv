@@ -1,0 +1,23 @@
+Assembly	Umay3_filtered
+# contigs (>= 0 bp)	1452
+# contigs (>= 1000 bp)	167
+# contigs (>= 5000 bp)	126
+# contigs (>= 10000 bp)	116
+# contigs (>= 25000 bp)	104
+# contigs (>= 50000 bp)	90
+Total length (>= 0 bp)	19804412
+Total length (>= 1000 bp)	19575221
+Total length (>= 5000 bp)	19495876
+Total length (>= 10000 bp)	19415063
+Total length (>= 25000 bp)	19210757
+Total length (>= 50000 bp)	18712653
+# contigs	216
+Largest contig	592305
+Total length	19609247
+GC (%)	53.99
+N50	271028
+N90	79674
+auN	289627.3
+L50	24
+L90	74
+# N's per 100 kbp	9.08

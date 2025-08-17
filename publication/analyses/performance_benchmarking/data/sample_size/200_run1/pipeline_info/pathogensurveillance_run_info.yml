@@ -1,0 +1,10 @@
+command_line: nextflow run main.nf -profile docker --input /home/marthasudermann/pathsurv_data/benchmark_exp/input_data_subset.csv --outdir /home/marthasudermann/pathsurv_data/output_dirs_serratia/200_run1 --max_samples 200 -with-report -with-trace --data_dir /home/marthasudermann/pathsurv_data/s_marcescens
+commit_id: null
+container_engine: docker
+profile: docker
+revision: null
+run_name: adoring_hoover
+session_id: b040af32-7f12-4d83-9b27-363a7b39b3ee
+start_time: 2025-05-24T12:36:12.079777397-07:00
+nextflow_version: 24.10.0
+pipeline_version: 1.0.0

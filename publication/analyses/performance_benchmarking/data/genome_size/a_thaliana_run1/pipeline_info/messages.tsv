@@ -1,0 +1,2 @@
+"report_id"	"sample_id"	"reference_id"	"workflow"	"level"	"message"
+"[null, _no_group_defined_]"	"[null, ]"	"[null, GCA_019202805_1]"	"BUSCO_PHYLOGENY"	"[null, NOTE]"	"[null, Reference removed from core gene phylogeny in order to find enough core genes amoung other samples/references.]"

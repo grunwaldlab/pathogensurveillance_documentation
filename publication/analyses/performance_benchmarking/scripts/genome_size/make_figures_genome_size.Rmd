@@ -1,0 +1,102 @@
+## Script to generate benchmarking figures
+
+### Load packages
+```{r, load libraries}
+library(tidyverse)
+library(lubridate)
+library(fs)
+library(ggplot2)
+library(dplyr)
+library(patchwork)
+library(tidyverse)
+library(viridis)
+library(MASS)
+library(rlang)
+```
+
+### Read in data file
+```{r, read in data file}
+run_data <- read.csv("~/pathogensurveillance_publications/publication/analyses/performance_benchmarking/results/genome_size/performance_stats_genome_size.csv", header = TRUE, sep = ",", stringsAsFactors = FALSE)
+
+metadata <- read.csv("~/pathogensurveillance_publications/publication/analyses/performance_benchmarking/metadata/genome_size/accessions_subset_info.csv", header = TRUE, sep = ",", stringsAsFactors = FALSE)
+
+metadata <- read.csv("", header = TRUE, sep = ",", stringsAsFactors = FALSE)
+
+metadata_expanded <- metadata[rep(1:nrow(metadata), each = 3), ]
+
+metadata_expanded$run_num <- rep(1:3, times = nrow(metadata))
+
+combined_df <- left_join(run_data, metadata_expanded, by = c("organism", "run_num"))
+```
+
+### Make plots
+```{r benchmark-plots, message=FALSE, warning=FALSE}
+# Prepare data
+combined_df <- combined_df %>%
+  mutate(ncbi_genome_estimate_mb = ncbi_genome_estimate / 1e6)
+
+# Define dynamic axis breaks
+x_max <- max(combined_df$ncbi_genome_estimate_mb, na.rm = TRUE)
+x_breaks <- seq(0, x_max * 1.05, by = 25)
+
+# Plotting function with dynamic y-axis breaks and optional label formatting
+make_plot <- function(df, x, y, y_label, y_step, y_label_format = NULL) {
+  y_max <- max(df[[y]], na.rm = TRUE)
+  y_limit <- c(0, y_max * 1.05)
+  y_breaks <- seq(0, y_limit[2], by = y_step)
+
+  ggplot(df, aes(x = !!sym(x), y = !!sym(y), color = domain)) +
+    geom_point(size = 2.5, shape = 16, alpha = 0.8) +
+    geom_smooth(aes(color = domain), method = "lm", se = FALSE, linewidth = 0.75) +
+    scale_color_viridis_d(option = "G", end = 0.85) +
+    scale_x_continuous(
+      breaks = x_breaks,
+      expand = expansion(mult = c(0.025, 0.025))
+    ) +
+    scale_y_continuous(
+      breaks = y_breaks,
+      limits = y_limit,
+      labels = y_label_format,
+      expand = expansion(mult = c(0.025, 0.025))
+    ) +
+    labs(x = "Estimated genome size (Mb)", y = y_label, color = "Domain") +
+    theme_classic(base_size = 14)
+}
+
+# Create plots
+p1 <- make_plot(
+  combined_df, "ncbi_genome_estimate_mb", "clock_hours",
+  "Run time (hours)", y_step = 2,
+  y_label_format = waiver()
+)
+
+p2 <- make_plot(
+  combined_df, "ncbi_genome_estimate_mb", "cpu_hours",
+  "CPU hours", y_step = 25,
+  y_label_format = waiver()
+)
+
+p3 <- make_plot(
+  combined_df, "ncbi_genome_estimate_mb", "max_rss_gb",
+  "Max RSS (GB)", y_step = 25,
+  y_label_format = number_format(accuracy = 1)
+)
+
+# Combine plots
+combined_plot <- (p1 / p2 / p3) +
+  plot_layout(guides = "collect") +
+  plot_annotation(tag_levels = 'A') &
+  theme(
+    plot.tag = element_text(face = "bold", size = 20),
+    legend.position = "right"
+  )
+
+# Save individual plots
+ggsave("~/pathogensurveillance_publications/publication/analyses/performance_benchmarking/results/genome_size/benchmark_plots_refseq_estimated_genomesize_runtime.pdf", p1, width = 8, height = 6, dpi = 600)
+ggsave("~/pathogensurveillance_publications/publication/analyses/performance_benchmarking/results/genome_size/benchmark_plots_refseq_estimated_genomesize_cpu_hours.pdf", p2, width = 8, height = 6, dpi = 600)
+ggsave("~/pathogensurveillance_publications/publication/analyses/performance_benchmarking/results/genome_size/benchmark_plots_refseq_estimated_genomesize_maxRSS.pdf", p3, width = 8, height = 6, dpi = 600)
+
+# Save combined plot
+ggsave("~/pathogensurveillance_publications/publication/analyses/performance_benchmarking/results/genome_size/benchmark_plots_refseq_estimated_genomesize_combined.pdf", combined_plot, width = 10, height = 14, dpi = 600)
+```
+

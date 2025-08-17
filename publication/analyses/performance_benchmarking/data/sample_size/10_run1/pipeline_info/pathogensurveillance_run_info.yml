@@ -1,0 +1,10 @@
+command_line: nextflow run main.nf -profile docker --input /home/marthasudermann/pathsurv_data/benchmark_exp/input_data_subset.csv --outdir /home/marthasudermann/pathsurv_data/output_dirs_serratia/10_run1 --max_samples 10 -with-report -with-trace --data_dir /home/marthasudermann/pathsurv_data/s_marcescens
+commit_id: null
+container_engine: docker
+profile: docker
+revision: null
+run_name: irreverent_linnaeus
+session_id: 54192355-65d9-4f0e-8a79-fe7f017bf60f
+start_time: 2025-05-23T10:46:35.138787101-07:00
+nextflow_version: 24.10.0
+pipeline_version: 1.0.0

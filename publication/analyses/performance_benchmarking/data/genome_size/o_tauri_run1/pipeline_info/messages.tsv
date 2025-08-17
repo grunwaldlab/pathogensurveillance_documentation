@@ -1,0 +1,5 @@
+"report_id"	"sample_id"	"reference_id"	"workflow"	"level"	"message"
+"[null, _no_group_defined_]"	"[null, ]"	"[null, GCF_000011965_2]"	"BUSCO_PHYLOGENY"	"[null, NOTE]"	"[null, Reference removed from core gene phylogeny in order to find enough core genes amoung other samples/references.]"
+"[null, _no_group_defined_]"	"[null, ]"	"[null, GCF_000170775_1]"	"BUSCO_PHYLOGENY"	"[null, NOTE]"	"[null, Reference removed from core gene phylogeny in order to find enough core genes amoung other samples/references.]"
+"[null, _no_group_defined_]"	"[null, ]"	"[null, GCF_000768555_3]"	"BUSCO_PHYLOGENY"	"[null, NOTE]"	"[null, Reference removed from core gene phylogeny in order to find enough core genes amoung other samples/references.]"
+"_no_group_defined_"	"Otaur1"	"NA"	"GENOME_ASSEMBLY"	"WARNING"	"Sample could not be assembled, possibly due to short read lengh or low quality. Check Spades' logs for more details."

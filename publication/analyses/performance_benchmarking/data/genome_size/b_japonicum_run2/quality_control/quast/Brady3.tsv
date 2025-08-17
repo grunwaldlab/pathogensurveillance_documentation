@@ -1,0 +1,23 @@
+Assembly	Brady3_filtered
+# contigs (>= 0 bp)	1506
+# contigs (>= 1000 bp)	1255
+# contigs (>= 5000 bp)	563
+# contigs (>= 10000 bp)	219
+# contigs (>= 25000 bp)	32
+# contigs (>= 50000 bp)	5
+Total length (>= 0 bp)	8441296
+Total length (>= 1000 bp)	8298578
+Total length (>= 5000 bp)	6520274
+Total length (>= 10000 bp)	4089080
+Total length (>= 25000 bp)	1236916
+Total length (>= 50000 bp)	297661
+# contigs	1399
+Largest contig	80103
+Total length	8407696
+GC (%)	63.57
+N50	9623
+N90	2711
+auN	14491.5
+L50	231
+L90	847
+# N's per 100 kbp	512.24

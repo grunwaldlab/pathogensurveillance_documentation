@@ -1,0 +1,10 @@
+command_line: nextflow run main.nf -profile docker --input /home/marthasudermann/pathsurv_data/metadata/ustilago_maydis_sub.csv --outdir /home/marthasudermann/pathsurv_data/output_dirs_rnd2/u_maydis_run2 -with-report -with-trace --data_dir /home/marthasudermann/pathsurv_data/u_maydis/
+commit_id: null
+container_engine: docker
+profile: docker
+revision: null
+run_name: angry_lamarck
+session_id: 7bda292b-3486-4fff-b8a3-0d5715fcc00b
+start_time: 2025-05-25T13:25:28.972425583-07:00
+nextflow_version: 24.10.0
+pipeline_version: 1.0.0

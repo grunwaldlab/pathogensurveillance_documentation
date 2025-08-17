@@ -1,0 +1,2 @@
+"report_id"	"sample_id"	"reference_id"	"workflow"	"level"	"message"
+"_no_group_defined_"	"ERR025108"	"NA"	"VARIANT_ANALYSIS"	"WARNING"	"Sample is excluded from variant calling analysis because it is the only sample in its report group."

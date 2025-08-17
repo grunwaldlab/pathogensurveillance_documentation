@@ -1,0 +1,4 @@
+sample_id,path,path_2,ploidy,sequence_type
+Pseudo1,/home/marthasudermann/pathsurv_data/p_aeruginosa/reads/sub_SRR33648670_1.fastq.gz,/home/marthasudermann/pathsurv_data/p_aeruginosa/reads/sub_SRR33648670_2.fastq.gz,1,illumina
+Pseudo2,/home/marthasudermann/pathsurv_data/p_aeruginosa/reads/sub_SRR32466794_1.fastq.gz,/home/marthasudermann/pathsurv_data/p_aeruginosa/reads/sub_SRR32466794_2.fastq.gz,1,illumina
+Pseudo3,/home/marthasudermann/pathsurv_data/p_aeruginosa/reads/sub_SRR33648579_1.fastq.gz,/home/marthasudermann/pathsurv_data/p_aeruginosa/reads/sub_SRR33648579_2.fastq.gz,1,illumina

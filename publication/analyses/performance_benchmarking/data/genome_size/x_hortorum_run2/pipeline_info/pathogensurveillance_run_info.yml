@@ -1,0 +1,10 @@
+command_line: nextflow run main.nf -profile docker --input /home/marthasudermann/pathsurv_data/metadata/xanthomonas_hortorum_sub.csv --outdir /home/marthasudermann/pathsurv_data/output_dirs_rnd2/x_hortorum_run2 -with-report -with-trace --data_dir /home/marthasudermann/pathsurv_data/x_hortorum/
+commit_id: null
+container_engine: docker
+profile: docker
+revision: null
+run_name: sick_poitras
+session_id: 304c0b2f-e554-4f66-b065-5e1a7367f8f7
+start_time: 2025-05-20T16:08:31.763589723-07:00
+nextflow_version: 24.10.0
+pipeline_version: 1.0.0

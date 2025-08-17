@@ -1,0 +1,4 @@
+sample_id,path,path_2,ploidy,sequence_type
+Pcap1,/home/marthasudermann/pathsurv_data/p_capsici/reads/sub_SRR13176614_1.fastq.gz,/home/marthasudermann/pathsurv_data/p_capsici/reads/sub_SRR13176614_2.fastq.gz,2,illumina
+Pcap2,/home/marthasudermann/pathsurv_data/p_capsici/reads/sub_SRR8259121_1.fastq.gz,/home/marthasudermann/pathsurv_data/p_capsici/reads/sub_SRR8259121_2.fastq.gz,2,illumina
+Pcap3,/home/marthasudermann/pathsurv_data/p_capsici/reads/sub_SRR5944957_1.fastq.gz,/home/marthasudermann/pathsurv_data/p_capsici/reads/sub_SRR5944957_2.fastq.gz,2,illumina
