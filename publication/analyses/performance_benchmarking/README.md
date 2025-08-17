@@ -1,11 +1,6 @@
 # Scripts and data for assessing the performance of the `nf-core/pathogensurveillance` pipeline
 
-This repository contains the experimental data, analysis scripts, and results that were used in benchmarking experiments that accompany the following manuscript: 
-
-**Foster et al. (2025)**  
-*Pathogensurveillance: an automated Nextflow pipeline for rapid identification, population genomic, and evolutionary analyses of pathogens.*  
-
-**The latest release of the pipeline is here: [nf-core/pathogensurveillance pipeline](https://nf-co.re/pathogensurveillance/latest/)**
+This sub-directory contains the experimental data, analysis scripts, and results that were used in benchmarking experiments that accompany the manuscript. 
 
 ---
 
@@ -13,7 +8,7 @@ This repository contains the experimental data, analysis scripts, and results th
 
 
 ```text
-benchmark_pathogensurveillance_performance/
+performance_benchmarking/
 ├── data/
 │   ├── sample_size/
 │   └── genome_size/
