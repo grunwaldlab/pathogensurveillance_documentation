@@ -4,7 +4,7 @@ This sub-directory contains the experimental data, analysis scripts, and results
 
 ---
 
-## Repository structure
+## File structure
 
 
 ```text
