@@ -1,0 +1,10 @@
+command_line: nextflow run main.nf -profile docker --input /home/marthasudermann/pathsurv_data/benchmark_exp/input_data_subset.csv --outdir /home/marthasudermann/pathsurv_data/output_dirs_benchmark/100_run2 --max_samples 100 -with-report -with-trace --data_dir /home/marthasudermann/pathsurv_data/k_pneumoniae
+commit_id: null
+container_engine: docker
+profile: docker
+revision: null
+run_name: romantic_mahavira
+session_id: 9dacf5e2-6e16-48e7-890b-add0c1a163cd
+start_time: 2025-05-29T09:05:00.414652068-07:00
+nextflow_version: 24.10.0
+pipeline_version: 1.0.0

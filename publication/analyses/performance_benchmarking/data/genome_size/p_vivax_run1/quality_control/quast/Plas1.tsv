@@ -1,0 +1,23 @@
+Assembly	Plas1_filtered
+# contigs (>= 0 bp)	4077
+# contigs (>= 1000 bp)	1677
+# contigs (>= 5000 bp)	867
+# contigs (>= 10000 bp)	587
+# contigs (>= 25000 bp)	290
+# contigs (>= 50000 bp)	144
+Total length (>= 0 bp)	28774084
+Total length (>= 1000 bp)	27945424
+Total length (>= 5000 bp)	25926597
+Total length (>= 10000 bp)	23931465
+Total length (>= 25000 bp)	19086851
+Total length (>= 50000 bp)	14110833
+# contigs	2129
+Largest contig	418843
+Total length	28263578
+GC (%)	40.19
+N50	48269
+N90	6102
+auN	77060.2
+L50	145
+L90	778
+# N's per 100 kbp	86.54

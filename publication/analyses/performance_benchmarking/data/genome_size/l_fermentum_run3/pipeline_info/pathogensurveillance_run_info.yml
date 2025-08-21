@@ -1,0 +1,10 @@
+command_line: nextflow run main.nf -profile docker --input /home/marthasudermann/pathsurv_data/metadata/limosilactobacillus_fermentum_sub.csv --outdir /home/marthasudermann/pathsurv_data/output_dirs_rnd2/l_fermentum_run3 -with-report -with-trace --data_dir /home/marthasudermann/pathsurv_data/l_fermentum/
+commit_id: null
+container_engine: docker
+profile: docker
+revision: null
+run_name: thirsty_jang
+session_id: 450b6fab-af16-4e09-ab8f-c7a8b4501eaa
+start_time: 2025-05-20T15:20:39.055303177-07:00
+nextflow_version: 24.10.0
+pipeline_version: 1.0.0

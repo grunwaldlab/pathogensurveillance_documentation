@@ -1,0 +1,231 @@
+---
+output:
+  html_document: default
+  pdf_document: default
+---
+## Script to generate benchmarking figures
+
+### Load packages
+```{r, load libraries}
+library(tidyverse)
+library(lubridate)
+library(fs)
+library(ggplot2)
+library(dplyr)
+library(patchwork)
+library(tidyverse)
+library(scales)  
+```
+
+### Read in data file
+```{r, read in data file}
+run_data <- read.csv("~/pathogensurveillance_publications/publication/analyses/performance_benchmarking/results/sample_size/performance_stats_sample_size.csv", header = TRUE, sep = ",", stringsAsFactors = FALSE)
+```
+
+### Make  plots
+```{r, plot 1}
+# Pivot data to long format
+plot_data <- run_data %>%
+  select(sample_count, replicate, clock_hours, cpu_hours, max_rss_gb, max_vmem_gb) %>%
+  pivot_longer(cols = c(clock_hours, cpu_hours, max_rss_gb, max_vmem_gb),
+               names_to = "metric", values_to = "value")
+
+
+# Y-axis labels
+y_labels <- c(
+  clock_hours = "Clock time (hours)",
+  cpu_hours = "CPU time (hours)",
+  max_rss_gb = "Max RSS (GB)",
+  max_vmem_gb = "Max VMEM (GB)"
+)
+
+# Short facet titles (used only for internal reference)
+facet_titles <- c(
+  clock_hours = "Clock",
+  cpu_hours = "CPU",
+  max_rss_gb = "RSS",
+  max_vmem_gb = "VMEM"
+)
+
+# Create individual plots
+plots <- plot_data %>%
+  split(.$metric) %>%
+  imap(~ {
+    p <- ggplot(.x, aes(x = sample_count, y = value)) +
+      geom_point(size = 2.5, shape = 16) +
+      labs(x = "Sample size", y = y_labels[[.y]]) +
+      theme_classic(base_size = 14)
+
+    # Apply consistent y-axis expansion to both plots
+    p <- p + scale_y_continuous(expand = expansion(mult = c(0, 0.05)), limits = c(0, NA))
+    p <- p + scale_x_continuous(expand = expansion(mult = c(0, 0.05)), limits = c(0, NA)) 
+    p
+  })
+
+# Combine with shared legend
+combined_plot <- (plots$clock_hours | plots$cpu_hours) / (plots$max_rss_gb | plots$max_vmem_gb) +
+  plot_layout(guides = "collect") & theme(legend.position = "right")
+
+combined_plot
+```
+
+### Make plot showing run time vs. sample size
+```{r, plot 2}
+plot_data <- run_data %>%
+  select(sample_count, clock_hours) %>%
+  pivot_longer(cols = c(clock_hours),
+               names_to = "metric", values_to = "value")
+
+y_labels <- c(
+  clock_hours = "Run time (hours)"
+)
+
+plots <- plot_data %>%
+  split(.$metric) %>%
+  imap(~ {
+    p <- ggplot(.x, aes(x = sample_count, y = value)) +
+      geom_point(size = 2.5, shape = 16) +
+      labs(x = "Sample size", y = y_labels[[.y]]) +
+      theme_classic(base_size = 14)
+
+    # Apply consistent y-axis expansion to both plots
+    p <- p + scale_y_continuous(expand = expansion(mult = c(0, 0.05)), limits = c(0, NA))
+    p <- p + scale_x_continuous(expand = expansion(mult = c(0, 0.05)), limits = c(0, NA)) 
+    p
+  })
+
+combined_plot <- plots$clock_hours 
+
+# Save and print
+ggsave("~/pathogensurveillance_publications/publication/analyses/performance_benchmarking/results/sample_size/benchmark_plots_sample_size_run_time.pdf", combined_plot, width = 10, height = 8, dpi = 600)
+```
+
+### Make plot showing run time vs. cpu hours
+```{r, plot 3}
+plot_data <- run_data %>%
+  select(sample_count, cpu_hours) %>%
+  pivot_longer(cols = c(cpu_hours),
+               names_to = "metric", values_to = "value")
+
+y_labels <- c(
+  cpu_hours = "Run time (hours)"
+)
+
+plots <- plot_data %>%
+  split(.$metric) %>%
+  imap(~ {
+    p <- ggplot(.x, aes(x = sample_count, y = value)) +
+      geom_point(size = 2.5, shape = 16) +
+      labs(x = "Sample size", y = y_labels[[.y]]) +
+      theme_classic(base_size = 14)
+
+    # Apply consistent y-axis expansion to both plots
+    p <- p + scale_y_continuous(expand = expansion(mult = c(0, 0.05)), limits = c(0, NA))
+    p
+  })
+
+combined_plot <- plots$cpu_hours 
+
+# Save and print
+ggsave("~/pathogensurveillance_publications/publication/analyses/performance_benchmarking/results/sample_size/benchmark_plots_sample_size_cpu_hours.pdf", combined_plot, width = 10, height = 8, dpi = 600)
+```
+
+### Make plot showing max rss vs. sample size
+```{r, plot version 4}
+plot_data <- run_data %>%
+  select(sample_count, max_rss_gb) %>%
+  pivot_longer(cols = c(max_rss_gb),
+               names_to = "metric", values_to = "value")
+
+y_labels <- c(
+  max_rss_gb = "Max RSS (GB)"
+)
+
+plots <- plot_data %>%
+  split(.$metric) %>%
+  imap(~ {
+    p <- ggplot(.x, aes(x = sample_count, y = value)) +
+      geom_point(size = 2.5, shape = 16) +
+      labs(x = "Sample size", y = y_labels[[.y]]) +
+      theme_classic(base_size = 14)
+
+    # Apply consistent y-axis expansion to both plots
+   p <- p + scale_y_continuous(expand = expansion(mult = c(0, 0.05)), limits = c(0, NA))
+   p <- p + scale_x_continuous(expand = expansion(mult = c(0, 0.05)), limits = c(0, NA)) 
+   p
+  })
+
+combined_plot <- plots$max_rss_gb
+
+ggsave("~/pathogensurveillance_publications/publication/analyses/performance_benchmarking/results/sample_size/benchmark_plots_sample_size_maxRSS.pdf",
+       combined_plot, width = 10, height = 8, dpi = 600)
+```
+
+
+### Combined plot-horizantal orientation
+```{r, combined plot}
+# Prepare data
+plot_data <- run_data %>%
+  select(sample_count, max_rss_gb, clock_hours) %>%
+  pivot_longer(
+    cols = c(max_rss_gb, clock_hours),
+    names_to = "metric",
+    values_to = "value"
+  )
+
+y_labels <- c(
+  max_rss_gb = "Max RSS (GB)",
+  clock_hours = "Run time (hours)"
+)
+
+# Define axis breaks
+x_breaks <- seq(0, ceiling(max(run_data$sample_count)), by = 25)
+y_breaks_clock <- seq(0, ceiling(max(run_data$clock_hours)), by = 2)
+y_breaks_maxrss <- seq(0, ceiling(max(run_data$max_rss_gb)), by = 1.5)
+
+# Create individual plots
+plots <- plot_data %>%
+  split(.$metric) %>%
+  imap(~ {
+    y_breaks <- if (.y == "clock_hours") c(0, y_breaks_clock) else c(0, y_breaks_maxrss)
+    y_max <- max(.x$value, na.rm = TRUE)
+    y_limit <- c(0, y_max * 1.05)  # Add 5% buffer to avoid clipping
+
+    p <- ggplot(.x, aes(x = sample_count, y = value)) +
+      geom_point(size = 2.5, shape = 16) +
+      labs(x = "Sample size", y = y_labels[[.y]]) +
+      scale_x_continuous(breaks = x_breaks, expand = expansion(mult = c(0.025, 0.025))) +
+      scale_y_continuous(
+        breaks = y_breaks,
+        labels = if (.y == "max_rss_gb") number_format(accuracy = 1) else waiver(),
+        expand = expansion(mult = c(0.025, 0.025))
+      ) +
+      coord_cartesian(ylim = y_limit) +
+      theme_classic(base_size = 14)
+
+    if (.y == "clock_hours") {
+      p <- p + geom_smooth(method = "lm", se = FALSE, color = "black", linewidth = 0.75)
+    }
+
+    p
+  })
+
+# Combine with patchwork
+combined_plot <- (plots$clock_hours | plots$max_rss_gb) +
+  plot_annotation(tag_levels = 'A') &
+  theme(plot.tag = element_text(face = "bold", size = 20))
+
+# Save
+ggsave(
+  filename = "~/pathogensurveillance_publications/publication/analyses/performance_benchmarking/results/sample_size/benchmark_plots_sample_size_runtime_maxrss.pdf",
+  plot = combined_plot,
+  width = 10,
+  height = 6,
+  dpi = 600
+)
+```
+
+### Get information about R package versions
+```{r, get session info}
+sessionInfo()
+```

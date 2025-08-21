@@ -1,0 +1,43 @@
+species_name,organism,sample_name,accession,fastqc_read_length,ploidy,domain,target_read_coverage,SE_or_PE,target_read_count,spades_estimated_genome_size,ncbi_genome_estimate,genbank_accession_ref
+Limosilactobacillus_fermentum,l_fermentum,Limo1,ERR12342572,301,haploid,prokaryote,25,PE,79081,1904271,2100000,GCA_029961225.1
+Limosilactobacillus_fermentum,l_fermentum,Limo2,SRR18850315,251,haploid,prokaryote,25,PE,99602,2000000,2100000,GCA_029961225.1
+Limosilactobacillus_fermentum,l_fermentum,Limo3,SRR18850317,251,haploid,prokaryote,25,PE,99602,2000000,2100000,GCA_029961225.1
+Xanthomonas_hortorum_pv_pelargonii,x_hortorum,Xan2,SRR28281445,150,haploid,prokaryote,25,PE,433333,5200000,5300000,GCF_903978215.1
+Xanthomonas_hortorum_pv_pelargonii,x_hortorum,Xan3 ,SRR28281439,150,haploid,prokaryote,25,PE,433333,5200000,5300000,GCF_903978215.1
+Xanthomonas_hortorum_pv_pelargonii,x_hortorum,Xan1,SRR28281444,150,haploid,prokaryote,25,PE,450000,5400000,5300000,GCF_903978215.1
+Pseudomonas_aeruginosa,p_aeruginosa,Pseudo1,SRR33648670,301,haploid,prokaryote,25,PE,293718,7072741,6300000,GCA_000006765.1
+Pseudomonas_aeruginosa,p_aeruginosa,Pseudo3,SRR33648579,301,haploid,prokaryote,25,PE,293931,7077858,6300000,GCA_000006765.1
+Pseudomonas_aeruginosa,p_aeruginosa,Pseudo2,SRR32466794,151,haploid,prokaryote,25,PE,590722,7135923,6300000,GCA_000006765.1
+Bradyrhizobium_japonicum,b_japonicum,Brady1,SRR17382571,251,haploid,prokaryote,25,PE,455780,9152067,9200000,GCA_013752735.1
+Bradyrhizobium_japonicum,b_japonicum,Brady2,SRR17382844,251,haploid,prokaryote,25,PE,459386,9224466,9200000,GCA_013752735.1
+Bradyrhizobium_japonicum,b_japonicum,Brady3,SRR17388438,74,haploid,prokaryote,25,PE,1558325,9225282,9200000,GCA_013752735.1
+Streptomyces_olivochromogenes,s_olivochromogenes,Solivo2,SRR9661590,251,haploid,prokaryote,25,PE,582000,11686561,11700000,GCA_001514115.1
+Streptomyces_olivochromogenes,s_olivochromogenes,Solivo3,SRR9661593,251,haploid,prokaryote,25,PE,594915,11945884,11700000,GCA_001514115.1
+Streptomyces_olivochromogenes,s_olivochromogenes,Solivo1,SRR9661589,251,haploid,prokaryote,25,PE,611138,12271646,11700000,GCA_001514115.1
+Ostreococcus_tauri,o_tauri,Otauri1,ERR5417781,101,haploid,eukaryote,25,PE,2576689,20819651,12900000,GCA_000214015.2
+Ostreococcus_tauri,o_tauri,Otauri3,ERR5417779,101,haploid,eukaryote,25,PE,2580527,20850659,12900000,GCA_000214015.2
+Ostreococcus_tauri,o_tauri,Otauri2,ERR5417780,101,haploid,eukaryote,25,PE,2582578,20867233,12900000,GCA_000214015.2
+Ustilago_maydis,u_maydis,Umay3,SRR12990821,150,haploid,eukaryote,25,PE,1634070,19608842,19700000,GCF_000328475.2
+Ustilago_maydis,u_maydis,Umay2,SRR12990820,150,haploid,eukaryote,25,PE,1634337,19612043,19700000,GCF_000328475.2
+Ustilago_maydis,u_maydis,Umay1,SRR12990819,150,haploid,eukaryote,25,PE,1634736,19616833,19700000,GCF_000328475.2
+Plasmodium_vivax,p_vivax,Plas3,SRR32867098,151,haploid,eukaryote,25,PE,2338437,28248319,27000000,GCA_000002415.2
+Plasmodium_vivax,p_vivax,Plas1,SRR32867107,151,haploid,eukaryote,25,PE,2354971,28448055,27000000,GCA_000002415.2
+Plasmodium_vivax,p_vivax,Plas2,SRR32867100,151,haploid,eukaryote,25,PE,2575199,31108405,27000000,GCA_000002415.2
+Fusarium_oxysporum_f_ sp_niveum,f_oxysporum,Fus1,SRR21509025,150,haploid,eukaryote,25,PE,4183333,50200000,52200000,GCA_019721175.1
+Fusarium_oxysporum_f_ sp_niveum,f_oxysporum,Fus2,SRR21509023,150,haploid,eukaryote,25,PE,4183333,50200000,52200000,GCA_019721175.1
+Fusarium_oxysporum_f_ sp_niveum,f_oxysporum,Fus3,SRR21509022,150,haploid,eukaryote,25,PE,4208333,50500000,52200000,GCA_019721175.1
+Phytophthora_ramorum,p_ramorum,Pram3,SRR16939107,151,diploid,eukaryote,50,PE,6990779,42224306,57500000,GCA_020800215.1
+Phytophthora_ramorum,p_ramorum,Pram1,SRR16939097,151,diploid,eukaryote,50,PE,6998485,42270848,57500000,GCA_020800215.1
+Phytophthora_ramorum,p_ramorum,Pram2,SRR16939100,151,diploid,eukaryote,50,PE,7013502,42361553,57500000,GCA_020800215.1
+Phytophthora_capsici,p_capsici,Pcap1,SRR13176614,150,diploid,eukaryote,50,PE,9532995,57197971,78800000,GCA_030324255.1
+Phytophthora_capsici,p_capsici,Pcap2,SRR8259121,151,diploid,eukaryote,50,PE,9697502,58572914,78800000,GCA_030324255.1
+Phytophthora_capsici,p_capsici,Pcap3,SRR5944957,151,diploid,eukaryote,50,PE,9791426,59140216,78800000,GCA_030324255.1
+Caenorhabditis_elegans,c_elegans,Celg3,SRR28479942,150,diploid,eukaryote,50,PE,17970321,107821927,100300000,GCA_000002985.3
+Caenorhabditis_elegans,c_elegans,Celg2,SRR28479941,150,diploid,eukaryote,50,PE,18664040,111984237,100300000,GCA_000002985.3
+Caenorhabditis_elegans,c_elegans,Celg1,SRR28479892,150,diploid,eukaryote,50,PE,18716243,112297457,100300000,GCA_000002985.3
+Arabidopsis_thaliana,a_thaliana,Athal2,SRR21871466,150,diploid,eukaryote,50,PE,18958195,113749169,119100000,GCF_000001735.4
+Arabidopsis_thaliana,a_thaliana,Athal3,SRR21871467,150,diploid,eukaryote,50,PE,18972874,113837243,119100000,GCF_000001735.4
+Arabidopsis_thaliana,a_thaliana,Athal1,SRR21871460,150,diploid,eukaryote,50,PE,18980889,113885334,119100000,GCF_000001735.4
+Cucumis_sativus,c_sativus,Csativus2,SRR25709141,150,diploid,eukaryote,50,PE,32410076,194460458,224800000,GCA_000004075.3
+Cucumis_sativus,c_sativus,Csativus3,SRR25709138,150,diploid,eukaryote,50,PE,33018761,198112563,224800000,GCA_000004075.3
+Cucumis_sativus,c_sativus,Csativus1,SRR25709139,150,diploid,eukaryote,50,PE,33068663,198411976,224800000,GCA_000004075.3

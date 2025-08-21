@@ -1,0 +1,4 @@
+sample_id,path,path_2,ploidy,sequence_type
+Athal1,/home/marthasudermann/pathsurv_data/a_thaliana/reads/sub_SRR21871460_1.fastq.gz,/home/marthasudermann/pathsurv_data/a_thaliana/reads/sub_SRR21871460_2.fastq.gz,2,illumina
+Athal2,/home/marthasudermann/pathsurv_data/a_thaliana/reads/sub_SRR21871466_1.fastq.gz,/home/marthasudermann/pathsurv_data/a_thaliana/reads/sub_SRR21871466_2.fastq.gz,2,illumina
+Athal3,/home/marthasudermann/pathsurv_data/a_thaliana/reads/sub_SRR21871467_1.fastq.gz,/home/marthasudermann/pathsurv_data/a_thaliana/reads/sub_SRR21871467_2.fastq.gz,2,illumina

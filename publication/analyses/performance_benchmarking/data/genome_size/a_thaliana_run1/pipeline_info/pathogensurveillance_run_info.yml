@@ -1,0 +1,10 @@
+command_line: nextflow run main.nf -profile docker --input /home/marthasudermann/pathsurv_data/metadata/arabidopsis_thaliana_sub.csv --outdir /home/marthasudermann/pathsurv_data/output_dirs_rnd2/a_thaliana_run1 -with-report -with-trace --data_dir /home/marthasudermann/pathsurv_data/a_thaliana
+commit_id: null
+container_engine: docker
+profile: docker
+revision: null
+run_name: tiny_carlsson
+session_id: 816787a2-f9bd-419d-b531-8c944282106f
+start_time: 2025-06-08T15:23:32.859751118-07:00
+nextflow_version: 24.10.0
+pipeline_version: 1.0.0

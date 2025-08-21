@@ -1,0 +1,4 @@
+sample_id,path,path_2,ploidy,sequence_type
+Fus1,/home/marthasudermann/pathsurv_data/f_oxysporum/reads/sub_SRR21509025_1.fastq.gz,/home/marthasudermann/pathsurv_data/f_oxysporum/reads/sub_SRR21509025_2.fastq.gz,1,illumina
+Fus2,/home/marthasudermann/pathsurv_data/f_oxysporum/reads/sub_SRR21509023_1.fastq.gz,/home/marthasudermann/pathsurv_data/f_oxysporum/reads/sub_SRR21509023_2.fastq.gz,1,illumina
+Fus3,/home/marthasudermann/pathsurv_data/f_oxysporum/reads/sub_SRR21509022_1.fastq.gz,/home/marthasudermann/pathsurv_data/f_oxysporum/reads/sub_SRR21509022_2.fastq.gz,1,illumina

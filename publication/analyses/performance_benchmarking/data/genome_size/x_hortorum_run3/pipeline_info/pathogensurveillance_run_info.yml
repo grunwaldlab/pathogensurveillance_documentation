@@ -1,0 +1,10 @@
+command_line: nextflow run main.nf -profile docker --input /home/marthasudermann/pathsurv_data/metadata/xanthomonas_hortorum_sub.csv --outdir /home/marthasudermann/pathsurv_data/output_dirs_rnd2/x_hortorum_run3 -with-report -with-trace --data_dir /home/marthasudermann/pathsurv_data/x_hortorum/
+commit_id: null
+container_engine: docker
+profile: docker
+revision: null
+run_name: tiny_kimura
+session_id: fed5672c-ad3c-4fc0-91e4-a06d37fcd28b
+start_time: 2025-05-20T16:26:39.572291922-07:00
+nextflow_version: 24.10.0
+pipeline_version: 1.0.0

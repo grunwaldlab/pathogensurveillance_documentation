@@ -1,0 +1,23 @@
+Assembly	Xan1_filtered
+# contigs (>= 0 bp)	259
+# contigs (>= 1000 bp)	162
+# contigs (>= 5000 bp)	137
+# contigs (>= 10000 bp)	115
+# contigs (>= 25000 bp)	80
+# contigs (>= 50000 bp)	40
+Total length (>= 0 bp)	5412123
+Total length (>= 1000 bp)	5384229
+Total length (>= 5000 bp)	5321385
+Total length (>= 10000 bp)	5159684
+Total length (>= 25000 bp)	4588687
+Total length (>= 50000 bp)	3170770
+# contigs	173
+Largest contig	155452
+Total length	5391785
+GC (%)	63.59
+N50	58829
+N90	18349
+auN	64754.7
+L50	32
+L90	92
+# N's per 100 kbp	4.27

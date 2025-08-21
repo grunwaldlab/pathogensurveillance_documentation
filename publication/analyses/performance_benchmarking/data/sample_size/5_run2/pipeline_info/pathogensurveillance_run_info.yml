@@ -1,0 +1,10 @@
+command_line: nextflow run main.nf -profile docker --input /home/marthasudermann/pathsurv_data/benchmark_exp/input_data_subset.csv --outdir /home/marthasudermann/pathsurv_data/output_dirs_benchmark/5_run2 --max_samples 5 -with-report -with-trace --data_dir /home/marthasudermann/pathsurv_data/k_pneumoniae
+commit_id: null
+container_engine: docker
+profile: docker
+revision: null
+run_name: stupefied_liskov
+session_id: 370a5cbb-eec8-4e86-9c90-9dfb1cdcb1e3
+start_time: 2025-05-28T22:27:15.574398352-07:00
+nextflow_version: 24.10.0
+pipeline_version: 1.0.0

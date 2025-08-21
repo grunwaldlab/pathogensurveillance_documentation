@@ -1,0 +1,23 @@
+Assembly	Pseudo1_filtered
+# contigs (>= 0 bp)	108
+# contigs (>= 1000 bp)	76
+# contigs (>= 5000 bp)	54
+# contigs (>= 10000 bp)	46
+# contigs (>= 25000 bp)	39
+# contigs (>= 50000 bp)	32
+Total length (>= 0 bp)	7073245
+Total length (>= 1000 bp)	7057013
+Total length (>= 5000 bp)	7011327
+Total length (>= 10000 bp)	6957621
+Total length (>= 25000 bp)	6832564
+Total length (>= 50000 bp)	6572737
+# contigs	94
+Largest contig	750968
+Total length	7069964
+GC (%)	65.80
+N50	231131
+N90	76808
+auN	291728.0
+L50	9
+L90	29
+# N's per 100 kbp	2.83

@@ -1,0 +1,10 @@
+command_line: nextflow run main.nf -profile docker --input /home/marthasudermann/pathsurv_data/benchmark_exp/input_data_subset.csv --outdir /home/marthasudermann/pathsurv_data/output_dirs_benchmark/150_run2 --max_samples 150 -with-report -with-trace --data_dir /home/marthasudermann/pathsurv_data/k_pneumoniae
+commit_id: null
+container_engine: docker
+profile: docker
+revision: null
+run_name: friendly_noether
+session_id: 76e2d194-3226-4932-8c16-7f306df0dc38
+start_time: 2025-05-29T15:19:27.751691809-07:00
+nextflow_version: 24.10.0
+pipeline_version: 1.0.0

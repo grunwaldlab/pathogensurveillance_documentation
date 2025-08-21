@@ -1,0 +1,4 @@
+sample_id,path,path_2,ploidy,sequence_type
+Limo1,/home/marthasudermann/pathsurv_data/l_fermentum/reads/sub_ERR12342572_1.fastq.gz,/home/marthasudermann/pathsurv_data/l_fermentum/reads/sub_ERR12342572_2.fastq.gz,1,illumina
+Limo2,/home/marthasudermann/pathsurv_data/l_fermentum/reads/sub_SRR18850315_1.fastq.gz,/home/marthasudermann/pathsurv_data/l_fermentum/reads/sub_SRR18850315_2.fastq.gz,1,illumina
+Limo3,/home/marthasudermann/pathsurv_data/l_fermentum/reads/sub_SRR18850317_1.fastq.gz,/home/marthasudermann/pathsurv_data/l_fermentum/reads/sub_SRR18850317_2.fastq.gz,1,illumina

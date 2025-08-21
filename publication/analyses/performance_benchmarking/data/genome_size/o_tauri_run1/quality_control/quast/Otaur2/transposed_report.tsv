@@ -1,0 +1,2 @@
+Assembly	# contigs (>= 0 bp)	# contigs (>= 1000 bp)	# contigs (>= 5000 bp)	# contigs (>= 10000 bp)	# contigs (>= 25000 bp)	# contigs (>= 50000 bp)	Total length (>= 0 bp)	Total length (>= 1000 bp)	Total length (>= 5000 bp)	Total length (>= 10000 bp)	Total length (>= 25000 bp)	Total length (>= 50000 bp)	# contigs	Largest contig	Total length	GC (%)	N50	N90	auN	L50	L90	# N's per 100 kbp
+Otaur2_filtered	1526	452	295	233	171	116	21005112	20771729	20393382	19945493	18912681	16926408	538	1068857	20831555	59.55	142943	26903	228222.2	39	165	29.57

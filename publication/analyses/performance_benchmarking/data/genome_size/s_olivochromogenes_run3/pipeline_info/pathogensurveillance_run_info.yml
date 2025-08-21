@@ -1,0 +1,10 @@
+command_line: nextflow run main.nf -profile docker --input /home/marthasudermann/pathsurv_data/metadata/streptomyces_olivochromogenes_sub.csv --outdir /home/marthasudermann/pathsurv_data/output_dirs_rnd2/s_olivochromogenes_run3 -with-report -with-trace --data_dir /home/marthasudermann/pathsurv_data/s_olivochromogenes
+commit_id: null
+container_engine: docker
+profile: docker
+revision: null
+run_name: prickly_linnaeus
+session_id: 71a9c784-3a88-43ee-b0c1-5b7454153f97
+start_time: 2025-06-08T11:53:49.353802056-07:00
+nextflow_version: 24.10.0
+pipeline_version: 1.0.0

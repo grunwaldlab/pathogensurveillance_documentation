@@ -1,0 +1,4 @@
+sample_id,path,path_2,ploidy,sequence_type
+Xan1,/home/marthasudermann/pathsurv_data/x_hortorum/reads/sub_SRR28281444_1.fastq.gz,/home/marthasudermann/pathsurv_data/x_hortorum/reads/sub_SRR28281444_2.fastq.gz,1,illumina
+Xan2,/home/marthasudermann/pathsurv_data/x_hortorum/reads/sub_SRR28281445_1.fastq.gz,/home/marthasudermann/pathsurv_data/x_hortorum/reads/sub_SRR28281445_2.fastq.gz,1,illumina
+Xan3,/home/marthasudermann/pathsurv_data/x_hortorum/reads/sub_SRR28281439_1.fastq.gz,/home/marthasudermann/pathsurv_data/x_hortorum/reads/sub_SRR28281439_2.fastq.gz,1,illumina

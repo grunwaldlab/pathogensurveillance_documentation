@@ -1,0 +1,4 @@
+sample_id,path,path_2,ploidy,sequence_type
+Umay1,/home/marthasudermann/pathsurv_data/u_maydis/reads/sub_SRR12990819_1.fastq.gz,/home/marthasudermann/pathsurv_data/u_maydis/reads/sub_SRR12990819_2.fastq.gz,1,illumina
+Umay2,/home/marthasudermann/pathsurv_data/u_maydis/reads/sub_SRR12990820_1.fastq.gz,/home/marthasudermann/pathsurv_data/u_maydis/reads/sub_SRR12990820_2.fastq.gz,1,illumina
+Umay3,/home/marthasudermann/pathsurv_data/u_maydis/reads/sub_SRR12990821_1.fastq.gz,/home/marthasudermann/pathsurv_data/u_maydis/reads/sub_SRR12990821_2.fastq.gz,1,illumina

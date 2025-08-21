@@ -1,0 +1,10 @@
+command_line: nextflow run main.nf -profile docker --input /home/marthasudermann/pathsurv_data/metadata/caenorhabditis_elegans_sub.csv --outdir /home/marthasudermann/pathsurv_data/output_dirs_rnd2/c_elegans_run3 -with-report -with-trace --data_dir /home/marthasudermann/pathsurv_data/c_elegans/
+commit_id: null
+container_engine: docker
+profile: docker
+revision: null
+run_name: maniac_marconi
+session_id: dd49987a-98f9-4185-ae44-b71f0b61fb88
+start_time: 2025-06-04T07:14:52.324320141-07:00
+nextflow_version: 24.10.0
+pipeline_version: 1.0.0

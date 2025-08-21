@@ -1,0 +1,25 @@
+All statistics are based on contigs of size >= 500 bp, unless otherwise noted (e.g., "# contigs (>= 0 bp)" and "Total length (>= 0 bp)" include all contigs).
+
+Assembly                    Otaur2_filtered
+# contigs (>= 0 bp)         1526           
+# contigs (>= 1000 bp)      452            
+# contigs (>= 5000 bp)      295            
+# contigs (>= 10000 bp)     233            
+# contigs (>= 25000 bp)     171            
+# contigs (>= 50000 bp)     116            
+Total length (>= 0 bp)      21005112       
+Total length (>= 1000 bp)   20771729       
+Total length (>= 5000 bp)   20393382       
+Total length (>= 10000 bp)  19945493       
+Total length (>= 25000 bp)  18912681       
+Total length (>= 50000 bp)  16926408       
+# contigs                   538            
+Largest contig              1068857        
+Total length                20831555       
+GC (%)                      59.55          
+N50                         142943         
+N90                         26903          
+auN                         228222.2       
+L50                         39             
+L90                         165            
+# N's per 100 kbp           29.57          

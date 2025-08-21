@@ -1,0 +1,2 @@
+"report_id"	"sample_id"	"reference_id"	"workflow"	"level"	"message"
+"_no_group_defined_"	"ERR025590"	"NA"	"CORE_GENOME_PHYLOGENY"	"WARNING"	"Sample removed from core gene phylogeny in order to find enough core genes among other samples/references."

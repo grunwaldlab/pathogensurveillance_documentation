@@ -1,0 +1,23 @@
+Assembly	Solivo2_filtered
+# contigs (>= 0 bp)	233
+# contigs (>= 1000 bp)	183
+# contigs (>= 5000 bp)	133
+# contigs (>= 10000 bp)	122
+# contigs (>= 25000 bp)	97
+# contigs (>= 50000 bp)	68
+Total length (>= 0 bp)	11694032
+Total length (>= 1000 bp)	11671424
+Total length (>= 5000 bp)	11545751
+Total length (>= 10000 bp)	11463935
+Total length (>= 25000 bp)	11072193
+Total length (>= 50000 bp)	10006808
+# contigs	202
+Largest contig	479028
+Total length	11685545
+GC (%)	70.28
+N50	150851
+N90	38770
+auN	176459.7
+L50	25
+L90	80
+# N's per 100 kbp	3.59

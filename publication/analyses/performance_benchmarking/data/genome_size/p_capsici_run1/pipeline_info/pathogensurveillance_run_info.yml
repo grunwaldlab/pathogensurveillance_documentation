@@ -1,0 +1,10 @@
+command_line: nextflow run main.nf -profile docker --input /home/marthasudermann/pathsurv_data/metadata/phytophthora_capsici_sub.csv --outdir /home/marthasudermann/pathsurv_data/output_dirs_rnd2/p_capsici_run1 -with-report -with-trace --data_dir /home/marthasudermann/pathsurv_data/p_capsici
+commit_id: null
+container_engine: docker
+profile: docker
+revision: null
+run_name: naughty_ptolemy
+session_id: 8176839f-1ad8-4ecb-981a-514036d1bdc5
+start_time: 2025-06-16T08:16:53.264483893-07:00
+nextflow_version: 24.10.0
+pipeline_version: 1.0.0

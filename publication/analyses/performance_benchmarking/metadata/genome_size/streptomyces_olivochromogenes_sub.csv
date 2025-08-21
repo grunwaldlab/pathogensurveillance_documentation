@@ -1,0 +1,4 @@
+sample_id,path,path_2,ploidy,sequence_type
+Strepto1,/home/marthasudermann/pathsurv_data/s_olivochromogenes/reads/sub_SRR9661591_1.fastq.gz,/home/marthasudermann/pathsurv_data/s_olivochromogenes/reads/sub_SRR9661591_2.fastq.gz,1,illumina
+Strepto2,/home/marthasudermann/pathsurv_data/s_olivochromogenes/reads/sub_SRR9661590_1.fastq.gz,/home/marthasudermann/pathsurv_data/s_olivochromogenes/reads/sub_SRR9661590_2.fastq.gz,1,illumina
+Strepto3,/home/marthasudermann/pathsurv_data/s_olivochromogenes/reads/sub_SRR9661593_1.fastq.gz,/home/marthasudermann/pathsurv_data/s_olivochromogenes/reads/sub_SRR9661593_2.fastq.gz,1,illumina

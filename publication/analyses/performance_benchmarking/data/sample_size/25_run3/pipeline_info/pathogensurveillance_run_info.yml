@@ -1,0 +1,10 @@
+command_line: nextflow run main.nf -profile docker --input /home/marthasudermann/pathsurv_data/benchmark_exp/input_data_subset.csv --outdir /home/marthasudermann/pathsurv_data/output_dirs_benchmark/25_run3 --max_samples 25 -with-report -with-trace --data_dir /home/marthasudermann/pathsurv_data/k_pneumoniae
+commit_id: null
+container_engine: docker
+profile: docker
+revision: null
+run_name: grave_hodgkin
+session_id: 10cb5db3-5770-4747-b07b-908adeeae9f1
+start_time: 2025-05-30T14:47:38.311466762-07:00
+nextflow_version: 24.10.0
+pipeline_version: 1.0.0

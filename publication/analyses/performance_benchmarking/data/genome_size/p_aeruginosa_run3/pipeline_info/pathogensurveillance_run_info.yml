@@ -1,0 +1,10 @@
+command_line: nextflow run main.nf -profile docker --input /home/marthasudermann/pathsurv_data/metadata/pseudomonas_aeruginosa_sub.csv --outdir /home/marthasudermann/pathsurv_data/output_dirs_rnd2/p_aeruginosa_run3 -with-report -with-trace --data_dir /home/marthasudermann/pathsurv_data/p_aeruginosa
+commit_id: null
+container_engine: docker
+profile: docker
+revision: null
+run_name: happy_lorenz
+session_id: a50b1c29-8305-43fd-8d92-50716e7e6f53
+start_time: 2025-06-07T20:04:14.589436001-07:00
+nextflow_version: 24.10.0
+pipeline_version: 1.0.0

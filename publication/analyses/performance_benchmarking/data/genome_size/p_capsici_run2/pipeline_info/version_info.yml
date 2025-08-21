@@ -1,0 +1,64 @@
+ASSIGN_BUSCO_REFERENCES:
+  r-base: 4.2.1
+ASSIGN_MAPPING_REFERENCE:
+  r-base: 4.2.1
+BAKTA_BAKTADBDOWNLOAD:
+  bakta: 1.10.4
+BUSCO_BUSCO:
+  busco: 5.8.3
+BUSCO_DOWNLOAD:
+  busco: 5.8.2
+BWA_INDEX:
+  bwa: 0.7.18-r1243-dirty
+BWA_MEM:
+  bwa: 0.7.18-r1243-dirty
+  samtools: 1.2
+FASTP:
+  fastp: 0.23.4
+FASTQC:
+  fastqc: 0.12.1
+GATK4_VARIANTFILTRATION:
+  gatk4: 4.6.1.0
+GRAPHTYPER_GENOTYPE:
+  graphtyper: 2.7.7
+GRAPHTYPER_VCFCONCATENATE:
+  graphtyper: 2.7.7
+IQTREE_BUSCO:
+  iqtree: 2.4.0
+IQTREE_SNP:
+  iqtree: 2.4.0
+MAFFT_BUSCO:
+  mafft: 7.52
+  pigz: 2.8)
+PICARD_CREATESEQUENCEDICTIONARY:
+  picard: 3.3.0
+PICARD_FORMAT:
+  picard: 3.1.1
+QUAST:
+  quast: 5.3.0
+SAMPLESHEET_CHECK:
+  r-base: 4.4.3
+  r-PathoSurveilR: 1.1.4
+SAMTOOLS_FAIDX:
+  samtools: 1.21
+SAMTOOLS_INDEX:
+  samtools: 1.21
+SOURMASH_COMPARE:
+  sourmash: 4.8.14
+SOURMASH_SKETCH:
+  sourmash: 4.8.14
+SPADES:
+  spades: 4.0.0
+SUBSET_BUSCO_GENES:
+  r-base: 4.2.1
+TABIX_BGZIP:
+  tabix: 1.2
+TABIX_TABIX:
+  tabix: 1.2
+VCFLIB_VCFFILTER:
+  vcflib: 1.0.3
+VCF_TO_SNP_ALIGN:
+  r-base: 4.2.1
+Workflow:
+    nf-core/pathogensurveillance: v1.0.0
+    Nextflow: 24.10.0

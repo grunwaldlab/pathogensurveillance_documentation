@@ -1,0 +1,10 @@
+command_line: nextflow run main.nf -profile docker --input /home/marthasudermann/pathsurv_data/benchmark_exp/input_data_subset.csv --outdir /home/marthasudermann/pathsurv_data/output_dirs_serratia/5_run1 --max_samples 5 -with-report -with-trace --data_dir /home/marthasudermann/pathsurv_data/s_marcescens
+commit_id: null
+container_engine: docker
+profile: docker
+revision: null
+run_name: determined_almeida
+session_id: 3a584fc7-23fa-4ecf-8300-6a9e3141aa6b
+start_time: 2025-05-23T10:00:43.583185930-07:00
+nextflow_version: 24.10.0
+pipeline_version: 1.0.0

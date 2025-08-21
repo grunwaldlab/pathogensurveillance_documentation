@@ -1,0 +1,4 @@
+"report_id"	"sample_id"	"reference_id"	"workflow"	"level"	"message"
+"[null, _no_group_defined_]"	"[null, ]"	"[null, GCA_000773135_1]"	"BUSCO_PHYLOGENY"	"[null, NOTE]"	"[null, Reference removed from core gene phylogeny in order to find enough core genes amoung other samples/references.]"
+"[null, _no_group_defined_]"	"[null, ]"	"[null, GCF_001521765_1]"	"BUSCO_PHYLOGENY"	"[null, NOTE]"	"[null, Reference removed from core gene phylogeny in order to find enough core genes amoung other samples/references.]"
+"[null, _no_group_defined_]"	"[null, ]"	"[null, GCF_002024805_1]"	"BUSCO_PHYLOGENY"	"[null, NOTE]"	"[null, Reference removed from core gene phylogeny in order to find enough core genes amoung other samples/references.]"

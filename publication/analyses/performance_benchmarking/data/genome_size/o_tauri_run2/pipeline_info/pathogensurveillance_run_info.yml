@@ -1,0 +1,10 @@
+command_line: nextflow run main.nf -profile docker --input /home/marthasudermann/pathsurv_data/metadata/ostreococcus_tauri_sub.csv --outdir /home/marthasudermann/pathsurv_data/output_dirs_rnd2/o_tauri_run2 -with-report -with-trace --data_dir /home/marthasudermann/pathsurv_data/o_tauri
+commit_id: null
+container_engine: docker
+profile: docker
+revision: null
+run_name: goofy_rubens
+session_id: d736c222-cedb-4fd5-8633-a40a32edc269
+start_time: 2025-06-08T08:41:57.095904805-07:00
+nextflow_version: 24.10.0
+pipeline_version: 1.0.0

@@ -1,0 +1,23 @@
+Assembly	Pram1_filtered
+# contigs (>= 0 bp)	48210
+# contigs (>= 1000 bp)	4548
+# contigs (>= 5000 bp)	1576
+# contigs (>= 10000 bp)	985
+# contigs (>= 25000 bp)	419
+# contigs (>= 50000 bp)	136
+Total length (>= 0 bp)	49696375
+Total length (>= 1000 bp)	39627948
+Total length (>= 5000 bp)	33313426
+Total length (>= 10000 bp)	29124569
+Total length (>= 25000 bp)	20223717
+Total length (>= 50000 bp)	10404157
+# contigs	8121
+Largest contig	315984
+Total length	42089303
+GC (%)	53.88
+N50	23692
+N90	1671
+auN	36349.5
+L50	453
+L90	3185
+# N's per 100 kbp	383.76

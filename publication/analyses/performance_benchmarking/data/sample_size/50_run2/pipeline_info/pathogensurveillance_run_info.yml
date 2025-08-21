@@ -1,0 +1,10 @@
+command_line: nextflow run main.nf -profile docker --input /home/marthasudermann/pathsurv_data/benchmark_exp/input_data_subset.csv --outdir /home/marthasudermann/pathsurv_data/output_dirs_benchmark/50_run2 --max_samples 50 -with-report -with-trace --data_dir /home/marthasudermann/pathsurv_data/k_pneumoniae
+commit_id: null
+container_engine: docker
+profile: docker
+revision: null
+run_name: backstabbing_ptolemy
+session_id: 596ae766-756d-47c2-8593-ff70be983245
+start_time: 2025-05-29T01:39:04.432372064-07:00
+nextflow_version: 24.10.0
+pipeline_version: 1.0.0

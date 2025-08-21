@@ -1,0 +1,100 @@
+### Scripts to parse outputs from *K. pneumoniae* benchmark analyses looking a performance stats relative to sample size
+
+### Load packages
+```{r, load libraries}
+library(tidyverse)
+library(lubridate)
+library(fs)
+library(ggplot2)
+library(dplyr)
+library(patchwork)
+library(tidyverse)
+```
+
+### Parse output data and make dataframe
+```{r, parse relevant outputs from run information}
+# Parameters 
+run_results_dir_path <- '~/pathogensurveillance_publications/publication/analyses/performance_benchmarking/data/sample_size'
+
+# List all folder names
+folder_names <- list.files(run_results_dir_path)
+
+# Extract numeric sample counts from folder names
+sample_counts <- as.numeric(sub("_.*", "", folder_names))
+
+# Create a named vector to map sample counts to folder names
+names(sample_counts) <- folder_names
+
+# Sort by sample count
+sorted_folders <- names(sort(sample_counts))
+
+# Create the data frame
+run_data <- map_dfr(sorted_folders, function(folder) {
+  count <- as.numeric(sub("_.*", "", folder))
+  run_num <- as.numeric(sub(".*_run", "", folder))
+  replicate_letter <- letters[run_num]  # Convert run number to letter
+  
+  pipeline_info_path <- file.path(run_results_dir_path, folder, 'pipeline_info')
+  out <- tibble(
+    trace_path = list.files(pipeline_info_path, pattern = '^execution_trace', full.names = TRUE),
+    report_path = list.files(pipeline_info_path, pattern = '^execution_report', full.names = TRUE),
+    sample_count = count,
+    replicate = replicate_letter
+  )
+  return(out)
+})
+```
+
+### Add clock and CPU-hours data to dataframe
+```{r, parse data frame}
+#fix based on run info
+run_data$replicate <- as.factor(run_data$replicate)
+
+# Parse HTML report to get total time stats
+run_data$clock_hours <- map_chr(run_data$report_path, function(path) {
+  sub(read_file(path), pattern = '^.+<span id="completed_fromnow"></span>duration: <strong>(.+?)</strong>.+$', replacement = '\\1')
+})
+run_data$clock_hours <- as.numeric(duration(toupper(run_data$clock_hours))) / 60 / 60
+run_data$cpu_hours <- map_chr(run_data$report_path, function(path) {
+  sub(read_file(path), pattern = '^.+<dt class="col-sm-3">CPU-Hours</dt>\n        <dd class="col-sm-9"><samp>(.+?)</samp></dd>.+$', replacement = '\\1')
+})
+
+run_data$cpu_hours <- as.numeric(gsub(" .*", "", run_data$cpu_hours))
+```
+
+### Get information on memory usage
+```{r, Extract memory usage data}
+trace_tables <- map(run_data$trace_path, read_tsv)
+
+standardize_to_gb <- function(x){
+  as.numeric(fs_bytes(x)) / 10^9
+}
+
+run_data$max_rss_gb <- map_vec(trace_tables, function(stat_data) {
+  max(vapply(stat_data$peak_rss, standardize_to_gb, FUN.VALUE = numeric(1)), na.rm = TRUE)
+})
+
+run_data$max_vmem_gb <- map_vec(trace_tables, function(stat_data) {
+  max(vapply(stat_data$peak_vmem, standardize_to_gb, FUN.VALUE = numeric(1)), na.rm = TRUE)
+})
+
+run_data$median_rss_gb <- map_dbl(trace_tables, function(stat_data) {
+  vals <- standardize_to_gb(stat_data$peak_rss)
+  median(vals, na.rm = TRUE)
+})
+
+run_data$median_vmem_gb <- map_dbl(trace_tables, function(stat_data) {
+  vals <- standardize_to_gb(stat_data$peak_vmem)
+  median(vals, na.rm = TRUE)
+})
+```
+
+### Save dataframe as CSV file
+```{r, save data frame as CSV file}
+write.csv(run_data[3:10], "~/pathogensurveillance_publications/publication/analyses/performance_benchmarking/results/sample_size/performance_stats_sample_size.csv", row.names = FALSE)
+```
+
+### Get information about R package versions
+```{r, get session info}
+sessionInfo()
+```

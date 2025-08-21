@@ -1,0 +1,23 @@
+Assembly	Celg1_filtered
+# contigs (>= 0 bp)	24426
+# contigs (>= 1000 bp)	4603
+# contigs (>= 5000 bp)	3040
+# contigs (>= 10000 bp)	2299
+# contigs (>= 25000 bp)	1262
+# contigs (>= 50000 bp)	550
+Total length (>= 0 bp)	115720528
+Total length (>= 1000 bp)	111302156
+Total length (>= 5000 bp)	107402901
+Total length (>= 10000 bp)	102113045
+Total length (>= 25000 bp)	84870057
+Total length (>= 50000 bp)	59644810
+# contigs	5978
+Largest contig	997409
+Total length	112226933
+GC (%)	38.81
+N50	54632
+N90	10934
+auN	124221.5
+L50	483
+L90	2194
+# N's per 100 kbp	26.08

@@ -1,0 +1,10 @@
+command_line: nextflow run main.nf -profile docker --input /home/marthasudermann/pathsurv_data/metadata/phytophthora_ramorum_sub.csv --outdir /home/marthasudermann/pathsurv_data/output_dirs_rnd2/p_ramorum_run2 -with-report -with-trace --data_dir /home/marthasudermann/pathsurv_data/p_ramorum
+commit_id: null
+container_engine: docker
+profile: docker
+revision: null
+run_name: ecstatic_wilson
+session_id: 970344ce-a91e-422f-9865-b3b3e66df0b6
+start_time: 2025-06-07T13:42:26.332320079-07:00
+nextflow_version: 24.10.0
+pipeline_version: 1.0.0

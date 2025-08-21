@@ -1,0 +1,10 @@
+command_line: nextflow run main.nf -profile docker --input /home/marthasudermann/pathsurv_data/benchmark_exp/input_data_subset.csv --outdir /home/marthasudermann/pathsurv_data/output_dirs_benchmark/1_run2 --max_samples 1 -with-report -with-trace --data_dir /home/marthasudermann/pathsurv_data/k_pneumoniae
+commit_id: null
+container_engine: docker
+profile: docker
+revision: null
+run_name: nauseous_williams
+session_id: 54070182-e220-433a-b4be-7a0bb335d194
+start_time: 2025-05-28T21:25:48.500710642-07:00
+nextflow_version: 24.10.0
+pipeline_version: 1.0.0

@@ -1,0 +1,10 @@
+command_line: nextflow run main.nf -profile docker --input /home/marthasudermann/pathsurv_data/metadata/phytophthora_capsici_sub.csv --outdir /home/marthasudermann/pathsurv_data/output_dirs_rnd2/p_capsici_run2 -with-report -with-trace --data_dir /home/marthasudermann/pathsurv_data/p_capsici
+commit_id: null
+container_engine: docker
+profile: docker
+revision: null
+run_name: thirsty_lamarck
+session_id: 1c2c39e5-43cc-400c-a9ed-8ccd08847d79
+start_time: 2025-06-15T21:17:47.007877188-07:00
+nextflow_version: 24.10.0
+pipeline_version: 1.0.0
