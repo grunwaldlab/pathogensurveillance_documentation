@@ -34,4 +34,39 @@ sample_size_data$factor <- 'Sample size'
 stopifnot(all(colnames(sample_size_data) == colnames(genome_size_data)))
 combined_data <- rbind(sample_size_data, genome_size_data)
 
-# Make 4 panel dotplot with regression lines using ggplot facets with rows for max_rss_gb (labled "Max RAM") and clock_hours (Labeled "Run time") and columns for genome size and sample size. Color dots and regressions lines by organism (labeled "Organism") AI!
+library(ggplot2)
+library(tidyr)
+
+# Reshape data for faceting
+combined_data_long <- combined_data %>%
+  pivot_longer(
+    cols = c(max_rss_gb, clock_hours),
+    names_to = "metric",
+    values_to = "measurement"
+  ) %>%
+  mutate(
+    metric = factor(metric,
+                    levels = c("clock_hours", "max_rss_gb"),
+                    labels = c("Run time (hours)", "Max RAM (GB)")),
+    factor = factor(factor, levels = c("Genome size", "Sample size"))
+  )
+
+# Create the faceted plot
+ggplot(combined_data_long, aes(x = value, y = measurement, color = organism)) +
+  geom_point(alpha = 0.7) +
+  geom_smooth(method = "lm", se = FALSE, formula = y ~ x) +
+  facet_grid(rows = vars(metric), cols = vars(factor), scales = "free") +
+  scale_color_manual(values = c("eukaryote" = "#1f78b4", "prokaryote" = "#33a02c")) +
+  labs(
+    x = "Factor Value",
+    y = NULL,
+    color = "Organism",
+    title = "Performance Metrics by Genome and Sample Size"
+  ) +
+  theme_bw(base_size = 12) +
+  theme(
+    legend.position = "bottom",
+    panel.grid.minor = element_blank(),
+    strip.background = element_blank(),
+    strip.text = element_text(face = "bold")
+  )
