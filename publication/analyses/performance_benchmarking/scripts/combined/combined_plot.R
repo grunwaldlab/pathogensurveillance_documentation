@@ -15,6 +15,7 @@ sample_size_data$organism_type <- 'prokaryote'
 
 # Add value columns for y axis
 genome_size_data$value <- genome_size_metadata$ncbi_genome_estimate[match(genome_size_data$organism, genome_size_metadata$organism)]
+genome_size_data$value <- genome_size_data$value / 1000000
 colnames(sample_size_data)[1] <- 'value'
 
 # Make replicate format
@@ -22,7 +23,7 @@ colnames(genome_size_data)[2] <- 'replicate'
 genome_size_data$replicate <- letters[genome_size_data$replicate]
 
 # Combine into a single table
-genome_size_data$factor <- 'Genome size'
+genome_size_data$factor <- 'Genome size (Mb)'
 sample_size_data$factor <- 'Sample size'
 needed_cols <- c(
   'value', 
@@ -45,25 +46,27 @@ combined_data_long <- combined_data %>%
     metric = factor(metric,
                     levels = c("clock_hours", "max_rss_gb"),
                     labels = c("Run time (hours)", "Max RAM (GB)")),
-    factor = factor(factor, levels = c("Genome size", "Sample size"))
+    factor = factor(factor, levels = c("Genome size (Mb)", "Sample size"))
   )
 
 # Create the faceted plot
-ggplot(combined_data_long, aes(x = value, y = measurement, color = organism_type)) +
-  geom_point(alpha = 0.7) +
+output <- ggplot(combined_data_long, aes(x = value, y = measurement, color = organism_type)) +
+  geom_point(alpha = 0.5) +
   geom_smooth(method = "lm", se = FALSE, formula = y ~ x) +
-  facet_grid(rows = vars(metric), cols = vars(factor), scales = "free") +
+  facet_grid(rows = vars(metric), cols = vars(factor), scales = "free", switch = "both") +
   scale_color_manual(values = c("eukaryote" = "#1f78b4", "prokaryote" = "#33a02c")) +
   labs(
     x = NULL,
     y = NULL,
-    color = "Organism",
-    title = "Performance Metrics by Genome and Sample Size"
+    color = "Organism"
   ) +
   theme_bw(base_size = 12) +
   theme(
     legend.position = "bottom",
     panel.grid.minor = element_blank(),
     strip.background = element_blank(),
-    strip.text = element_text(face = "bold")
+    strip.placement = "outside",
   )
+
+# Save plot
+ggsave(output, filename = 'combine_benchmarking_plot.pdf', path = 'results', width = 8, height = 8)
